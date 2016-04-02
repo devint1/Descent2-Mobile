@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0351D51D1C84FE8D0002F4FC /* BARBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5031C84FE8D0002F4FC /* BARBOX.C */; };
+		0351D51E1C84FE8D0002F4FC /* BUTTON.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5041C84FE8D0002F4FC /* BUTTON.C */; };
+		0351D51F1C84FE8D0002F4FC /* CHECKBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5051C84FE8D0002F4FC /* CHECKBOX.C */; };
+		0351D5201C84FE8D0002F4FC /* FILE.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5061C84FE8D0002F4FC /* FILE.C */; };
+		0351D5211C84FE8D0002F4FC /* FUNC.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5071C84FE8D0002F4FC /* FUNC.C */; };
+		0351D5221C84FE8D0002F4FC /* GADGET.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5091C84FE8D0002F4FC /* GADGET.C */; };
+		0351D5231C84FE8D0002F4FC /* ICON.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50A1C84FE8D0002F4FC /* ICON.C */; };
+		0351D5241C84FE8D0002F4FC /* INPUTBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50B1C84FE8D0002F4FC /* INPUTBOX.C */; };
+		0351D5251C84FE8D0002F4FC /* KEYPAD.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50C1C84FE8D0002F4FC /* KEYPAD.C */; };
+		0351D5261C84FE8D0002F4FC /* KEYPRESS.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50D1C84FE8D0002F4FC /* KEYPRESS.C */; };
+		0351D5271C84FE8D0002F4FC /* KEYTRAP.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50E1C84FE8D0002F4FC /* KEYTRAP.C */; };
+		0351D5281C84FE8D0002F4FC /* LISTBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50F1C84FE8D0002F4FC /* LISTBOX.C */; };
+		0351D5291C84FE8D0002F4FC /* MENU.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5101C84FE8D0002F4FC /* MENU.C */; };
+		0351D52A1C84FE8D0002F4FC /* MENUBAR.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5111C84FE8D0002F4FC /* MENUBAR.C */; };
+		0351D52B1C84FE8D0002F4FC /* MESSAGE.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5121C84FE8D0002F4FC /* MESSAGE.C */; };
+		0351D52C1C84FE8D0002F4FC /* MOUSE.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5131C84FE8D0002F4FC /* MOUSE.C */; };
+		0351D52D1C84FE8D0002F4FC /* NUMBER.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5141C84FE8D0002F4FC /* NUMBER.C */; };
+		0351D52E1C84FE8D0002F4FC /* POPUP.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5151C84FE8D0002F4FC /* POPUP.C */; };
+		0351D52F1C84FE8D0002F4FC /* RADIO.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5161C84FE8D0002F4FC /* RADIO.C */; };
+		0351D5301C84FE8D0002F4FC /* SCROLL.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5171C84FE8D0002F4FC /* SCROLL.C */; };
+		0351D5311C84FE8D0002F4FC /* UI.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5181C84FE8D0002F4FC /* UI.C */; };
+		0351D5321C84FE8D0002F4FC /* UIDRAW.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D51A1C84FE8D0002F4FC /* UIDRAW.C */; };
+		0351D5331C84FE8D0002F4FC /* USERBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D51B1C84FE8D0002F4FC /* USERBOX.C */; };
+		0351D5341C84FE8D0002F4FC /* WINDOW.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D51C1C84FE8D0002F4FC /* WINDOW.C */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0351D4F51C84FE6A0002F4FC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0351D4F71C84FE6A0002F4FC /* libUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0351D5031C84FE8D0002F4FC /* BARBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BARBOX.C; sourceTree = SOURCE_ROOT; };
+		0351D5041C84FE8D0002F4FC /* BUTTON.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BUTTON.C; sourceTree = SOURCE_ROOT; };
+		0351D5051C84FE8D0002F4FC /* CHECKBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CHECKBOX.C; sourceTree = SOURCE_ROOT; };
+		0351D5061C84FE8D0002F4FC /* FILE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FILE.C; sourceTree = SOURCE_ROOT; };
+		0351D5071C84FE8D0002F4FC /* FUNC.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FUNC.C; sourceTree = SOURCE_ROOT; };
+		0351D5081C84FE8D0002F4FC /* FUNC.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FUNC.H; sourceTree = SOURCE_ROOT; };
+		0351D5091C84FE8D0002F4FC /* GADGET.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GADGET.C; sourceTree = SOURCE_ROOT; };
+		0351D50A1C84FE8D0002F4FC /* ICON.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ICON.C; sourceTree = SOURCE_ROOT; };
+		0351D50B1C84FE8D0002F4FC /* INPUTBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = INPUTBOX.C; sourceTree = SOURCE_ROOT; };
+		0351D50C1C84FE8D0002F4FC /* KEYPAD.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KEYPAD.C; sourceTree = SOURCE_ROOT; };
+		0351D50D1C84FE8D0002F4FC /* KEYPRESS.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KEYPRESS.C; sourceTree = SOURCE_ROOT; };
+		0351D50E1C84FE8D0002F4FC /* KEYTRAP.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KEYTRAP.C; sourceTree = SOURCE_ROOT; };
+		0351D50F1C84FE8D0002F4FC /* LISTBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LISTBOX.C; sourceTree = SOURCE_ROOT; };
+		0351D5101C84FE8D0002F4FC /* MENU.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MENU.C; sourceTree = SOURCE_ROOT; };
+		0351D5111C84FE8D0002F4FC /* MENUBAR.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MENUBAR.C; sourceTree = SOURCE_ROOT; };
+		0351D5121C84FE8D0002F4FC /* MESSAGE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MESSAGE.C; sourceTree = SOURCE_ROOT; };
+		0351D5131C84FE8D0002F4FC /* MOUSE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MOUSE.C; sourceTree = SOURCE_ROOT; };
+		0351D5141C84FE8D0002F4FC /* NUMBER.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NUMBER.C; sourceTree = SOURCE_ROOT; };
+		0351D5151C84FE8D0002F4FC /* POPUP.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = POPUP.C; sourceTree = SOURCE_ROOT; };
+		0351D5161C84FE8D0002F4FC /* RADIO.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RADIO.C; sourceTree = SOURCE_ROOT; };
+		0351D5171C84FE8D0002F4FC /* SCROLL.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SCROLL.C; sourceTree = SOURCE_ROOT; };
+		0351D5181C84FE8D0002F4FC /* UI.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI.C; sourceTree = SOURCE_ROOT; };
+		0351D5191C84FE8D0002F4FC /* UI.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UI.H; sourceTree = SOURCE_ROOT; };
+		0351D51A1C84FE8D0002F4FC /* UIDRAW.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIDRAW.C; sourceTree = SOURCE_ROOT; };
+		0351D51B1C84FE8D0002F4FC /* USERBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = USERBOX.C; sourceTree = SOURCE_ROOT; };
+		0351D51C1C84FE8D0002F4FC /* WINDOW.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WINDOW.C; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0351D4F41C84FE6A0002F4FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0351D4EE1C84FE6A0002F4FC = {
+			isa = PBXGroup;
+			children = (
+				0351D4F91C84FE6A0002F4FC /* UI */,
+				0351D4F81C84FE6A0002F4FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0351D4F81C84FE6A0002F4FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0351D4F71C84FE6A0002F4FC /* libUI.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0351D4F91C84FE6A0002F4FC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0351D5031C84FE8D0002F4FC /* BARBOX.C */,
+				0351D5041C84FE8D0002F4FC /* BUTTON.C */,
+				0351D5051C84FE8D0002F4FC /* CHECKBOX.C */,
+				0351D5061C84FE8D0002F4FC /* FILE.C */,
+				0351D5071C84FE8D0002F4FC /* FUNC.C */,
+				0351D5081C84FE8D0002F4FC /* FUNC.H */,
+				0351D5091C84FE8D0002F4FC /* GADGET.C */,
+				0351D50A1C84FE8D0002F4FC /* ICON.C */,
+				0351D50B1C84FE8D0002F4FC /* INPUTBOX.C */,
+				0351D50C1C84FE8D0002F4FC /* KEYPAD.C */,
+				0351D50D1C84FE8D0002F4FC /* KEYPRESS.C */,
+				0351D50E1C84FE8D0002F4FC /* KEYTRAP.C */,
+				0351D50F1C84FE8D0002F4FC /* LISTBOX.C */,
+				0351D5101C84FE8D0002F4FC /* MENU.C */,
+				0351D5111C84FE8D0002F4FC /* MENUBAR.C */,
+				0351D5121C84FE8D0002F4FC /* MESSAGE.C */,
+				0351D5131C84FE8D0002F4FC /* MOUSE.C */,
+				0351D5141C84FE8D0002F4FC /* NUMBER.C */,
+				0351D5151C84FE8D0002F4FC /* POPUP.C */,
+				0351D5161C84FE8D0002F4FC /* RADIO.C */,
+				0351D5171C84FE8D0002F4FC /* SCROLL.C */,
+				0351D5181C84FE8D0002F4FC /* UI.C */,
+				0351D5191C84FE8D0002F4FC /* UI.H */,
+				0351D51A1C84FE8D0002F4FC /* UIDRAW.C */,
+				0351D51B1C84FE8D0002F4FC /* USERBOX.C */,
+				0351D51C1C84FE8D0002F4FC /* WINDOW.C */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0351D4F61C84FE6A0002F4FC /* UI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0351D5001C84FE6A0002F4FC /* Build configuration list for PBXNativeTarget "UI" */;
+			buildPhases = (
+				0351D4F31C84FE6A0002F4FC /* Sources */,
+				0351D4F41C84FE6A0002F4FC /* Frameworks */,
+				0351D4F51C84FE6A0002F4FC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UI;
+			productName = UI;
+			productReference = 0351D4F71C84FE6A0002F4FC /* libUI.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0351D4EF1C84FE6A0002F4FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Devin Tuchsen";
+				TargetAttributes = {
+					0351D4F61C84FE6A0002F4FC = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6WGTX4TY92;
+					};
+				};
+			};
+			buildConfigurationList = 0351D4F21C84FE6A0002F4FC /* Build configuration list for PBXProject "UI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0351D4EE1C84FE6A0002F4FC;
+			productRefGroup = 0351D4F81C84FE6A0002F4FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0351D4F61C84FE6A0002F4FC /* UI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0351D4F31C84FE6A0002F4FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0351D5291C84FE8D0002F4FC /* MENU.C in Sources */,
+				0351D52C1C84FE8D0002F4FC /* MOUSE.C in Sources */,
+				0351D5211C84FE8D0002F4FC /* FUNC.C in Sources */,
+				0351D51D1C84FE8D0002F4FC /* BARBOX.C in Sources */,
+				0351D51E1C84FE8D0002F4FC /* BUTTON.C in Sources */,
+				0351D51F1C84FE8D0002F4FC /* CHECKBOX.C in Sources */,
+				0351D52D1C84FE8D0002F4FC /* NUMBER.C in Sources */,
+				0351D5241C84FE8D0002F4FC /* INPUTBOX.C in Sources */,
+				0351D5271C84FE8D0002F4FC /* KEYTRAP.C in Sources */,
+				0351D5341C84FE8D0002F4FC /* WINDOW.C in Sources */,
+				0351D5251C84FE8D0002F4FC /* KEYPAD.C in Sources */,
+				0351D52A1C84FE8D0002F4FC /* MENUBAR.C in Sources */,
+				0351D5321C84FE8D0002F4FC /* UIDRAW.C in Sources */,
+				0351D5281C84FE8D0002F4FC /* LISTBOX.C in Sources */,
+				0351D52F1C84FE8D0002F4FC /* RADIO.C in Sources */,
+				0351D52E1C84FE8D0002F4FC /* POPUP.C in Sources */,
+				0351D5231C84FE8D0002F4FC /* ICON.C in Sources */,
+				0351D5201C84FE8D0002F4FC /* FILE.C in Sources */,
+				0351D5331C84FE8D0002F4FC /* USERBOX.C in Sources */,
+				0351D5301C84FE8D0002F4FC /* SCROLL.C in Sources */,
+				0351D5221C84FE8D0002F4FC /* GADGET.C in Sources */,
+				0351D5311C84FE8D0002F4FC /* UI.C in Sources */,
+				0351D5261C84FE8D0002F4FC /* KEYPRESS.C in Sources */,
+				0351D52B1C84FE8D0002F4FC /* MESSAGE.C in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0351D4FE1C84FE6A0002F4FC /* Debug (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = "Debug (Software)";
+		};
+		0351D4FF1C84FE6A0002F4FC /* Release (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					RELEASE,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release (Software)";
+		};
+		0351D5011C84FE6A0002F4FC /* Debug (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../FIX ../MEM ../MISC ../2D ../PA_NULL ../IO";
+			};
+			name = "Debug (Software)";
+		};
+		0351D5021C84FE6A0002F4FC /* Release (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../FIX ../MEM ../MISC ../2D ../PA_NULL ../IO";
+			};
+			name = "Release (Software)";
+		};
+		03F1DD381C9F5860008AA444 /* Debug (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					OGLES,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = "Debug (OpenGL ES)";
+		};
+		03F1DD391C9F5860008AA444 /* Debug (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../FIX ../MEM ../MISC ../2D ../PA_NULL ../IO";
+			};
+			name = "Debug (OpenGL ES)";
+		};
+		03F1DD3A1C9F5866008AA444 /* Release (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					OGLES,
+					NDEBUG,
+					RELEASE,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release (OpenGL ES)";
+		};
+		03F1DD3B1C9F5866008AA444 /* Release (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../FIX ../MEM ../MISC ../2D ../PA_NULL ../IO";
+			};
+			name = "Release (OpenGL ES)";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0351D4F21C84FE6A0002F4FC /* Build configuration list for PBXProject "UI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0351D4FE1C84FE6A0002F4FC /* Debug (Software) */,
+				03F1DD381C9F5860008AA444 /* Debug (OpenGL ES) */,
+				0351D4FF1C84FE6A0002F4FC /* Release (Software) */,
+				03F1DD3A1C9F5866008AA444 /* Release (OpenGL ES) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release (Software)";
+		};
+		0351D5001C84FE6A0002F4FC /* Build configuration list for PBXNativeTarget "UI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0351D5011C84FE6A0002F4FC /* Debug (Software) */,
+				03F1DD391C9F5860008AA444 /* Debug (OpenGL ES) */,
+				0351D5021C84FE6A0002F4FC /* Release (Software) */,
+				03F1DD3B1C9F5866008AA444 /* Release (OpenGL ES) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release (Software)";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0351D4EF1C84FE6A0002F4FC /* Project object */;
+}

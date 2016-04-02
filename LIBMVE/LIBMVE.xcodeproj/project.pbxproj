@@ -1,0 +1,395 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		033A49D91C8B4D7C00CF97FE /* DECODER8.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D01C8B4D7C00CF97FE /* DECODER8.C */; };
+		033A49DA1C8B4D7C00CF97FE /* DECODER16.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D11C8B4D7C00CF97FE /* DECODER16.C */; };
+		033A49DB1C8B4D7C00CF97FE /* MVEAUDIO.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D31C8B4D7C00CF97FE /* MVEAUDIO.C */; };
+		033A49DC1C8B4D7C00CF97FE /* MVELIB.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D51C8B4D7C00CF97FE /* MVELIB.C */; };
+		033A49DE1C8B4D7C00CF97FE /* MVEPLAY.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D81C8B4D7C00CF97FE /* MVEPLAY.C */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		033A49C21C8B4D5F00CF97FE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		033A49C41C8B4D5F00CF97FE /* libLIBMVE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLIBMVE.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		033A49D01C8B4D7C00CF97FE /* DECODER8.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DECODER8.C; sourceTree = SOURCE_ROOT; };
+		033A49D11C8B4D7C00CF97FE /* DECODER16.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DECODER16.C; sourceTree = SOURCE_ROOT; };
+		033A49D21C8B4D7C00CF97FE /* DECODERS.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DECODERS.H; sourceTree = SOURCE_ROOT; };
+		033A49D31C8B4D7C00CF97FE /* MVEAUDIO.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MVEAUDIO.C; sourceTree = SOURCE_ROOT; };
+		033A49D41C8B4D7C00CF97FE /* MVEAUDIO.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MVEAUDIO.H; sourceTree = SOURCE_ROOT; };
+		033A49D51C8B4D7C00CF97FE /* MVELIB.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MVELIB.C; sourceTree = SOURCE_ROOT; };
+		033A49D61C8B4D7C00CF97FE /* MVELIB.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MVELIB.H; sourceTree = SOURCE_ROOT; };
+		033A49D81C8B4D7C00CF97FE /* MVEPLAY.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MVEPLAY.C; sourceTree = SOURCE_ROOT; };
+		033A49DF1C8B4DAF00CF97FE /* LIBMVE.H */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LIBMVE.H; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		033A49C11C8B4D5F00CF97FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		033A49BB1C8B4D5F00CF97FE = {
+			isa = PBXGroup;
+			children = (
+				033A49C61C8B4D5F00CF97FE /* LIBMVE */,
+				033A49C51C8B4D5F00CF97FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		033A49C51C8B4D5F00CF97FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				033A49C41C8B4D5F00CF97FE /* libLIBMVE.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		033A49C61C8B4D5F00CF97FE /* LIBMVE */ = {
+			isa = PBXGroup;
+			children = (
+				033A49D01C8B4D7C00CF97FE /* DECODER8.C */,
+				033A49D11C8B4D7C00CF97FE /* DECODER16.C */,
+				033A49D21C8B4D7C00CF97FE /* DECODERS.H */,
+				033A49DF1C8B4DAF00CF97FE /* LIBMVE.H */,
+				033A49D31C8B4D7C00CF97FE /* MVEAUDIO.C */,
+				033A49D41C8B4D7C00CF97FE /* MVEAUDIO.H */,
+				033A49D51C8B4D7C00CF97FE /* MVELIB.C */,
+				033A49D61C8B4D7C00CF97FE /* MVELIB.H */,
+				033A49D81C8B4D7C00CF97FE /* MVEPLAY.C */,
+			);
+			path = LIBMVE;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		033A49C31C8B4D5F00CF97FE /* LIBMVE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 033A49CD1C8B4D5F00CF97FE /* Build configuration list for PBXNativeTarget "LIBMVE" */;
+			buildPhases = (
+				033A49C01C8B4D5F00CF97FE /* Sources */,
+				033A49C11C8B4D5F00CF97FE /* Frameworks */,
+				033A49C21C8B4D5F00CF97FE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LIBMVE;
+			productName = LIBMVE;
+			productReference = 033A49C41C8B4D5F00CF97FE /* libLIBMVE.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		033A49BC1C8B4D5F00CF97FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Devin Tuchsen";
+				TargetAttributes = {
+					033A49C31C8B4D5F00CF97FE = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6WGTX4TY92;
+					};
+				};
+			};
+			buildConfigurationList = 033A49BF1C8B4D5F00CF97FE /* Build configuration list for PBXProject "LIBMVE" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 033A49BB1C8B4D5F00CF97FE;
+			productRefGroup = 033A49C51C8B4D5F00CF97FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				033A49C31C8B4D5F00CF97FE /* LIBMVE */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		033A49C01C8B4D5F00CF97FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				033A49DC1C8B4D7C00CF97FE /* MVELIB.C in Sources */,
+				033A49D91C8B4D7C00CF97FE /* DECODER8.C in Sources */,
+				033A49DB1C8B4D7C00CF97FE /* MVEAUDIO.C in Sources */,
+				033A49DA1C8B4D7C00CF97FE /* DECODER16.C in Sources */,
+				033A49DE1C8B4D7C00CF97FE /* MVEPLAY.C in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		033A49CB1C8B4D5F00CF97FE /* Debug (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = "Debug (Software)";
+		};
+		033A49CC1C8B4D5F00CF97FE /* Release (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					RELEASE,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release (Software)";
+		};
+		033A49CE1C8B4D5F00CF97FE /* Debug (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../2D ../IO ../FIX ../PA_NULL ../MISC";
+			};
+			name = "Debug (Software)";
+		};
+		033A49CF1C8B4D5F00CF97FE /* Release (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../2D ../IO ../FIX ../PA_NULL ../MISC";
+			};
+			name = "Release (Software)";
+		};
+		03F1DD201C9F56D5008AA444 /* Debug (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					OGLES,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = "Debug (OpenGL ES)";
+		};
+		03F1DD211C9F56D5008AA444 /* Debug (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../2D ../IO ../FIX ../PA_NULL ../MISC";
+			};
+			name = "Debug (OpenGL ES)";
+		};
+		03F1DD221C9F56DC008AA444 /* Release (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					OGLES,
+					NDEBUG,
+					RELEASE,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release (OpenGL ES)";
+		};
+		03F1DD231C9F56DC008AA444 /* Release (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../2D ../IO ../FIX ../PA_NULL ../MISC";
+			};
+			name = "Release (OpenGL ES)";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		033A49BF1C8B4D5F00CF97FE /* Build configuration list for PBXProject "LIBMVE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				033A49CB1C8B4D5F00CF97FE /* Debug (Software) */,
+				03F1DD201C9F56D5008AA444 /* Debug (OpenGL ES) */,
+				033A49CC1C8B4D5F00CF97FE /* Release (Software) */,
+				03F1DD221C9F56DC008AA444 /* Release (OpenGL ES) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release (Software)";
+		};
+		033A49CD1C8B4D5F00CF97FE /* Build configuration list for PBXNativeTarget "LIBMVE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				033A49CE1C8B4D5F00CF97FE /* Debug (Software) */,
+				03F1DD211C9F56D5008AA444 /* Debug (OpenGL ES) */,
+				033A49CF1C8B4D5F00CF97FE /* Release (Software) */,
+				03F1DD231C9F56DC008AA444 /* Release (OpenGL ES) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release (Software)";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 033A49BC1C8B4D5F00CF97FE /* Project object */;
+}

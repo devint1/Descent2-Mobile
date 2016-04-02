@@ -1,0 +1,407 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0351D4CE1C84FC690002F4FC /* ARGS.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D4C01C84FC690002F4FC /* ARGS.C */; };
+		0351D4CF1C84FC690002F4FC /* BYTESWAP.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D4C21C84FC690002F4FC /* BYTESWAP.C */; };
+		0351D4D11C84FC690002F4FC /* HASH.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D4C71C84FC690002F4FC /* HASH.C */; };
+		0351D4D21C84FC690002F4FC /* PARSARG.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D4C91C84FC690002F4FC /* PARSARG.C */; };
+		0351D5651C854D6D0002F4FC /* ERROR.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5641C854D6D0002F4FC /* ERROR.C */; };
+		0374E5661C880AD700D685A8 /* STRUTIL.C in Sources */ = {isa = PBXBuildFile; fileRef = 0374E5651C880AD700D685A8 /* STRUTIL.C */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0351D4B21C84FC460002F4FC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0351D4B41C84FC460002F4FC /* libMISC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMISC.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0351D4C01C84FC690002F4FC /* ARGS.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ARGS.C; sourceTree = SOURCE_ROOT; };
+		0351D4C11C84FC690002F4FC /* args.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = args.h; sourceTree = SOURCE_ROOT; };
+		0351D4C21C84FC690002F4FC /* BYTESWAP.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BYTESWAP.C; sourceTree = SOURCE_ROOT; };
+		0351D4C31C84FC690002F4FC /* byteswap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = byteswap.h; sourceTree = SOURCE_ROOT; };
+		0351D4C41C84FC690002F4FC /* DEBUG.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DEBUG.H; sourceTree = SOURCE_ROOT; };
+		0351D4C61C84FC690002F4FC /* FILEUTIL.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FILEUTIL.H; sourceTree = SOURCE_ROOT; };
+		0351D4C71C84FC690002F4FC /* HASH.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HASH.C; sourceTree = SOURCE_ROOT; };
+		0351D4C81C84FC690002F4FC /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = SOURCE_ROOT; };
+		0351D4C91C84FC690002F4FC /* PARSARG.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PARSARG.C; sourceTree = SOURCE_ROOT; };
+		0351D4CA1C84FC690002F4FC /* PARSARG.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PARSARG.H; sourceTree = SOURCE_ROOT; };
+		0351D4CC1C84FC690002F4FC /* STRUTIL.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = STRUTIL.H; sourceTree = SOURCE_ROOT; };
+		0351D4CD1C84FC690002F4FC /* TYPES.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TYPES.H; sourceTree = SOURCE_ROOT; };
+		0351D5641C854D6D0002F4FC /* ERROR.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ERROR.C; sourceTree = SOURCE_ROOT; };
+		0374E5651C880AD700D685A8 /* STRUTIL.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = STRUTIL.C; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0351D4B11C84FC460002F4FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0351D4AB1C84FC460002F4FC = {
+			isa = PBXGroup;
+			children = (
+				0351D4B61C84FC460002F4FC /* MISC */,
+				0351D4B51C84FC460002F4FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0351D4B51C84FC460002F4FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0351D4B41C84FC460002F4FC /* libMISC.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0351D4B61C84FC460002F4FC /* MISC */ = {
+			isa = PBXGroup;
+			children = (
+				0351D4C01C84FC690002F4FC /* ARGS.C */,
+				0351D4C11C84FC690002F4FC /* args.h */,
+				0351D4C21C84FC690002F4FC /* BYTESWAP.C */,
+				0351D4C31C84FC690002F4FC /* byteswap.h */,
+				0351D4C41C84FC690002F4FC /* DEBUG.H */,
+				0351D5641C854D6D0002F4FC /* ERROR.C */,
+				0351D4C61C84FC690002F4FC /* FILEUTIL.H */,
+				0351D4C71C84FC690002F4FC /* HASH.C */,
+				0351D4C81C84FC690002F4FC /* hash.h */,
+				0351D4C91C84FC690002F4FC /* PARSARG.C */,
+				0351D4CA1C84FC690002F4FC /* PARSARG.H */,
+				0374E5651C880AD700D685A8 /* STRUTIL.C */,
+				0351D4CC1C84FC690002F4FC /* STRUTIL.H */,
+				0351D4CD1C84FC690002F4FC /* TYPES.H */,
+			);
+			path = MISC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0351D4B31C84FC460002F4FC /* MISC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0351D4BD1C84FC460002F4FC /* Build configuration list for PBXNativeTarget "MISC" */;
+			buildPhases = (
+				0351D4B01C84FC460002F4FC /* Sources */,
+				0351D4B11C84FC460002F4FC /* Frameworks */,
+				0351D4B21C84FC460002F4FC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MISC;
+			productName = MISC;
+			productReference = 0351D4B41C84FC460002F4FC /* libMISC.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0351D4AC1C84FC460002F4FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Devin Tuchsen";
+				TargetAttributes = {
+					0351D4B31C84FC460002F4FC = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6WGTX4TY92;
+					};
+				};
+			};
+			buildConfigurationList = 0351D4AF1C84FC460002F4FC /* Build configuration list for PBXProject "MISC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0351D4AB1C84FC460002F4FC;
+			productRefGroup = 0351D4B51C84FC460002F4FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0351D4B31C84FC460002F4FC /* MISC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0351D4B01C84FC460002F4FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0351D4CF1C84FC690002F4FC /* BYTESWAP.C in Sources */,
+				0351D4D21C84FC690002F4FC /* PARSARG.C in Sources */,
+				0351D4CE1C84FC690002F4FC /* ARGS.C in Sources */,
+				0374E5661C880AD700D685A8 /* STRUTIL.C in Sources */,
+				0351D4D11C84FC690002F4FC /* HASH.C in Sources */,
+				0351D5651C854D6D0002F4FC /* ERROR.C in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0351D4BB1C84FC460002F4FC /* Debug (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = "Debug (Software)";
+		};
+		0351D4BC1C84FC460002F4FC /* Release (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					RELEASE,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release (Software)";
+		};
+		0351D4BE1C84FC460002F4FC /* Debug (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../PA_NULL ../IO ../MEM";
+			};
+			name = "Debug (Software)";
+		};
+		0351D4BF1C84FC460002F4FC /* Release (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../PA_NULL ../IO ../MEM";
+			};
+			name = "Release (Software)";
+		};
+		03F1DD2C1C9F5796008AA444 /* Debug (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					OGLES,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = "Debug (OpenGL ES)";
+		};
+		03F1DD2D1C9F5796008AA444 /* Debug (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../PA_NULL ../IO ../MEM";
+			};
+			name = "Debug (OpenGL ES)";
+		};
+		03F1DD2E1C9F579D008AA444 /* Release (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					OGLES,
+					NDEBUG,
+					RELEASE,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release (OpenGL ES)";
+		};
+		03F1DD2F1C9F579D008AA444 /* Release (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.c.c;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "../PA_NULL ../IO ../MEM";
+			};
+			name = "Release (OpenGL ES)";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0351D4AF1C84FC460002F4FC /* Build configuration list for PBXProject "MISC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0351D4BB1C84FC460002F4FC /* Debug (Software) */,
+				03F1DD2C1C9F5796008AA444 /* Debug (OpenGL ES) */,
+				0351D4BC1C84FC460002F4FC /* Release (Software) */,
+				03F1DD2E1C9F579D008AA444 /* Release (OpenGL ES) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release (Software)";
+		};
+		0351D4BD1C84FC460002F4FC /* Build configuration list for PBXNativeTarget "MISC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0351D4BE1C84FC460002F4FC /* Debug (Software) */,
+				03F1DD2D1C9F5796008AA444 /* Debug (OpenGL ES) */,
+				0351D4BF1C84FC460002F4FC /* Release (Software) */,
+				03F1DD2F1C9F579D008AA444 /* Release (OpenGL ES) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release (Software)";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0351D4AC1C84FC460002F4FC /* Project object */;
+}

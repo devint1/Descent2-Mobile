@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0351D5501C8500F20002F4FC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0351D54F1C8500F20002F4FC /* OpenGLES.framework */; };
+		0351D5521C8500FA0002F4FC /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0351D5511C8500FA0002F4FC /* OpenAL.framework */; };
+		0351D5571C8506510002F4FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5561C8506510002F4FC /* main.m */; };
+		0351D5681C854F280002F4FC /* ControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5671C854F280002F4FC /* ControlsView.m */; };
+		0351D57D1C8565A90002F4FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0351D5771C8565A90002F4FC /* LaunchScreen.storyboard */; };
+		0351D57E1C8565A90002F4FC /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0351D5791C8565A90002F4FC /* Main-iPad.storyboard */; };
+		0351D57F1C8565A90002F4FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0351D57B1C8565A90002F4FC /* Main.storyboard */; };
+		0351D5831C856A340002F4FC /* descent2.hog in Resources */ = {isa = PBXBuildFile; fileRef = 0351D5821C856A340002F4FC /* descent2.hog */; };
+		0374E55B1C87D31D00D685A8 /* ALIEN1.PIG in Resources */ = {isa = PBXBuildFile; fileRef = 0374E5561C87D31D00D685A8 /* ALIEN1.PIG */; };
+		0374E55C1C87D31D00D685A8 /* ALIEN2.PIG in Resources */ = {isa = PBXBuildFile; fileRef = 0374E5571C87D31D00D685A8 /* ALIEN2.PIG */; };
+		0374E55D1C87D31D00D685A8 /* FIRE.PIG in Resources */ = {isa = PBXBuildFile; fileRef = 0374E5581C87D31D00D685A8 /* FIRE.PIG */; };
+		0374E55E1C87D31D00D685A8 /* ICE.PIG in Resources */ = {isa = PBXBuildFile; fileRef = 0374E5591C87D31D00D685A8 /* ICE.PIG */; };
+		0374E55F1C87D31D00D685A8 /* WATER.PIG in Resources */ = {isa = PBXBuildFile; fileRef = 0374E55A1C87D31D00D685A8 /* WATER.PIG */; };
+		038421741C83FAB700361C3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 038421731C83FAB700361C3C /* Assets.xcassets */; };
+		038421831C83FAD300361C3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 038421781C83FAD300361C3C /* AppDelegate.m */; };
+		038421841C83FAD300361C3C /* Motion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0384217A1C83FAD300361C3C /* Motion.m */; };
+		038421851C83FAD300361C3C /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 0384217C1C83FAD300361C3C /* Music.m */; };
+		038421861C83FAD300361C3C /* RenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0384217E1C83FAD300361C3C /* RenderView.m */; };
+		038421871C83FAD300361C3C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 038421801C83FAD300361C3C /* ViewController.m */; };
+		038421881C83FAD300361C3C /* ViewControllerC.m in Sources */ = {isa = PBXBuildFile; fileRef = 038421821C83FAD300361C3C /* ViewControllerC.m */; };
+		03B44C3B1C857A910018D527 /* descent2.ham in Resources */ = {isa = PBXBuildFile; fileRef = 03B44C3A1C857A910018D527 /* descent2.ham */; };
+		03B44C3D1C857C690018D527 /* descent2.s22 in Resources */ = {isa = PBXBuildFile; fileRef = 03B44C3C1C857C690018D527 /* descent2.s22 */; };
+		03B44C3F1C857E620018D527 /* merlin_silver.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 03B44C3E1C857E620018D527 /* merlin_silver.sf2 */; };
+		03CFCBD51C8CA327005D7C29 /* lib2D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBC71C8CA327005D7C29 /* lib2D.a */; };
+		03CFCBD61C8CA327005D7C29 /* lib3D.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBC81C8CA327005D7C29 /* lib3D.a */; };
+		03CFCBD71C8CA327005D7C29 /* libCFILE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBC91C8CA327005D7C29 /* libCFILE.a */; };
+		03CFCBD81C8CA327005D7C29 /* libFIX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBCA1C8CA327005D7C29 /* libFIX.a */; };
+		03CFCBD91C8CA327005D7C29 /* libIFF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBCB1C8CA327005D7C29 /* libIFF.a */; };
+		03CFCBDA1C8CA327005D7C29 /* libIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBCC1C8CA327005D7C29 /* libIO.a */; };
+		03CFCBDB1C8CA327005D7C29 /* libLIBMVE.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBCD1C8CA327005D7C29 /* libLIBMVE.a */; };
+		03CFCBDC1C8CA327005D7C29 /* libMAIN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBCE1C8CA327005D7C29 /* libMAIN.a */; };
+		03CFCBDD1C8CA327005D7C29 /* libMEM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBCF1C8CA327005D7C29 /* libMEM.a */; };
+		03CFCBDE1C8CA327005D7C29 /* libMISC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBD01C8CA327005D7C29 /* libMISC.a */; };
+		03CFCBDF1C8CA327005D7C29 /* libPA_NULL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBD11C8CA327005D7C29 /* libPA_NULL.a */; };
+		03CFCBE01C8CA327005D7C29 /* libTEXMAP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBD21C8CA327005D7C29 /* libTEXMAP.a */; };
+		03CFCBE11C8CA327005D7C29 /* libUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBD31C8CA327005D7C29 /* libUI.a */; };
+		03CFCBE21C8CA327005D7C29 /* libVECMAT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CFCBD41C8CA327005D7C29 /* libVECMAT.a */; };
+		03CFCBE51C8D4139005D7C29 /* MUSIC in Resources */ = {isa = PBXBuildFile; fileRef = 03CFCBE41C8D4139005D7C29 /* MUSIC */; };
+		03E9D6C01C86AE8D0028EBB1 /* GROUPA.PIG in Resources */ = {isa = PBXBuildFile; fileRef = 03E9D6BF1C86AE8D0028EBB1 /* GROUPA.PIG */; };
+		03F924871C8AA0AB004FDF1C /* INTRO-H.MVL in Resources */ = {isa = PBXBuildFile; fileRef = 03F924841C8AA0AB004FDF1C /* INTRO-H.MVL */; };
+		03F924881C8AA0AB004FDF1C /* OTHER-H.MVL in Resources */ = {isa = PBXBuildFile; fileRef = 03F924851C8AA0AB004FDF1C /* OTHER-H.MVL */; };
+		03F924891C8AA0AB004FDF1C /* ROBOTS-H.MVL in Resources */ = {isa = PBXBuildFile; fileRef = 03F924861C8AA0AB004FDF1C /* ROBOTS-H.MVL */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0351D54F1C8500F20002F4FC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0351D5511C8500FA0002F4FC /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		0351D5561C8506510002F4FC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+		0351D5661C854F280002F4FC /* ControlsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlsView.h; sourceTree = "<group>"; };
+		0351D5671C854F280002F4FC /* ControlsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlsView.m; sourceTree = "<group>"; };
+		0351D5781C8565A90002F4FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0351D57A1C8565A90002F4FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
+		0351D57C1C8565A90002F4FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0351D5821C856A340002F4FC /* descent2.hog */ = {isa = PBXFileReference; lastKnownFileType = file; name = descent2.hog; path = Data/descent2.hog; sourceTree = "<group>"; };
+		0374E5561C87D31D00D685A8 /* ALIEN1.PIG */ = {isa = PBXFileReference; lastKnownFileType = file; name = ALIEN1.PIG; path = Data/ALIEN1.PIG; sourceTree = "<group>"; };
+		0374E5571C87D31D00D685A8 /* ALIEN2.PIG */ = {isa = PBXFileReference; lastKnownFileType = file; name = ALIEN2.PIG; path = Data/ALIEN2.PIG; sourceTree = "<group>"; };
+		0374E5581C87D31D00D685A8 /* FIRE.PIG */ = {isa = PBXFileReference; lastKnownFileType = file; name = FIRE.PIG; path = Data/FIRE.PIG; sourceTree = "<group>"; };
+		0374E5591C87D31D00D685A8 /* ICE.PIG */ = {isa = PBXFileReference; lastKnownFileType = file; name = ICE.PIG; path = Data/ICE.PIG; sourceTree = "<group>"; };
+		0374E55A1C87D31D00D685A8 /* WATER.PIG */ = {isa = PBXFileReference; lastKnownFileType = file; name = WATER.PIG; path = Data/WATER.PIG; sourceTree = "<group>"; };
+		038421571C83F9FA00361C3C /* Descent II.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Descent II.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		038421731C83FAB700361C3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		038421751C83FABF00361C3C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		038421771C83FAD300361C3C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		038421781C83FAD300361C3C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		038421791C83FAD300361C3C /* Motion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Motion.h; sourceTree = "<group>"; };
+		0384217A1C83FAD300361C3C /* Motion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Motion.m; sourceTree = "<group>"; };
+		0384217B1C83FAD300361C3C /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		0384217C1C83FAD300361C3C /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		0384217D1C83FAD300361C3C /* RenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderView.h; sourceTree = "<group>"; };
+		0384217E1C83FAD300361C3C /* RenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderView.m; sourceTree = "<group>"; };
+		0384217F1C83FAD300361C3C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		038421801C83FAD300361C3C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		038421811C83FAD300361C3C /* ViewControllerC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerC.h; sourceTree = "<group>"; };
+		038421821C83FAD300361C3C /* ViewControllerC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerC.m; sourceTree = "<group>"; };
+		03B44C3A1C857A910018D527 /* descent2.ham */ = {isa = PBXFileReference; lastKnownFileType = file; name = descent2.ham; path = Data/descent2.ham; sourceTree = "<group>"; };
+		03B44C3C1C857C690018D527 /* descent2.s22 */ = {isa = PBXFileReference; lastKnownFileType = file; name = descent2.s22; path = Data/descent2.s22; sourceTree = "<group>"; };
+		03B44C3E1C857E620018D527 /* merlin_silver.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; name = merlin_silver.sf2; path = Data/merlin_silver.sf2; sourceTree = "<group>"; };
+		03CFCBC71C8CA327005D7C29 /* lib2D.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib2D.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/lib2D.a"; sourceTree = "<group>"; };
+		03CFCBC81C8CA327005D7C29 /* lib3D.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib3D.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/lib3D.a"; sourceTree = "<group>"; };
+		03CFCBC91C8CA327005D7C29 /* libCFILE.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCFILE.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libCFILE.a"; sourceTree = "<group>"; };
+		03CFCBCA1C8CA327005D7C29 /* libFIX.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFIX.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libFIX.a"; sourceTree = "<group>"; };
+		03CFCBCB1C8CA327005D7C29 /* libIFF.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIFF.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libIFF.a"; sourceTree = "<group>"; };
+		03CFCBCC1C8CA327005D7C29 /* libIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIO.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libIO.a"; sourceTree = "<group>"; };
+		03CFCBCD1C8CA327005D7C29 /* libLIBMVE.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLIBMVE.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libLIBMVE.a"; sourceTree = "<group>"; };
+		03CFCBCE1C8CA327005D7C29 /* libMAIN.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMAIN.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libMAIN.a"; sourceTree = "<group>"; };
+		03CFCBCF1C8CA327005D7C29 /* libMEM.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMEM.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libMEM.a"; sourceTree = "<group>"; };
+		03CFCBD01C8CA327005D7C29 /* libMISC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMISC.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libMISC.a"; sourceTree = "<group>"; };
+		03CFCBD11C8CA327005D7C29 /* libPA_NULL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPA_NULL.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libPA_NULL.a"; sourceTree = "<group>"; };
+		03CFCBD21C8CA327005D7C29 /* libTEXMAP.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTEXMAP.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libTEXMAP.a"; sourceTree = "<group>"; };
+		03CFCBD31C8CA327005D7C29 /* libUI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUI.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libUI.a"; sourceTree = "<group>"; };
+		03CFCBD41C8CA327005D7C29 /* libVECMAT.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libVECMAT.a; path = "../../../../Library/Developer/Xcode/DerivedData/Descent2-iOS-fyjtbnwdmazkdkdneoalunslnihq/Build/Products/Debug-iphoneos/libVECMAT.a"; sourceTree = "<group>"; };
+		03CFCBE41C8D4139005D7C29 /* MUSIC */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MUSIC; path = Data/MUSIC; sourceTree = "<group>"; };
+		03E9D6BF1C86AE8D0028EBB1 /* GROUPA.PIG */ = {isa = PBXFileReference; lastKnownFileType = file; name = GROUPA.PIG; path = Data/GROUPA.PIG; sourceTree = "<group>"; };
+		03F924841C8AA0AB004FDF1C /* INTRO-H.MVL */ = {isa = PBXFileReference; lastKnownFileType = file; name = "INTRO-H.MVL"; path = "Data/INTRO-H.MVL"; sourceTree = "<group>"; };
+		03F924851C8AA0AB004FDF1C /* OTHER-H.MVL */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OTHER-H.MVL"; path = "Data/OTHER-H.MVL"; sourceTree = "<group>"; };
+		03F924861C8AA0AB004FDF1C /* ROBOTS-H.MVL */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ROBOTS-H.MVL"; path = "Data/ROBOTS-H.MVL"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		038421541C83F9FA00361C3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03CFCBD51C8CA327005D7C29 /* lib2D.a in Frameworks */,
+				03CFCBD61C8CA327005D7C29 /* lib3D.a in Frameworks */,
+				03CFCBD71C8CA327005D7C29 /* libCFILE.a in Frameworks */,
+				03CFCBD81C8CA327005D7C29 /* libFIX.a in Frameworks */,
+				03CFCBD91C8CA327005D7C29 /* libIFF.a in Frameworks */,
+				03CFCBDA1C8CA327005D7C29 /* libIO.a in Frameworks */,
+				03CFCBDB1C8CA327005D7C29 /* libLIBMVE.a in Frameworks */,
+				03CFCBDC1C8CA327005D7C29 /* libMAIN.a in Frameworks */,
+				03CFCBDD1C8CA327005D7C29 /* libMEM.a in Frameworks */,
+				03CFCBDE1C8CA327005D7C29 /* libMISC.a in Frameworks */,
+				03CFCBDF1C8CA327005D7C29 /* libPA_NULL.a in Frameworks */,
+				03CFCBE01C8CA327005D7C29 /* libTEXMAP.a in Frameworks */,
+				03CFCBE11C8CA327005D7C29 /* libUI.a in Frameworks */,
+				03CFCBE21C8CA327005D7C29 /* libVECMAT.a in Frameworks */,
+				0351D5521C8500FA0002F4FC /* OpenAL.framework in Frameworks */,
+				0351D5501C8500F20002F4FC /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0351D5531C85012A0002F4FC /* References */ = {
+			isa = PBXGroup;
+			children = (
+				03CFCBC71C8CA327005D7C29 /* lib2D.a */,
+				03CFCBC81C8CA327005D7C29 /* lib3D.a */,
+				03CFCBC91C8CA327005D7C29 /* libCFILE.a */,
+				03CFCBCA1C8CA327005D7C29 /* libFIX.a */,
+				03CFCBCB1C8CA327005D7C29 /* libIFF.a */,
+				03CFCBCC1C8CA327005D7C29 /* libIO.a */,
+				03CFCBCD1C8CA327005D7C29 /* libLIBMVE.a */,
+				03CFCBCE1C8CA327005D7C29 /* libMAIN.a */,
+				03CFCBCF1C8CA327005D7C29 /* libMEM.a */,
+				03CFCBD01C8CA327005D7C29 /* libMISC.a */,
+				03CFCBD11C8CA327005D7C29 /* libPA_NULL.a */,
+				03CFCBD21C8CA327005D7C29 /* libTEXMAP.a */,
+				03CFCBD31C8CA327005D7C29 /* libUI.a */,
+				03CFCBD41C8CA327005D7C29 /* libVECMAT.a */,
+				0351D5511C8500FA0002F4FC /* OpenAL.framework */,
+				0351D54F1C8500F20002F4FC /* OpenGLES.framework */,
+			);
+			name = References;
+			sourceTree = "<group>";
+		};
+		0384214E1C83F9FA00361C3C = {
+			isa = PBXGroup;
+			children = (
+				0351D5531C85012A0002F4FC /* References */,
+				038421751C83FABF00361C3C /* Info.plist */,
+				038421731C83FAB700361C3C /* Assets.xcassets */,
+				0384218B1C83FB7300361C3C /* Data */,
+				038421711C83FA8A00361C3C /* Sources */,
+				038421721C83FA9400361C3C /* UI */,
+				038421581C83F9FA00361C3C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		038421581C83F9FA00361C3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				038421571C83F9FA00361C3C /* Descent II.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0384215A1C83F9FA00361C3C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0351D5561C8506510002F4FC /* main.m */,
+			);
+			name = "Supporting Files";
+			path = "Descent 2";
+			sourceTree = "<group>";
+		};
+		038421711C83FA8A00361C3C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				038421891C83FAF200361C3C /* C Interface */,
+				038421771C83FAD300361C3C /* AppDelegate.h */,
+				038421781C83FAD300361C3C /* AppDelegate.m */,
+				0351D5661C854F280002F4FC /* ControlsView.h */,
+				0351D5671C854F280002F4FC /* ControlsView.m */,
+				0384217D1C83FAD300361C3C /* RenderView.h */,
+				0384217E1C83FAD300361C3C /* RenderView.m */,
+				0384217F1C83FAD300361C3C /* ViewController.h */,
+				038421801C83FAD300361C3C /* ViewController.m */,
+				0384215A1C83F9FA00361C3C /* Supporting Files */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		038421721C83FA9400361C3C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0351D5771C8565A90002F4FC /* LaunchScreen.storyboard */,
+				0351D5791C8565A90002F4FC /* Main-iPad.storyboard */,
+				0351D57B1C8565A90002F4FC /* Main.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		038421891C83FAF200361C3C /* C Interface */ = {
+			isa = PBXGroup;
+			children = (
+				038421791C83FAD300361C3C /* Motion.h */,
+				0384217A1C83FAD300361C3C /* Motion.m */,
+				0384217B1C83FAD300361C3C /* Music.h */,
+				0384217C1C83FAD300361C3C /* Music.m */,
+				038421811C83FAD300361C3C /* ViewControllerC.h */,
+				038421821C83FAD300361C3C /* ViewControllerC.m */,
+			);
+			name = "C Interface";
+			sourceTree = "<group>";
+		};
+		0384218B1C83FB7300361C3C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				03CFCBE41C8D4139005D7C29 /* MUSIC */,
+				0374E5561C87D31D00D685A8 /* ALIEN1.PIG */,
+				0374E5571C87D31D00D685A8 /* ALIEN2.PIG */,
+				0374E5581C87D31D00D685A8 /* FIRE.PIG */,
+				0374E5591C87D31D00D685A8 /* ICE.PIG */,
+				0374E55A1C87D31D00D685A8 /* WATER.PIG */,
+				03F924841C8AA0AB004FDF1C /* INTRO-H.MVL */,
+				03F924851C8AA0AB004FDF1C /* OTHER-H.MVL */,
+				03F924861C8AA0AB004FDF1C /* ROBOTS-H.MVL */,
+				03B44C3E1C857E620018D527 /* merlin_silver.sf2 */,
+				03B44C3C1C857C690018D527 /* descent2.s22 */,
+				03B44C3A1C857A910018D527 /* descent2.ham */,
+				0351D5821C856A340002F4FC /* descent2.hog */,
+				03E9D6BF1C86AE8D0028EBB1 /* GROUPA.PIG */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		038421561C83F9FA00361C3C /* Descent II */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0384216E1C83F9FA00361C3C /* Build configuration list for PBXNativeTarget "Descent II" */;
+			buildPhases = (
+				038421531C83F9FA00361C3C /* Sources */,
+				038421541C83F9FA00361C3C /* Frameworks */,
+				038421551C83F9FA00361C3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Descent II";
+			productName = "Descent 2";
+			productReference = 038421571C83F9FA00361C3C /* Descent II.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0384214F1C83F9FA00361C3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Devin Tuchsen";
+				TargetAttributes = {
+					038421561C83F9FA00361C3C = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6WGTX4TY92;
+					};
+				};
+			};
+			buildConfigurationList = 038421521C83F9FA00361C3C /* Build configuration list for PBXProject "Descent2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0384214E1C83F9FA00361C3C;
+			productRefGroup = 038421581C83F9FA00361C3C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				038421561C83F9FA00361C3C /* Descent II */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		038421551C83F9FA00361C3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03CFCBE51C8D4139005D7C29 /* MUSIC in Resources */,
+				0374E55F1C87D31D00D685A8 /* WATER.PIG in Resources */,
+				0374E55D1C87D31D00D685A8 /* FIRE.PIG in Resources */,
+				03B44C3B1C857A910018D527 /* descent2.ham in Resources */,
+				0374E55E1C87D31D00D685A8 /* ICE.PIG in Resources */,
+				0351D5831C856A340002F4FC /* descent2.hog in Resources */,
+				03B44C3D1C857C690018D527 /* descent2.s22 in Resources */,
+				03E9D6C01C86AE8D0028EBB1 /* GROUPA.PIG in Resources */,
+				0374E55C1C87D31D00D685A8 /* ALIEN2.PIG in Resources */,
+				03F924871C8AA0AB004FDF1C /* INTRO-H.MVL in Resources */,
+				0374E55B1C87D31D00D685A8 /* ALIEN1.PIG in Resources */,
+				03B44C3F1C857E620018D527 /* merlin_silver.sf2 in Resources */,
+				03F924891C8AA0AB004FDF1C /* ROBOTS-H.MVL in Resources */,
+				038421741C83FAB700361C3C /* Assets.xcassets in Resources */,
+				0351D57D1C8565A90002F4FC /* LaunchScreen.storyboard in Resources */,
+				0351D57E1C8565A90002F4FC /* Main-iPad.storyboard in Resources */,
+				0351D57F1C8565A90002F4FC /* Main.storyboard in Resources */,
+				03F924881C8AA0AB004FDF1C /* OTHER-H.MVL in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		038421531C83F9FA00361C3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0351D5681C854F280002F4FC /* ControlsView.m in Sources */,
+				038421871C83FAD300361C3C /* ViewController.m in Sources */,
+				038421841C83FAD300361C3C /* Motion.m in Sources */,
+				038421861C83FAD300361C3C /* RenderView.m in Sources */,
+				038421831C83FAD300361C3C /* AppDelegate.m in Sources */,
+				038421881C83FAD300361C3C /* ViewControllerC.m in Sources */,
+				0351D5571C8506510002F4FC /* main.m in Sources */,
+				038421851C83FAD300361C3C /* Music.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0351D5771C8565A90002F4FC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0351D5781C8565A90002F4FC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0351D5791C8565A90002F4FC /* Main-iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0351D57A1C8565A90002F4FC /* Base */,
+			);
+			name = "Main-iPad.storyboard";
+			sourceTree = "<group>";
+		};
+		0351D57B1C8565A90002F4FC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0351D57C1C8565A90002F4FC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0384216C1C83F9FA00361C3C /* Debug (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug (Software)";
+		};
+		0384216D1C83F9FA00361C3C /* Release (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release (Software)";
+		};
+		0384216F1C83F9FA00361C3C /* Debug (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tuchsen.Descent-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "../MISC ../IO ../FIX ../MAIN ../VECMAT ../PA_NULL ../2D ../CFILE";
+			};
+			name = "Debug (Software)";
+		};
+		038421701C83F9FA00361C3C /* Release (Software) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					RELEASE,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tuchsen.Descent-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "../MISC ../IO ../FIX ../MAIN ../VECMAT ../PA_NULL ../2D ../CFILE";
+			};
+			name = "Release (Software)";
+		};
+		03F1DCED1C9F4EA3008AA444 /* Debug (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = "Debug (OpenGL ES)";
+		};
+		03F1DCEE1C9F4EA3008AA444 /* Debug (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					OGLES,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tuchsen.Descent-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "../MISC ../IO ../FIX ../MAIN ../VECMAT ../PA_NULL ../2D ../CFILE";
+			};
+			name = "Debug (OpenGL ES)";
+		};
+		03F1DCEF1C9F4EAB008AA444 /* Release (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release (OpenGL ES)";
+		};
+		03F1DCF01C9F4EAB008AA444 /* Release (OpenGL ES) */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					OGLES,
+					RELEASE,
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tuchsen.Descent-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "../MISC ../IO ../FIX ../MAIN ../VECMAT ../PA_NULL ../2D ../CFILE";
+			};
+			name = "Release (OpenGL ES)";
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		038421521C83F9FA00361C3C /* Build configuration list for PBXProject "Descent2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0384216C1C83F9FA00361C3C /* Debug (Software) */,
+				03F1DCED1C9F4EA3008AA444 /* Debug (OpenGL ES) */,
+				0384216D1C83F9FA00361C3C /* Release (Software) */,
+				03F1DCEF1C9F4EAB008AA444 /* Release (OpenGL ES) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release (Software)";
+		};
+		0384216E1C83F9FA00361C3C /* Build configuration list for PBXNativeTarget "Descent II" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0384216F1C83F9FA00361C3C /* Debug (Software) */,
+				03F1DCEE1C9F4EA3008AA444 /* Debug (OpenGL ES) */,
+				038421701C83F9FA00361C3C /* Release (Software) */,
+				03F1DCF01C9F4EAB008AA444 /* Release (OpenGL ES) */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release (Software)";
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0384214F1C83F9FA00361C3C /* Project object */;
+}
