@@ -31,7 +31,7 @@ The following files need to be copied to Descent2/Data prior to building:
 - WATER.PIG
 
 Rebook Music
-—-----------
+------------
 Redbook music can be used instead of MIDI music, if desired. Descent2-iOS will search for music in `Descent2/Data/MUSIC` with the pattern `<tracknum>.*`, where `<tracknum>` is the track number as it would appear on the original Descent II CD. Descent2-iOS uses the same scheme as the original version of Descent II, where track 02 is the title track, track 03 is the credits track, and the remaining tracks are used for the levels. The files can be in any format supported by `AVAudioPlayer`.
 
 Building
