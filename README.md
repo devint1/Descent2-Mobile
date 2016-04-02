@@ -15,7 +15,7 @@ Requirements
 
 Required Game Data
 ------------------
-The following files need to be copied to Descent2/Data prior to building:
+The following files need to be copied to `Descent2/Data` prior to building:
 
 - ALIEN1.PIG
 - ALIEN2.PIG
