@@ -442,6 +442,7 @@ static SLVolumeItf Volumes[_MAX_VOICES];
 static bool SoundDone[_MAX_VOICES];
 static int SoundNums[_MAX_VOICES] = { -1 };
 static struct sound_object *SoundObjPtrs[_MAX_VOICES];
+static fix SoundStartTimes[_MAX_VOICES];
 
 int N_active_sound_objects=0;
 
@@ -700,7 +701,19 @@ int digi_get_max_channels()
 
 int digi_is_channel_playing( int c )
 {
-	return !SoundDone[c];
+	fix now;
+	fix sound_len;
+
+	if (!SoundDone[c]) {
+		return true;
+	}
+	now = timer_get_fixed_seconds();
+	sound_len = GameSounds[SoundObjects[c].soundnum].length / digi_sample_rate;
+	if (SoundStartTimes[c] + sound_len >= now) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 void digi_end_sound( int c )
@@ -836,6 +849,7 @@ int digi_start_sound(short soundnum, fix volume, int pan, int looping, int loop_
 		Volumes[next_handle] = NULL;
 		BufferQueues[next_handle] = NULL;
 		SoundDone[next_handle] = false;
+		SoundStartTimes[next_handle] = timer_get_fixed_seconds();
 		if (SoundObjPtrs[next_handle] != NULL) {
 			SoundObjPtrs[next_handle]->handle = -1;
 			SoundObjPtrs[next_handle]->flags &= ~SOF_PLAYING;
@@ -879,10 +893,10 @@ int digi_start_sound(short soundnum, fix volume, int pan, int looping, int loop_
 
 int digi_is_sound_playing(int soundno)
 {
-	/*
-	ALuint SampleHandle;
+	int i;
+	int result = false;
+
 	soundno = digi_xlat_sound(soundno);
-	ALint state;
 
 	if (!Digi_initialized) return 0;
 	if (digi_driver_board<1) return 0;
@@ -893,11 +907,17 @@ int digi_is_sound_playing(int soundno)
 		return 0;
 	}
 
-	SampleHandle = SampleHandles[soundno];
-	alGetSourcei(SampleHandle, AL_SOURCE_STATE, &state);
-	return state == AL_PLAYING;
-	 */
-	return true;
+	for (i = 0; i < _MAX_VOICES; ++i) {
+		if (SoundObjPtrs[i] == NULL) {
+			continue;
+		} else {
+			if (SoundObjPtrs[i]->soundnum == soundno) {
+				result |= digi_is_channel_playing(i);
+			}
+		}
+	}
+
+	return result;
 }
 
 void digi_play_sample_once( int soundno, fix max_volume )	
