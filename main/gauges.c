@@ -2202,9 +2202,9 @@ void draw_player_ship(int cloak_state,int old_cloak_state,int x, int y)
 	}
 	
 	grs_point scale_pts[] = {
-		{ i2f(x), i2f(y) },
-		{ i2f(x) + i2f(bm->bm_w), i2f(y) + i2f(bm->bm_h) },
-		{ i2f(x) + fixmul(i2f(bm->bm_w), Scale_x), i2f(y) + fixmul(i2f(bm->bm_h), Scale_y) }
+		{ 0, 0 },
+		{ i2f(bm->bm_w), i2f(bm->bm_h) },
+		{ fixmul(i2f(bm->bm_w), Scale_x), fixmul(i2f(bm->bm_h), Scale_y) }
 	};
 	
 	if (old_cloak_state==-1 && cloak_state)
@@ -2260,13 +2260,14 @@ void draw_player_ship(int cloak_state,int old_cloak_state,int x, int y)
 	}
 	
 	gr_set_current_canvas(VR_offscreen_buffer);
-	gr_clear_canvas(TRANSPARENCY_COLOR);
+	gr_setcolor(TRANSPARENCY_COLOR);
+	gr_rect(0, 0, bm->bm_w*f2fl(Scale_x)-1, bm->bm_h*f2fl(Scale_y)-1);
 	scale_bitmap(bm, scale_pts, 0);
 	Gr_scanline_darkening_level = cloak_fade_value;
-	gr_rect(x, y, x+bm->bm_w*f2fl(Scale_x)-1, y+bm->bm_h*f2fl(Scale_y)-1);
+	gr_rect(0, 0, bm->bm_w*f2fl(Scale_x)-1, bm->bm_h*f2fl(Scale_y)-1);
 	Gr_scanline_darkening_level = GR_FADE_LEVELS;
 	gr_set_current_canvas( get_current_game_screen() );
-	gr_bm_ubitbltm( bm->bm_w * f2fl(Scale_x), bm->bm_h * f2fl(Scale_y), x, y, x, y, &VR_offscreen_buffer->cv_bitmap, &grd_curcanv->cv_bitmap);
+	gr_bm_ubitbltm( bm->bm_w * f2fl(Scale_x), bm->bm_h * f2fl(Scale_y), x, y, 0, 0, &VR_offscreen_buffer->cv_bitmap, &grd_curcanv->cv_bitmap);
 }
 
 #define INV_FRAME_TIME	(f1_0/10)		//how long for each frame

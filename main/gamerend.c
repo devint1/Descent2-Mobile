@@ -1490,7 +1490,9 @@ void game_render_frame_mono(void)
 				gr_ibitblt( &VR_render_sub_buffer[0].cv_bitmap, &VR_screen_pages[0].cv_bitmap, Scanline_double );
 			#else
 			#ifndef WINDOWS
+			#ifndef OGLES
 				gr_ibitblt( &VR_render_buffer[0].cv_bitmap, &VR_screen_pages[0].cv_bitmap, 0 );
+			#endif
 			#else
 				win_do_emul_ibitblt( &dd_VR_render_sub_buffer[0], dd_grd_screencanv);
 				DDGRRESTORE;
