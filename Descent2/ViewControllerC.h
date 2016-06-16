@@ -9,7 +9,11 @@
 #define ViewControllerC_h
 
 #ifdef OGLES
-#import <OpenGLES/ES1/gl.h>
+#ifdef ANDROID_NDK
+#include <GLES/gl.h>
+#else
+#include <OpenGLES/ES1/gl.h>
+#endif
 #endif
 
 int textIsActive();
