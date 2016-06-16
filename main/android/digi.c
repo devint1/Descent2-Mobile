@@ -699,6 +699,16 @@ int digi_get_max_channels()
 	return digi_max_channels;
 }
 
+void digi_replay_channel(int c)
+{
+	if (!BufferQueues[c]) {
+		return;
+	}
+	(*BufferQueues[c])->Enqueue(BufferQueues[c], GameSounds[SoundNums[c]].data,
+								GameSounds[SoundNums[c]].length);
+	SoundDone[c] = false;
+}
+
 int digi_is_channel_playing( int c )
 {
 	fix now;
@@ -856,6 +866,7 @@ int digi_start_sound(short soundnum, fix volume, int pan, int looping, int loop_
 			SoundObjPtrs[next_handle] = NULL;
 		}
 	}
+	SoundNums[next_handle] = soundnum;
 	(*engine)->CreateAudioPlayer(engine, &PlayerObjs[next_handle], &src, &dst,
 								 2, ids, req);
 	result = (*PlayerObjs[next_handle])->Realize(PlayerObjs[next_handle], SL_BOOLEAN_FALSE);

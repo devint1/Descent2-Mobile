@@ -39,6 +39,7 @@ extern int digi_midi_type;
 extern int digi_midi_port;
 #ifdef ANDROID_NDK
 extern SLuint32 digi_sample_rate;
+extern void digi_replay_channel(int c);
 #else
 extern int digi_sample_rate;
 #endif

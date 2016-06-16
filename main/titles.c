@@ -696,7 +696,10 @@ int show_briefing_message(int screen_num, char *message)
 	while (!done) {
 #ifdef ANDROID_NDK
 		if (!digi_is_channel_playing(hum_channel)) {
-			hum_channel = digi_start_sound( digi_xlat_sound(SOUND_BRIEFING_HUM), F1_0/2, 0xFFFF/2, 1, -1, -1, -1 );
+			digi_replay_channel(hum_channel);
+		}
+		if (chattering && !digi_is_channel_playing(printing_channel)) {
+				digi_replay_channel(printing_channel);
 		}
 #endif
 		ch = *message++;
@@ -880,6 +883,11 @@ int show_briefing_message(int screen_num, char *message)
 					
 					show_bitmap_frame();
 					start_time += KEY_DELAY_DEFAULT/2;
+#ifdef ANDROID_NDK
+					if (!digi_is_channel_playing(hum_channel)) {
+						digi_replay_channel(hum_channel);
+					}
+#endif
 				}
 				
 				showRenderBuffer();
@@ -953,13 +961,6 @@ int show_briefing_message(int screen_num, char *message)
 				printing_channel  = digi_start_sound( digi_xlat_sound(SOUND_BRIEFING_PRINTING), F1_0, 0xFFFF/2, 1, -1, -1, -1 );
 				chattering=1;
 			}
-#ifdef ANDROID_NDK
-			else {
-				if (!digi_is_channel_playing(printing_channel)) {
-					printing_channel  = digi_start_sound( digi_xlat_sound(SOUND_BRIEFING_PRINTING), F1_0, 0xFFFF/2, 1, -1, -1, -1 );
-				}
-			}
-#endif
 			
 			WIN(if (GRMODEINFO(emul)) delay_count = 0);
 			
@@ -1025,7 +1026,7 @@ int show_briefing_message(int screen_num, char *message)
 #endif
 #ifdef ANDROID_NDK
 				if (!digi_is_channel_playing(hum_channel)) {
-					hum_channel = digi_start_sound( digi_xlat_sound(SOUND_BRIEFING_HUM), F1_0/2, 0xFFFF/2, 1, -1, -1, -1 );
+					digi_replay_channel(hum_channel);
 				}
 #endif
 				
