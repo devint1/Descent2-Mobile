@@ -447,7 +447,7 @@ int gr_palette_fade_out(ubyte *pal, int nsteps, int allow_keys )
 	int darken_step;
 	
 	if (!grd_curscreen) {
-		return 0;
+		return 1;
 	}
 
 	save_canvas = grd_curcanv;
@@ -493,7 +493,7 @@ int gr_palette_fade_out(ubyte *pal, int nsteps, int allow_keys )
 	}
 #endif
 	gr_palette_faded_out = 1;
-	return 1;
+	return 0;
 }
 
 int gr_palette_fade_in(ubyte *pal, int nsteps, int allow_keys)	
@@ -508,7 +508,7 @@ int gr_palette_fade_in(ubyte *pal, int nsteps, int allow_keys)
 	int darken_step;
 	
 	if (!grd_curscreen) {
-		return 0;
+		return 1;
 	}
 	
 	save_canvas = grd_curcanv;

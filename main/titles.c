@@ -730,7 +730,7 @@ int show_briefing_message(int screen_num, char *message)
 				while (*message++ != 10)
 					;
 			} else if (ch == 'T') {
-				tab_stop = get_message_num(&message) * f2fl(Scale_x);
+				tab_stop = get_message_num(&message);
 				tab_stop*=(1+MenuHires)*f2fl(Scale_x);
 				prev_ch = 10;							//	read to eoln
 			} else if (ch == 'R') {
@@ -994,7 +994,7 @@ int show_briefing_message(int screen_num, char *message)
 			Briefing_text_y += bsp->text_uly * f2fl(Scale_y);
 		}
 		
-		if ((new_page) || (Briefing_text_y > bsp->text_uly + bsp->text_height)) {
+		if ((new_page) || (Briefing_text_y / f2fl(Scale_y) > bsp->text_uly + bsp->text_height)) {
 			fix	start_time = 0;
 			int	keypress;
 			
