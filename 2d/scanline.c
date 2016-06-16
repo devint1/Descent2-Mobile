@@ -11,6 +11,7 @@ AND AGREES TO THE TERMS HEREIN AND ACCEPTS THE SAME BY USE OF THIS FILE.
 COPYRIGHT 1993-1999 PARALLAX SOFTWARE CORPORATION.  ALL RIGHTS RESERVED.
 */
 
+#include "3d.h"
 #include "pa_enabl.h"                   //$$POLY_ACC
 #include "mem.h"
 
@@ -107,6 +108,11 @@ void gr_uscanline( int x1, int x2, int y )
 		case BM_SVGA:
 			gr_vesa_scanline( x1+XOFFSET, x2+XOFFSET, y+YOFFSET, COLOR );
 			break;
+#ifdef OGLES
+		case BM_OGLES:
+			gr_rect(x1, y, x2, y);
+			break;
+#endif
 #if defined(POLY_ACC)
         case BM_LINEAR15:
             gr_linear15_stosd( (short *)(DATA + ROWSIZE*y + x1 * PA_BPP), COLOR, x2-x1+1);
@@ -143,6 +149,11 @@ void gr_uscanline( int x1, int x2, int y )
 				}
 			}
 			break;
+#ifdef OGLES
+		case BM_OGLES:
+			gr_rect(x1, y, x2, y);
+			break;
+#endif
 #if defined(POLY_ACC)
         case BM_LINEAR15:
             gr_linear15_darken( (short *)(DATA + ROWSIZE*y + x1 * PA_BPP), Gr_scanline_darkening_level, x2-x1+1, gr_fade_table);
