@@ -146,11 +146,14 @@ void init_buttons(jint w, jint h) {
 void draw_buttons() {
 	int i;
 	grs_canvas *save_canv;
+	ubyte save_pal[3];
 
 	if (Game_mode == GM_NORMAL && !In_screen) {
 		save_canv = grd_curcanv;
 		gr_set_current_canvas(NULL);
-		gr_setcolor(BM_XRGB(63, 63, 63));
+		memcpy(save_pal, gr_current_pal, sizeof(ubyte) * 3);
+		memset(gr_current_pal, 255, sizeof(ubyte) * 3);
+		gr_setcolor(0);
 		Gr_scanline_darkening_level = 24;
 		for (i = 0; i < NUM_BUTTONS; ++i) {
 			if (i == 13) {
@@ -162,6 +165,7 @@ void draw_buttons() {
 			gr_rect(buttons[i].x, buttons[i].y, buttons[i].x + buttons[i].w,
 					buttons[i].y + buttons[i].h);
 		}
+		memcpy(gr_current_pal, save_pal, sizeof(ubyte) * 3);
 		Gr_scanline_darkening_level = GR_FADE_LEVELS;
 		gr_set_current_canvas(save_canv);
 	}
