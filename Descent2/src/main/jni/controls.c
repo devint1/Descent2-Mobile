@@ -7,8 +7,9 @@
 
 #include "game.h"
 #include "key.h"
+#include "timer.h"
 
-#define NUM_BUTTONS 21
+#define NUM_BUTTONS 25
 #define MAX_KEYS 2
 
 #define ACCELERATE_BTN 0
@@ -32,6 +33,10 @@
 #define MAP_BTN 18
 #define REAR_VIEW_BTN 19
 #define TOGGLE_COCKPIT_BTN 20
+#define HEADLIGHT_BTN 21
+#define ENERGY_TRANSFER_BTN 22
+#define PLACE_MARKER 23
+#define GUIDE_BOT_MENU 24
 
 #define ACTION_DOWN 0
 #define ACTION_UP 1
@@ -46,9 +51,10 @@ typedef struct GameButton {
 	bool activateOnHover;
 } GameButton;
 
-GameButton buttons[NUM_BUTTONS];
-int touchButtons[10];
-int trackingTouch;
+static GameButton buttons[NUM_BUTTONS];
+static int touchButtons[10];
+static int trackingTouch;
+static long accelerateLastTouched;
 
 extern JavaVM *jvm;
 extern jobject Activity;
@@ -85,7 +91,7 @@ void init_buttons(jint w, jint h) {
 
 	w = (jint) px_to_dp(w);
 	h = (jint) px_to_dp(h);
-	menuSpacing = (w - 150) / 3;
+	menuSpacing = (w - 250) / 7;
 
 	// Define buttons
 	buttons[ACCELERATE_BTN] = (struct GameButton) {120, h - 185, 55, 55, {KEY_A}, 1, true};
@@ -113,12 +119,20 @@ void init_buttons(jint w, jint h) {
 	buttons[TOGGLE_SECONDARY_BTN] = (struct GameButton) {w - 230, h - 90, 40, 70, {KEY_6}, 1,
 														 false};
 	buttons[MENU_BTN] = (struct GameButton) {25, 20, 25, 25, {KEY_ESC}, 1, false};
-	buttons[MAP_BTN] = (struct GameButton) {50 + (int) menuSpacing, 20, 25, 25, {KEY_TAB}, 1,
-											false};
-	buttons[TOGGLE_COCKPIT_BTN] = (struct GameButton) {75 + (int) (menuSpacing * 2), 20, 25, 25,
+	buttons[TOGGLE_COCKPIT_BTN] = (struct GameButton) {50 + (int) menuSpacing, 20, 25, 25,
 													   {KEY_F3}, 1, false};
-	buttons[REAR_VIEW_BTN] = (struct GameButton) {100 + (int) (menuSpacing * 3), 20, 25, 25,
+	buttons[REAR_VIEW_BTN] = (struct GameButton) {75 + (int) (menuSpacing * 2), 20, 25, 25,
 												  {KEY_R}, 1, false};
+	buttons[HEADLIGHT_BTN] = (struct GameButton) {100 + (int) (menuSpacing * 3), 20, 25, 25,
+												  {KEY_H}, 1, false};
+	buttons[ENERGY_TRANSFER_BTN] = (struct GameButton) {125 + (int) (menuSpacing * 4), 20, 25, 25,
+														{KEY_T}, 1, false};
+	buttons[PLACE_MARKER] = (struct GameButton) {150 + (int) (menuSpacing * 5), 20, 25, 25,
+												 {KEY_F4}, 1, false};
+	buttons[GUIDE_BOT_MENU] = (struct GameButton) {175 + (int) (menuSpacing * 6), 20, 25, 25,
+												   {KEY_LSHIFT, KEY_F4}, 2, false};
+	buttons[MAP_BTN] = (struct GameButton) {200 + (int) (menuSpacing * 7), 20, 25, 25, {KEY_TAB}, 1,
+											false};
 
 	for (i = 0; i < NUM_BUTTONS; ++i) {
 		buttons[i].x = (int) dp_to_px(buttons[i].x);
@@ -126,6 +140,7 @@ void init_buttons(jint w, jint h) {
 		buttons[i].w = (int) dp_to_px(buttons[i].w);
 		buttons[i].h = (int) dp_to_px(buttons[i].h);
 	}
+	accelerateLastTouched = 0;
 }
 
 void draw_buttons() {
@@ -158,11 +173,22 @@ bool point_in_button(jfloat x, jfloat y, const GameButton *button) {
 }
 
 void handle_down(jint pointerId, jfloat x, jfloat y) {
+	fix accelerateTime;
+
 	for (int i = 0; i < NUM_BUTTONS; ++i) {
 		if (point_in_button(x, y, &buttons[i])) {
-			touchButtons[pointerId] = -1;
 			touchButtons[pointerId] = i;
 			for (int j = 0; j < buttons[i].nKeys; ++j) {
+
+				// Double-tapping accelerate triggers afterburner
+				if (i == ACCELERATE_BTN) {
+					accelerateTime = timer_get_fixed_seconds();
+					if (accelerateTime - accelerateLastTouched < fl2f(0.5)) {
+						key_handler(KEY_S, true);
+					}
+					accelerateLastTouched = timer_get_fixed_seconds();
+				}
+
 				key_handler(buttons[i].keys[j], true);
 			}
 		}
@@ -180,6 +206,9 @@ void handle_up(jint pointerId) {
 		return;
 	}
 	for (int i = 0; i < buttons[buttonNumber].nKeys; ++i) {
+		if (buttonNumber == ACCELERATE_BTN) {
+			key_handler(KEY_S, false);
+		}
 		key_handler(buttons[buttonNumber].keys[i], false);
 	}
 	touchButtons[pointerId] = -1;
