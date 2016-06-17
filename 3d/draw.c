@@ -291,7 +291,11 @@ bool g3_draw_tmap(int nv, g3s_point **pointlist, g3s_uvl *uvl_list, grs_bitmap *
 			average_light = 0;
 		else if (average_light > NUM_LIGHTING_LEVELS-1)
 			average_light = NUM_LIGHTING_LEVELS-1;
-		gr_setcolor(gr_fade_table[average_light*256]);
+#ifdef SWAP_0_255
+		gr_setcolor(255 - gr_fade_table[average_light * 256]);
+#else
+		gr_setcolor(gr_fade_table[average_light * 256]);
+#endif
 		return g3_draw_poly_ogles(nv, pointlist);
 	} else {
 		return g3_draw_tmap_ogles(nv, pointlist, uvl_list, bm);
