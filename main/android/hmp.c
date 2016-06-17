@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "hmp.h"
 #include "cfile.h"
+#include "Music.h"
 
 extern JavaVM *jvm;
 extern jobject Activity;
@@ -14,27 +15,11 @@ void hmp_init() {
 }
 
 void hmp_stop(hmp_file *hmp) {
-	JNIEnv *env;
-	jclass clazz;
-	jmethodID method;
-
-	(*jvm)->GetEnv(jvm, (void**)&env, JNI_VERSION_1_6);
-	clazz = (*env)->FindClass(env, "tuchsen/descent2/DescentActivity");
-	method = (*env)->GetMethodID(env, clazz, "stopMidi", "()V");
-	(*env)->CallVoidMethod(env, Activity, method);
-	(*env)->DeleteLocalRef(env, clazz);
+	stopMusic();
 }
 
 void hmp_setvolume(hmp_file *hmp, int volume) {
-	JNIEnv *env;
-	jclass clazz;
-	jmethodID method;
-
-	(*jvm)->GetEnv(jvm, (void**)&env, JNI_VERSION_1_6);
-	clazz = (*env)->FindClass(env, "tuchsen/descent2/DescentActivity");
-	method = (*env)->GetMethodID(env, clazz, "setMidiVolume", "(F)V");
-	(*env)->CallVoidMethod(env, Activity, method, (jfloat)volume / 128.0f);
-	(*env)->DeleteLocalRef(env, clazz);
+	setMusicVolume(volume / 128.0f);
 }
 
 int hmp_play(hmp_file *hmp, bool loop) {

@@ -13,6 +13,6 @@ void stopMidiLoop();
 #endif
 
 long getRedbookTrackCount();
-void setRedbookVolume(float volume);
+void setMusicVolume(float volume);
 int playRedbookTrack(int tracknum, int loop);
-void stopRedbook();
+void stopMusic();

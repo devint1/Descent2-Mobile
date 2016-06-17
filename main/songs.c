@@ -53,7 +53,7 @@ extern int CD_blast_mixer();
 //takes volume in range 0..8
 void set_redbook_volume(int volume)
 {
-	setRedbookVolume(volume / 8.0f);
+	setMusicVolume(volume / 8.0f);
 }
 
 extern char CDROM_dir[];
@@ -130,14 +130,14 @@ void songs_stop_redbook(void)
 			if (new_volume < 0)
 				new_volume = 0;
 
-			setRedbookVolume(new_volume);
+			setMusicVolume(new_volume);
 
 		} while (new_volume > 0);
 	}
 	
-	stopRedbook();
+	stopMusic();
 
-	setRedbookVolume(old_volume);
+	setMusicVolume(old_volume);
 
 	Redbook_playing = 0;		
 

@@ -2,6 +2,8 @@ package tuchsen.descent2;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -23,6 +25,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * Created by devin on 4/17/16.
@@ -233,13 +236,54 @@ public class DescentActivity extends Activity implements TextWatcher, SensorEven
 	}
 
 	@SuppressWarnings("unused")
-	private void stopMidi() {
+	private boolean playRedbookTrack(int tracknum, boolean looping) {
+		AssetFileDescriptor fd = null;
+		AssetManager assetManager = getAssets();
+		String trackList[];
+
+		try {
+			trackList = assetManager.list("music");
+			for (String track : trackList) {
+				if (track.matches(String.format(Locale.getDefault(), "%02d.*", tracknum))) {
+					fd = assetManager.openFd("music/" + track);
+					break;
+				}
+			}
+			if (fd != null) {
+				mediaPlayer.setDataSource(fd.getFileDescriptor(), fd.getStartOffset(), fd.getLength());
+				mediaPlayer.prepare();
+			} else {
+				return false;
+			}
+		} catch (IOException e) {
+			return false;
+		}
+		mediaPlayer.setLooping(looping);
+		mediaPlayer.start();
+		return true;
+	}
+
+	@SuppressWarnings("unused")
+	private int getRedbookTrackCount() {
+		AssetManager assetManager = getAssets();
+		String trackList[];
+
+		try {
+			trackList = assetManager.list("music");
+			return Integer.parseInt(trackList[trackList.length - 1].substring(0, 2));
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+
+	@SuppressWarnings("unused")
+	private void stopMusic() {
 		mediaPlayer.stop();
 		mediaPlayer.reset();
 	}
 
 	@SuppressWarnings("unused")
-	private void setMidiVolume(float volume) {
+	private void setMusicVolume(float volume) {
 		mediaPlayer.setVolume(volume, volume);
 	}
 
