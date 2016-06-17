@@ -781,11 +781,6 @@ void digi_reset_digi_sounds() {
 	}
 }
 
-void reset_sounds_on_channel(int channel) {
-	if (!SLPlayers[channel]) return;
-	(*SLPlayers[channel])->SetPlayState(SLPlayers[channel], SL_PLAYSTATE_STOPPED);
-}
-
 void digi_set_max_channels(int n) {
 	digi_max_channels = n;
 
@@ -1058,9 +1053,8 @@ void digi_start_sound_object(int i) {
 											  SoundObjects[i].flags & SOF_PLAY_FOREVER, 0, 0, 0);
 	SoundObjPtrs[SoundObjects[i].handle] = &SoundObjects[i];
 
-	if (SoundObjects[i].handle != 0xffff) {
+	if (SoundObjects[i].handle != -1) {
 		SoundObjects[i].flags |= SOF_PLAYING;
-		reset_sounds_on_channel(SoundObjects[i].handle);
 	}
 }
 
