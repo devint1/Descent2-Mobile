@@ -480,7 +480,7 @@ int digi_xlat_sound(int soundno) {
 void digi_stop_all_channels() {
 	unsigned int i;
 
-	for (i = 0; i < MAX_CHANNELS; i++)
+	for (i = 0; i < num_sl_objects; i++)
 		digi_stop_sound(i);
 
 	for (i = 0; i < MAX_SOUNDS; i++) {
@@ -488,12 +488,12 @@ void digi_stop_all_channels() {
 	}
 }
 
-void digi_stop_sound( unsigned int c )
-{
+void digi_stop_sound(unsigned int c) {
 	if (!Digi_initialized) return;
-	if (digi_driver_board<1) return;
+	if (digi_driver_board < 1) return;
 
-	if ( digi_is_channel_playing(c)  )		{
+	if (c >= num_sl_objects) return;
+	if (digi_is_channel_playing(c)) {
 		(*SLPlayers[c])->SetPlayState(SLPlayers[c], SL_PLAYSTATE_STOPPED);
 	}
 }
