@@ -74,6 +74,9 @@ static SLDataSource src;
 static SLObjectItf player_obj;
 static SLPlayItf player;
 static SLAndroidSimpleBufferQueueItf buffer_queue;
+
+extern SLresult create_one_sl_object();
+extern void destroy_one_sl_object();
 #else
 static ALuint source;
 #endif
@@ -332,7 +335,12 @@ static int create_audiobuf_handler(unsigned char major, unsigned char minor, uns
 	src.pLocator = &in_loc;
 	src.pFormat = &format;
 
-	(*engine)->CreateAudioPlayer(engine, &player_obj, &src, &dst, 1, ids, req);
+	destroy_one_sl_object();
+	result = (*engine)->CreateAudioPlayer(engine, &player_obj, &src, &dst, 1, ids, req);
+	if (result != SL_RESULT_SUCCESS) {
+		mve_audio_canplay = 0;
+		return 0;
+	}
 	result = (*player_obj)->Realize(player_obj, SL_BOOLEAN_FALSE);
 	if (result != SL_RESULT_SUCCESS) {
 		mve_audio_canplay = 0;
@@ -732,6 +740,8 @@ void MVE_rmEndMovie()
 		mve_audio_canplay = 0;
 #ifdef ANDROID_NDK
 		(*player_obj)->Destroy(player_obj);
+		create_one_sl_object();
+		player_obj = NULL;
 		for (int i = 0; i < TOTAL_AUDIO_BUFFERS; ++i) {
 			if (mve_audio_buffers[i]) {
 				mve_free(mve_audio_buffers[i]);
