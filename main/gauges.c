@@ -405,6 +405,7 @@ static int old_cloak[2]				= { 0, 0 };
 static int old_lives[2]				= { -1, -1 };
 static fix old_afterburner[2]		= { -1, -1 };
 static int old_bombcount[2]		= { 0, 0 };
+static bool force_weapon_draw[2];
 
 static int invulnerable_frame = 0;
 
@@ -1912,11 +1913,10 @@ void init_gauges()
 		old_lives[i]			= -1;
 		old_afterburner[i]	= -1;
 		old_bombcount[i]		= 0;
-		old_laser_level[i]	= 0;
-	
-		old_weapon[0][i] = old_weapon[1][i] = -1;
+
 		old_ammo_count[0][i] = old_ammo_count[1][i] = -1;
 		Old_Omega_charge[i] = -1;
+		force_weapon_draw[i] = true;
 	}
 
 	cloak_fade_state = 0;
@@ -2409,6 +2409,9 @@ void draw_weapon_info(int weapon_type,int weapon_num,int laser_level)
 			gr_set_current_canvas(get_current_game_screen());
 		}
 		else {
+#ifdef OGLES
+			gr_set_current_canvas(&VR_screen_pages[0]);
+#endif
 			gb = get_gauge_box(COCKPIT_PRIMARY_BOX);
 			draw_weapon_info_sub(info_index,
 				&gb,
@@ -2416,7 +2419,9 @@ void draw_weapon_info(int weapon_type,int weapon_num,int laser_level)
 				PRIMARY_WEAPON_NAMES_SHORT(weapon_num),
 				PRIMARY_W_TEXT_X,PRIMARY_W_TEXT_Y);
 		}
-
+#ifdef OGLES
+		gr_set_current_canvas(get_current_game_screen());
+#endif
 	}
 	else {
 		info_index = Secondary_weapon_to_weapon_info[weapon_num];
@@ -2432,6 +2437,9 @@ void draw_weapon_info(int weapon_type,int weapon_num,int laser_level)
 			gr_set_current_canvas(get_current_game_screen());
 		}
 		else {
+#ifdef OGLES
+			gr_set_current_canvas(&VR_screen_pages[0]);
+#endif
 			gb = get_gauge_box(COCKPIT_SECONDARY_BOX);
 			draw_weapon_info_sub(info_index,
 				&gb,
@@ -2439,6 +2447,9 @@ void draw_weapon_info(int weapon_type,int weapon_num,int laser_level)
 				SECONDARY_WEAPON_NAMES_SHORT(weapon_num),
 				SECONDARY_W_TEXT_X,SECONDARY_W_TEXT_Y);
 		}
+#ifdef OGLES
+		gr_set_current_canvas(get_current_game_screen());
+#endif
 	}
 }
 
@@ -2456,14 +2467,8 @@ int draw_weapon_box(int weapon_type,int weapon_num)
 	int drew_flag=0;
 	int laser_level_changed;
 
-WINDOS(
-	dd_gr_set_current_canvas(&dd_VR_render_buffer[0]),
-	gr_set_current_canvas(&VR_render_buffer[0])
-);
+	gr_set_current_canvas(&VR_render_buffer[0]);
 
-   PA_DFX (pa_set_backbuffer_current());
- 
-WIN(DDGRLOCK(dd_grd_curcanv));
 	gr_set_curfont( GAME_FONT );
 
 	laser_level_changed = (weapon_type==0 && weapon_num==LASER_INDEX && (Players[Player_num].laser_level != old_laser_level[VR_current_page]));
@@ -2472,20 +2477,30 @@ WIN(DDGRLOCK(dd_grd_curcanv));
 		weapon_box_states[weapon_type] = WS_FADING_OUT;
 		weapon_box_fade_values[weapon_type]=i2f(GR_FADE_LEVELS-1);
 	}
-		
-	if (old_weapon[weapon_type][VR_current_page] == -1) {
-		//@@if (laser_level_changed)
-		//@@	old_weapon[weapon_type][VR_current_page] = LASER_INDEX;
-		//@@else 
+
+	if (old_weapon[weapon_type][VR_current_page] == -1 || force_weapon_draw[weapon_type]) {
+		drew_flag=1;
+#ifdef OGLES
+		if (old_weapon[weapon_type][VR_current_page] == -1)
+#endif
 		{
 			draw_weapon_info(weapon_type,weapon_num,Players[Player_num].laser_level);
 			old_weapon[weapon_type][VR_current_page] = weapon_num;
 			old_ammo_count[weapon_type][VR_current_page]=-1;
 			Old_Omega_charge[VR_current_page]=-1;
 			old_laser_level[VR_current_page] = Players[Player_num].laser_level;
-			drew_flag=1;
 			weapon_box_states[weapon_type] = WS_SET;
 		}
+		force_weapon_draw[weapon_type] = false;
+	}
+
+	if (weapon_box_states[weapon_type] != WS_SET) {		//fade gauge
+#ifdef OGLES
+		int fade_value = f2i(weapon_box_fade_values[weapon_type]);
+		Gr_scanline_darkening_level = fade_value;
+#endif
+	} else {
+		draw_weapon_info(weapon_type,weapon_num,Players[Player_num].laser_level);
 	}
 
 	if (weapon_box_states[weapon_type] == WS_FADING_OUT) {
@@ -2515,29 +2530,21 @@ WIN(DDGRLOCK(dd_grd_curcanv));
 			weapon_box_fade_values[weapon_type] += FrameTime * FADE_SCALE;
 			if (weapon_box_fade_values[weapon_type] >= i2f(GR_FADE_LEVELS-1)) {
 				weapon_box_states[weapon_type] = WS_SET;
-				old_weapon[weapon_type][!VR_current_page] = -1;		//force redraw (at full fade-in) of other page
 			}
 		}
 	}
 
-	if (weapon_box_states[weapon_type] != WS_SET) {		//fade gauge
-		int fade_value = f2i(weapon_box_fade_values[weapon_type]);
-		int boxofs = (Cockpit_mode==CM_STATUS_BAR)?SB_PRIMARY_BOX:COCKPIT_PRIMARY_BOX;
-		
-		Gr_scanline_darkening_level = fade_value;
-//	   PA_DFX (pa_set_frontbuffer_current());
-//		PA_DFX (gr_rect(gauge_boxes[boxofs+weapon_type].left,gauge_boxes[boxofs+weapon_type].top,gauge_boxes[boxofs+weapon_type].right,gauge_boxes[boxofs+weapon_type].bot));
-	   PA_DFX (pa_set_backbuffer_current());
-		gr_rect(get_gauge_box(boxofs+weapon_type).left,get_gauge_box(boxofs+weapon_type).top,get_gauge_box(boxofs+weapon_type).right,get_gauge_box(boxofs+weapon_type).bot);
-
-		Gr_scanline_darkening_level = GR_FADE_LEVELS;
-	}
-WIN(DDGRUNLOCK(dd_grd_curcanv));
-
-WINDOS(
-	dd_gr_set_current_canvas(get_current_game_screen()),
-	gr_set_current_canvas(get_current_game_screen())
-);
+#ifndef OGLES
+	if (weapon_box_states[weapon_type] != WS_SET) {
+        int fade_value = f2i(weapon_box_fade_values[weapon_type]);
+        int boxofs = (Cockpit_mode==CM_STATUS_BAR)?2:0;
+        gauge_box gb = get_gauge_box(boxofs + weapon_type);
+        Gr_scanline_darkening_level = fade_value;
+        gr_rect(gb.left, gb.top, gb.right, gb.bot);
+    }
+#endif
+	Gr_scanline_darkening_level = GR_FADE_LEVELS;
+	gr_set_current_canvas(get_current_game_screen());
 	return drew_flag;
 }
 
