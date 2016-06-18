@@ -28,6 +28,8 @@ char state_rcsid[] = "$Id: state.c 2.95 1997/01/24 18:35:39 jeremy Exp $";
 #include <unistd.h>
 #include <errno.h>
 #include <sys/syslimits.h>
+#include "ViewControllerC.h"
+
 #ifdef MACINTOSH
 #include <Files.h>
 #endif
@@ -426,25 +428,14 @@ int state_save_all_sub(char *filename, char *desc, int between_levels)
 	int i,j;
 	FILE * fp;
 	grs_canvas * cnv;
-#ifdef POLY_ACC
-	grs_canvas cnv2,*save_cnv2;
+#ifdef OGLES
+	GLubyte *screen;
+	GLint viewWidth, viewHeight;
 #endif
 	ubyte *pal;
-	
+
 	Assert(between_levels == 0);	//between levels save ripped out
-	
-	/*	if ( Game_mode & GM_MULTI )	{
-		{
-		start_time();
-		return 0;
-		}
-	 }*/
-	
-#if defined(MACINTOSH) && !defined(NDEBUG)
-	if ( strncmp(filename, ":Players:", 9) )
-		Int3();
-#endif
-	
+
 	fp = fopen( filename, "wb" );
 	if ( !fp ) {
 		if ( !(Game_mode & GM_MULTI) )
@@ -452,110 +443,52 @@ int state_save_all_sub(char *filename, char *desc, int between_levels)
 		start_time();
 		return 0;
 	}
-	
+
 	//Save id
 	fwrite( dgss_id, sizeof(char)*4, 1, fp );
-	
+
 	//Save version
 	i = STATE_VERSION;
 	fwrite( &i, sizeof(int), 1, fp );
-	
+
 	//Save description
 	fwrite( desc, sizeof(char)*DESC_LENGTH, 1, fp );
-	
+
 	// Save the current screen shot...
-	
+#ifdef OGLES
+	cnv = gr_create_sub_canvas(grd_curcanv, 0, 0, THUMBNAIL_W, THUMBNAIL_H);
+	screen = malloc(THUMBNAIL_W * THUMBNAIL_H * 4);
+#else
 	cnv = gr_create_canvas( THUMBNAIL_W, THUMBNAIL_H );
-	if ( cnv )
-	{
-#ifdef WINDOWS
-		dd_grs_canvas *cnv_save;
-		cnv_save = dd_grd_curcanv;
-#else
-		grs_canvas * cnv_save;
+#endif
+	if (cnv) {
+		grs_canvas *cnv_save;
 		cnv_save = grd_curcanv;
-#endif
-		
-#ifndef MACINTOSH
-		
-#if defined(POLY_ACC)
-		
-		PA_DFX (pa_fool_to_backbuffer());
-		
-		//for poly_acc, we render the frame to the normal render buffer
-		//so that this doesn't show, we create yet another canvas to save
-		//and restore what's on the render buffer
-		PA_DFX (pa_alpha_always());
-		PA_DFX (pa_set_front_to_read());
-		gr_init_sub_canvas( &cnv2, &VR_render_buffer[0], 0, 0, THUMBNAIL_W, THUMBNAIL_H );
-		save_cnv2 = gr_create_canvas2(THUMBNAIL_W, THUMBNAIL_H, cnv2.cv_bitmap.bm_type);
-		gr_set_current_canvas( save_cnv2 );
-		PA_DFX (pa_set_front_to_read());
-		gr_bitmap(0,0,&cnv2.cv_bitmap);
-		gr_set_current_canvas( &cnv2 );
-#else
-		gr_set_current_canvas( cnv );
-#endif
-		
-		PA_DFX (pa_set_backbuffer_current());
+		gr_set_current_canvas(cnv);
 		render_frame(0, 0);
-		PA_DFX (pa_alpha_always());
-		
-#if defined(POLY_ACC)
-#ifndef MACINTOSH
-		screen_shot_pa(cnv,&cnv2);
-#else
-		if ( PAEnabled )
-			screen_shot_pa(cnv,&cnv2);
+#ifdef OGLES
+		getRenderBufferSize(&viewWidth, &viewHeight);
+		glReadPixels(0, viewHeight - THUMBNAIL_H, THUMBNAIL_W, THUMBNAIL_H, GL_RGBA,
+					 GL_UNSIGNED_BYTE, screen);
+		cnv->cv_bitmap.bm_data = malloc(THUMBNAIL_H * THUMBNAIL_W);
+		ogles_map_bitmap(cnv->cv_bitmap.bm_data, screen, THUMBNAIL_W, THUMBNAIL_H);
+		free(screen);
 #endif
-#endif
-		
 		pal = gr_palette;
-		
-		fwrite( cnv->cv_bitmap.bm_data, THUMBNAIL_W*THUMBNAIL_H, 1, fp );
-		
-#if defined(POLY_ACC)
-		PA_DFX (pa_alpha_always());
-		PA_DFX (pa_set_frontbuffer_current());
-		PA_DFX(gr_bitmap(0,0,&save_cnv2->cv_bitmap));
-		PA_DFX (pa_set_backbuffer_current());
-		gr_bitmap(0,0,&save_cnv2->cv_bitmap);
-		gr_free_canvas(save_cnv2);
-		PA_DFX (pa_fool_to_offscreen());
-		
-#endif
-		
-#else 	// macintosh stuff below
-		{
-#if defined(POLY_ACC)
-			int	savePAEnabled = PAEnabled;
-			PAEnabled = false;
-#endif
-			
-			gr_set_current_canvas( cnv );
-			render_frame(0, 0);
-			pal = gr_palette;
-			fwrite( cnv->cv_bitmap.bm_data, THUMBNAIL_W*THUMBNAIL_H, 1, fp );
-			
-#if defined(POLY_ACC)
-			PAEnabled = savePAEnabled;
-#endif
-		}
-#endif	// end of ifndef macintosh
-		
-		
-		WINDOS(
-			   dd_gr_set_current_canvas(cnv_save),
-			   gr_set_current_canvas(cnv_save)
-			   );
+		fwrite(cnv->cv_bitmap.bm_data, THUMBNAIL_W * THUMBNAIL_H, 1, fp);
+#ifdef OGLES
+		free(cnv->cv_bitmap.bm_data);
+		gr_free_sub_canvas(cnv);
+#else
 		gr_free_canvas( cnv );
-		fwrite( pal, 3, 256, fp);
+#endif
+		gr_set_current_canvas(cnv_save);
+		fwrite(pal, 3, 256, fp);
 	}
-	else
-	{
+	else {
 		ubyte color = 0;
-		for ( i=0; i<THUMBNAIL_W*THUMBNAIL_H; i++ )
-			fwrite( &color, sizeof(ubyte), 1, fp );
+		for (i = 0; i < THUMBNAIL_W * THUMBNAIL_H; i++)
+			fwrite(&color, sizeof(ubyte), 1, fp);
 	}
 	
 	// Save the Between levels flag...
