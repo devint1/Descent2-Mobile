@@ -459,7 +459,7 @@ extern void newdemo_record_cockpit_change(int);
 //called every time the screen mode or cockpit changes
 void init_cockpit()
 {
-	int minx, maxx, miny, maxy;
+	int x, y, minx, maxx, miny, maxy;
 	
 #if defined(POLY_ACC)
 	pa_flush();                 // get rid of undrawn polys.
@@ -516,8 +516,18 @@ void init_cockpit()
 			gr_ibitblt_find_hole_size ( bm, &minx, &miny, &maxx, &maxy );
 			Game_cockpit_copy_code = 1;
 			gr_ibitblt_create_mask( bm, minx, miny, maxx-minx+1, maxy-miny+1, VR_offscreen_buffer->cv_bitmap.bm_rowsize );
-			bm->bm_flags = 0;		// Clear all flags for offscreen canvas
-			game_init_render_sub_buffers( 0, 0, maxx-minx+1, maxy-miny+1 );
+			bm->bm_flags = 0;        // Clear all flags for offscreen canvas
+#ifdef OGLES
+			if (Cockpit_mode == CM_REAR_VIEW) {
+				x = minx;
+				y = miny;
+			} else {
+				x = y = 0;
+			}
+#else
+			x = y = 0;
+#endif
+			game_init_render_sub_buffers(x, y, maxx - minx + 1, maxy - miny + 1);
 			break;
 		}
 

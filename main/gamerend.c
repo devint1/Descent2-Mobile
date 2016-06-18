@@ -1506,16 +1506,18 @@ void game_render_frame_mono(void)
 		}
 	}
 
-	if (Cockpit_mode==CM_FULL_COCKPIT || Cockpit_mode==CM_STATUS_BAR) {
+	if (Cockpit_mode == CM_FULL_COCKPIT || Cockpit_mode == CM_REAR_VIEW || Cockpit_mode == CM_STATUS_BAR) {
 
 		if ( Newdemo_state == ND_STATE_PLAYBACK )
 			Game_mode = Newdemo_game_mode;
 
 #ifdef OGLES
+		gr_set_current_canvas(NULL);
 		update_cockpits(1);
 #endif
-
-		render_gauges();
+		if (Cockpit_mode != CM_REAR_VIEW) {
+			render_gauges();
+		}
 
 		if ( Newdemo_state == ND_STATE_PLAYBACK )
 			Game_mode = GM_NORMAL;
