@@ -1498,30 +1498,18 @@ void draw_ammo_info(int x,int y,int ammo_count,int primary)
 {
 	int w;
 	char str[16];
-	
+
 	if (primary)
-		w = (grd_curcanv->cv_font->ft_w*7)/2;
+		w = (int) (grd_curcanv->cv_font->ft_w * f2fl(Scale_factor) * 7) / 2;
 	else
-		w = (grd_curcanv->cv_font->ft_w*5)/2;
-	
-	WIN(DDGRLOCK(dd_grd_curcanv));
-	{
+		w = (int) (grd_curcanv->cv_font->ft_w * f2fl(Scale_factor) * 5) / 2;
 
-		PA_DFX (pa_set_frontbuffer_current());
-
-		gr_setcolor(BM_XRGB(0,0,0));
-		gr_rect(x,y,x+w,y+grd_curcanv->cv_font->ft_h*f2fl(Scale_factor));
-		gr_set_fontcolor(gr_getcolor(20,0,0),-1 );
-		sprintf(str,"%03d",ammo_count);
-		convert_1s(str);
-		gr_printf(x,y,str);
-
-		PA_DFX (pa_set_backbuffer_current());
-		gr_rect(x,y,x+w,y+grd_curcanv->cv_font->ft_h*f2fl(Scale_factor));
-		gr_printf(x,y,str);
-	}
-
-	WIN(DDGRUNLOCK(dd_grd_curcanv));
+	gr_setcolor(BM_XRGB(0, 0, 0));
+	gr_rect(x, y, x + w, (int) (y + grd_curcanv->cv_font->ft_h * f2fl(Scale_factor)));
+	gr_set_fontcolor(gr_getcolor(20, 0, 0), -1);
+	sprintf(str, "%03d", ammo_count);
+	convert_1s(str);
+	gr_string(x, y, str);
 }
 
 void draw_primary_ammo_info(int ammo_count)
