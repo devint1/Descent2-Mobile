@@ -1433,7 +1433,8 @@ void hud_show_weapons(void) {
 		old_ammo_count[1][VR_current_page] = Players[Player_num].secondary_ammo[Secondary_weapon];
 	}
 
-	show_bomb_count(grd_curcanv->cv_bitmap.bm_w - (3 * GAME_FONT->ft_w + (FontHires ? 0 : 2)),
+	show_bomb_count((int) (grd_curcanv->cv_bitmap.bm_w -
+						   f2fl(Scale_factor) * (3 * GAME_FONT->ft_w + (FontHires ? 0 : 2))),
 					y - 3 * Line_spacing, -1, 1);
 }
 
@@ -1617,8 +1618,8 @@ void show_time() {
 		Color_0_31_0 = gr_getcolor(0, 31, 0);
 	gr_set_fontcolor(Color_0_31_0, -1);
 
-	gr_printf(grd_curcanv->cv_w - 4 * GAME_FONT->ft_w, grd_curcanv->cv_h - 4 * Line_spacing,
-			  "%d:%02d", mins, secs);
+	gr_printf((int) (grd_curcanv->cv_w - f2fl(Scale_factor) * 4 * GAME_FONT->ft_w),
+			  grd_curcanv->cv_h - 4 * Line_spacing, "%d:%02d", mins, secs);
 }
 
 #endif
