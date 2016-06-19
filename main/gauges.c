@@ -1712,7 +1712,6 @@ void init_gauges() {
 		old_energy[i] = -1;
 		old_shields[i] = -1;
 		old_flags[i] = -1;
-		old_cloak[i] = -1;
 		old_lives[i] = -1;
 		old_afterburner[i] = -1;
 		old_bombcount[i] = 0;
@@ -1721,8 +1720,6 @@ void init_gauges() {
 		Old_Omega_charge[i] = -1;
 		force_weapon_draw[i] = true;
 	}
-
-	cloak_fade_state = 0;
 
 	weapon_box_user[0] = weapon_box_user[1] = WBU_WEAPON;
 }
@@ -2000,10 +1997,8 @@ void draw_player_ship(int cloak_state, int old_cloak_state, int x, int y) {
 	if (cloak_fade_state)
 		cloak_fade_timer -= FrameTime;
 
-	while (cloak_fade_state && cloak_fade_timer < 0) {
-
+	if (cloak_fade_state && cloak_fade_timer < 0) {
 		cloak_fade_timer += CLOAK_FADE_WAIT_TIME;
-
 		cloak_fade_value += cloak_fade_state;
 
 		if (cloak_fade_value >= GR_FADE_LEVELS - 1) {
@@ -3234,7 +3229,7 @@ void render_gauges() {
 	}
 
 	if (frc || cloak != old_cloak[VR_current_page] || cloak_fade_state ||
-		(cloak && GameTime > Players[Player_num].cloak_time + CLOAK_TIME_MAX - i2f(3))) {
+		(cloak && GameTime > Players[Player_num].cloak_time + CLOAK_TIME_MAX - i2f(3)) || !cloak) {
 		if (Cockpit_mode == CM_FULL_COCKPIT)
 			draw_player_ship(cloak, old_cloak[VR_current_page], (int) SHIP_GAUGE_X,
 							 (int) SHIP_GAUGE_Y);
@@ -3244,7 +3239,6 @@ void render_gauges() {
 
 		old_cloak[VR_current_page] = cloak;
 	}
-
 
 	draw_weapon_boxes();
 }
