@@ -81,18 +81,18 @@ static char rcsid[] = "$Id: newmenu.c 2.133 1997/01/24 17:48:48 jeremy Exp $";
 #define SELECTED_FONT  	MEDIUM2_FONT		//highlighted item
 #define SUBTITLE_FONT	MEDIUM3_FONT
 
-#define NORMAL_CHECK_BOX	""
-#define CHECKED_CHECK_BOX       "‚"    
+#define NORMAL_CHECK_BOX	"ï¿½"
+#define CHECKED_CHECK_BOX       "ï¿½"    
 
 #define NORMAL_RADIO_BOX	""
-#define CHECKED_RADIO_BOX	"€"
+#define CHECKED_RADIO_BOX	"ï¿½"
 #define CURSOR_STRING		"_"
-#define SLIDER_LEFT			"ƒ"		// 131
-#define SLIDER_RIGHT			"„"		// 132
-#define SLIDER_MIDDLE		"…"		// 133
-#define SLIDER_MARKER		"†"		// 134
-#define UP_ARROW_MARKER       "‡"    // 135
-#define DOWN_ARROW_MARKER       "ˆ"      // 136
+#define SLIDER_LEFT			"ï¿½"		// 131
+#define SLIDER_RIGHT			"ï¿½"		// 132
+#define SLIDER_MIDDLE		"ï¿½"		// 133
+#define SLIDER_MARKER		"ï¿½"		// 134
+#define UP_ARROW_MARKER       "ï¿½"    // 135
+#define DOWN_ARROW_MARKER       "ï¿½"      // 136
 
 int Newmenu_first_time = 1;
 //--unused-- int Newmenu_fade_in = 1;
@@ -724,14 +724,9 @@ int newmenu_do4( char * title, char * subtitle, int nitems, newmenu_item * item,
 	int MaxOnMenu=MAXDISPLAYABLEITEMS;
 	bool shifted_up = false;
 	bool mouse_clicked = false;
-	WINDOS(dd_grs_canvas *save_canvas, grs_canvas *save_canvas );
-#if defined(MACINTOSH) || defined(WINDOWS)
-	int mouse_state, omouse_state, dblclick_flag=0;
-	int mx=0, my=0, x1, x2, y1, y2;
-	int close_box=0;
-#endif
-#ifdef MACINTOSH
-	EventRecord event;		// looking for disk inserted events for CD mounts
+	grs_canvas *save_canvas;
+#ifdef OGLES
+	GLint viewWidth, viewHeight;
 #endif
 	
 	PA_DFX (pa_set_frontbuffer_current());
@@ -968,23 +963,40 @@ RePaintNewmenu4:
 	// Save the background of the display
 	bg.menu_canvas = gr_create_sub_canvas( &grd_curscreen->sc_canvas, x, y, w, h );
 	gr_set_current_canvas(bg.menu_canvas);
-	
-	if ( filename == NULL )	{
-		// Save the background under the menu...
+
+#ifdef OGLES
+	getRenderBufferSize(&viewWidth, &viewHeight);
+#endif
+	if (filename == NULL) {
+#ifdef OGLES
+		bg.saved = gr_create_bitmap(viewWidth, viewHeight);
+		Assert(bg.saved != NULL);
+		bg.saved->bm_type = BM_OGLES;
+		bg.saved->bm_ogles_tex_id = ogles_save_screen();
+#else
 		bg.saved = gr_create_bitmap( w, h );
 		Assert( bg.saved != NULL );
 		gr_bm_bitblt(w, h, 0, 0, 0, 0, &grd_curcanv->cv_bitmap, bg.saved );
+#endif
+		// Save the background under the menu...
 		gr_set_current_canvas(VR_offscreen_buffer);
-		nm_draw_background(x,y,x+w-1,y+h-1);
+		nm_draw_background(x, y, x + w - 1, y + h - 1);
 		gr_set_current_canvas(NULL);
-		nm_draw_background(x,y,x+w-1,y+h-1);
-		bg.background = gr_create_sub_bitmap(&VR_offscreen_buffer->cv_bitmap,x,y,w,h);
-		gr_set_current_canvas( bg.menu_canvas );
+		nm_draw_background(x, y, x + w - 1, y + h - 1);
+		bg.background = gr_create_sub_bitmap(&VR_offscreen_buffer->cv_bitmap, x, y, w, h);
+		gr_set_current_canvas(bg.menu_canvas);
 	} else {
 		bg.saved = NULL;
+#ifdef OGLES
+		bg.background = gr_create_bitmap(viewWidth, viewHeight);
+		Assert(bg.background != NULL);
+		bg.background->bm_type = BM_OGLES;
+		bg.background->bm_ogles_tex_id = ogles_save_screen();
+#else
 		bg.background = gr_create_bitmap( w, h );
 		Assert( bg.background != NULL );
 		gr_bm_bitblt(w, h, 0, 0, 0, 0, &grd_curcanv->cv_bitmap, bg.background );
+#endif
 	}
 
 	ty = (MenuHires?30:15) * f2fl(Scale_factor);
@@ -1853,26 +1865,24 @@ RePaintNewmenu4:
 	
 	MAC(hide_cursor());
 	WIN(HideCursorW());
-	
+
 	// Restore everything...
-
-	WINDOS (	dd_gr_set_current_canvas(bg.menu_canvas),
-			gr_set_current_canvas(bg.menu_canvas));
-
+	gr_set_current_canvas(bg.menu_canvas);
 	if ( filename == NULL )	{
 		// Save the background under the menu...
-		WIN (DDGRLOCK(dd_grd_curcanv));
-			gr_bitmap(0, 0, bg.saved); 	
-		WIN (DDGRUNLOCK(dd_grd_curcanv));
+#ifdef OGLES
+		ogles_draw_saved_screen(bg.saved->bm_ogles_tex_id);
+#else
+		gr_bitmap(0, 0, bg.saved);
+#endif
 		gr_free_bitmap(bg.saved);
 		free( bg.background );
 	} else {
-		if (!dont_restore)	//info passed back from subfunction
-		{
-			WIN (DDGRLOCK(dd_grd_curcanv));
-			gr_bitmap(0, 0, bg.background);
-			WIN (DDGRUNLOCK(dd_grd_curcanv)); 	
-		}
+#ifdef OGLES
+		ogles_draw_saved_screen(bg.background->bm_ogles_tex_id);
+#else
+		gr_bitmap(0, 0, bg.background);
+#endif
 		gr_free_bitmap(bg.background);
 	}
 	if (textIsActive()) {
