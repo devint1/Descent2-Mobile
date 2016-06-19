@@ -81,18 +81,17 @@ static char rcsid[] = "$Id: newmenu.c 2.133 1997/01/24 17:48:48 jeremy Exp $";
 #define SELECTED_FONT  	MEDIUM2_FONT		//highlighted item
 #define SUBTITLE_FONT	MEDIUM3_FONT
 
-#define NORMAL_CHECK_BOX	"�"
-#define CHECKED_CHECK_BOX       "�"    
-
-#define NORMAL_RADIO_BOX	""
-#define CHECKED_RADIO_BOX	"�"
+#define NORMAL_CHECK_BOX	"\x81"
+#define CHECKED_CHECK_BOX	"\x82"
+#define NORMAL_RADIO_BOX	"\x7f"
+#define CHECKED_RADIO_BOX	"\x80"
 #define CURSOR_STRING		"_"
-#define SLIDER_LEFT			"�"		// 131
-#define SLIDER_RIGHT			"�"		// 132
-#define SLIDER_MIDDLE		"�"		// 133
-#define SLIDER_MARKER		"�"		// 134
-#define UP_ARROW_MARKER       "�"    // 135
-#define DOWN_ARROW_MARKER       "�"      // 136
+#define SLIDER_LEFT			"\x83"
+#define SLIDER_RIGHT		"\x84"
+#define SLIDER_MIDDLE		"\x85"
+#define SLIDER_MARKER		"\x86"
+#define UP_ARROW_MARKER		"\x87"
+#define DOWN_ARROW_MARKER	"\x88"
 
 int Newmenu_first_time = 1;
 //--unused-- int Newmenu_fade_in = 1;
