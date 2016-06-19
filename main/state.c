@@ -165,13 +165,13 @@ void state_callback(int nitems,newmenu_item * items, int * last_key, int citem)
 		x = fl2f((grd_curcanv->cv_bitmap.bm_w - THUMBNAIL_W * f2fl(Scale_x)) / 2);
 		y = fl2f(items[0].y - 5 * f2fl(Scale_y));
 	}
-	
+
 	grs_point scale_pts[] = {
 		{ x, y },
 		{ x + i2f(THUMBNAIL_W), y + i2f(THUMBNAIL_H) },
-		{ x + THUMBNAIL_W * (MenuHires?2:1) * Scale_factor, y + THUMBNAIL_H * Scale_factor * (MenuHires?2.4f:1) }
+		{ (fix) (x + THUMBNAIL_W * (MenuHires?2.4f:1) * Scale_factor), (fix) (y + THUMBNAIL_H * Scale_factor * (MenuHires?2.4f:1)) }
 	};
-	
+
 	if ( citem > 0 )	{
 		if ( sc_bmp[citem-1] )	{
 			scale_bitmap(sc_bmp[citem-1], scale_pts, 0);
