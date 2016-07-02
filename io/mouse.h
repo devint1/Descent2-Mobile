@@ -101,6 +101,9 @@ extern fix mouse_button_down_time(int button, int *x, int *y);
 // Returns how many times this button has went down since last call.
 extern int mouse_button_down_count(int button, int *x, int *y);
 
+// Returns how many times this button has went up since last call.
+extern int mouse_button_up_count(int button, int *x, int *y);
+
 // Returns 1 if this button is currently down
 extern int mouse_button_state(int button);
 

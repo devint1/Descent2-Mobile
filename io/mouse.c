@@ -316,6 +316,27 @@ int mouse_button_down_count(int button, int *x, int *y)
 	return count;
 }
 
+// Returns how many times this button has went up since last call.
+int mouse_button_up_count(int button, int *x, int *y)
+{
+	int count;
+
+	if (!Mouse_installed)
+		return 0;
+
+	if(x) {
+		*x = Mouse.x_info.x;
+	}
+	if(y) {
+		*y = Mouse.x_info.y;
+	}
+
+	count = Mouse.num_ups[button];
+	Mouse.num_ups[button]=0;
+
+	return count;
+}
+
 // Returns 1 if this button is currently down
 int mouse_button_state(int button)	
 {

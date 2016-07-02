@@ -582,6 +582,20 @@ int get_item_at_menu_pos(int x, int y, int nitems, newmenu_item *item) {
 	return -1;
 }
 
+void set_slider_value(int x, newmenu_item *item) {
+	char *p = strchr(item->saved_text, '\t') + 1;
+	int w, h, aw;
+	int slider_x;
+
+	gr_get_string_size(p, &w, &h, &aw);
+	slider_x = item->x + item->w - w;
+	if (slider_x <= x && slider_x + w >= x) {
+		item->value = (int) roundf((((float) (x - slider_x) / (float) w)
+									* (item->max_value - item->min_value)) + item->min_value);
+		item->redraw = 1;
+	}
+}
+
 int newmenu_do4( char * title, char * subtitle, int nitems, newmenu_item * item, void (*subfunction)(int nitems,newmenu_item * items, int * last_key, int citem), int citem, char * filename, int width, int height, int TinyMode );
 
 int newmenu_do( char * title, char * subtitle, int nitems, newmenu_item * item, void (*subfunction)(int nitems,newmenu_item * items, int * last_key, int citem) )
@@ -721,8 +735,10 @@ int newmenu_do4( char * title, char * subtitle, int nitems, newmenu_item * item,
 	char *Temp,TempVal;
 	int dont_restore=0;
 	int MaxOnMenu=MAXDISPLAYABLEITEMS;
-	bool shifted_up = false;
-	bool mouse_clicked = false;
+	bool shifted_up = false;\
+	int mouse_down = 0;
+	int mouse_up = 0;
+	int slider_locked = 0;
 	grs_canvas *save_canvas;
 #ifdef OGLES
 	GLint viewWidth, viewHeight;
@@ -1150,8 +1166,8 @@ RePaintNewmenu4:
 
 		//network_listen();
 
-		if (mouse_clicked) {
-			mouse_clicked = false;
+		if (mouse_up) {
+			mouse_down = 0;
 		} else {
 			k = key_inkey();
 		}
@@ -1175,18 +1191,29 @@ RePaintNewmenu4:
 //			done=1;
 
 		old_choice = choice;
-		
+
 		// Get the "mouse" (AKA, touch screen)
-		if(mouse_button_down_count(0, &mouse_x, &mouse_y)>0) {
-			if(mouse_x < x || mouse_y < y || mouse_x > x + w || mouse_y > y + h) {
+		mouse_up = mouse_button_up_count(0, &mouse_x, &mouse_y);
+		if (!mouse_down) {
+			mouse_down = mouse_button_down_count(0, &mouse_x, &mouse_y);
+			mouse_up = 0;
+		} else {
+			if (mouse_up && (mouse_x < x || mouse_y < y || mouse_x > x + w || mouse_y > y + h)) {
 				choice = -1;
 				done = true;
 			} else {
-				choice = get_item_at_menu_pos(mouse_x - x, mouse_y - y, nitems, item);
-				if(choice == -1) {
-					choice = old_choice;
-				} else {
-					mouse_clicked = true;
+				if (!slider_locked) {
+					choice = get_item_at_menu_pos(mouse_x - x, mouse_y - y, nitems, item);
+				}
+				if (choice != -1) {
+					if (item[choice].type == NM_TYPE_SLIDER) {
+						set_slider_value(mouse_x - x, &item[choice]);
+						slider_locked |= item[choice].redraw;
+					}
+				}
+				if (choice != old_choice) {
+					item[choice].redraw = 1;
+					item[old_choice].redraw = 1;
 				}
 			}
 		}
@@ -1756,11 +1783,6 @@ RePaintNewmenu4:
 					} while (choice1 != choice );
 				}	
 			}
-			
-			if(mouse_clicked) {
-				item[choice].redraw = 1;
-				item[old_choice].redraw = 1;
-			}
 
 			if ( (item[choice].type==NM_TYPE_NUMBER) || (item[choice].type==NM_TYPE_SLIDER)) 	{
 				int ov=item[choice].value;
@@ -1853,12 +1875,20 @@ RePaintNewmenu4:
 
 		showRenderBuffer();
 
-		if(mouse_clicked) {
-			if (item[choice].type == NM_TYPE_INPUT_MENU) {
-				k = KEY_ENTER;
-			} else {
-				done = true;
+		if (mouse_up && choice != -1) {
+			switch (item[choice].type) {
+				case NM_TYPE_INPUT_MENU:
+					k = KEY_ENTER;
+					break;
+				case NM_TYPE_CHECK:
+				case NM_TYPE_RADIO:
+					k = KEY_SPACEBAR;
+					break;
+				case NM_TYPE_MENU:
+					done = true;
+					break;
 			}
+			slider_locked = 0;
 		}
 	}
 	
@@ -2049,6 +2079,7 @@ int newmenu_get_filename( char * title, char * filespec, char * filename, int al
 	int box_x, box_y, box_w, box_h;
 	bkg bg;		// background under listbox
 	int mouse_x, mouse_y;
+	int mouse_down = 0, mouse_up = 0;
 	filename_item items[MAX_FILES];
 #if defined(MACINTOSH) || defined(WINDOWS)
 	int mx, my, x1, x2, y1, y2, mouse_state, omouse_state;
@@ -2255,61 +2286,34 @@ RePaintNewmenuFile:
 #endif
 
 	while(!done)	{
-	#ifdef WINDOWS
-		MSG msg;
-
-		DoMessageStuff(&msg);
-
-		if (_RedrawScreen) {
-			_RedrawScreen = FALSE;
-
-			if ( bg.background != &VR_offscreen_buffer->cv_bitmap )
-				gr_free_bitmap(bg.background);
-	
-			win_redraw = 1;		
-			goto RePaintNewmenuFile;
-		}
-
-		DDGRRESTORE
-	#endif
-
 		ocitem = citem;
 		ofirst_item = first_item;
 
-#if defined(MACINTOSH) || defined(WINDOWS)
-		omouse_state = mouse_state;
-		omouse2_state = mouse2_state;
-		mouse_state = mouse_button_state(0);
-		mouse2_state = mouse_button_state(1);
-#endif
-
 		//see if redbook song needs to be restarted
 		songs_check_redbook_repeat();
-
-		#ifdef WINDOWS
-		if (!mouse2_state && omouse2_state)
-			key = KEY_CTRLED+KEY_D;		//fake ctrl-d
-		else
-		#endif
 		//NOTE LINK TO ABOVE ELSE
 		key = key_inkey();
-		if(mouse_button_down_count(0, &mouse_x, &mouse_y) > 0) {
+		mouse_up = mouse_button_up_count(0, &mouse_x, &mouse_y);
+		if (!mouse_down) {
+			mouse_down = mouse_button_down_count(0, &mouse_x, &mouse_y);
+			mouse_up = 0;
+		} else {
+
+			// HACK!!!! Show the menu again when Android pauses
+			if (mouse_x == -1 && mouse_y == -1) {
+				initialized = 0;
+				first_item = -1;
+				goto ReadFileNames;
+			}
+
 			citem = get_filename_item_at_pos(mouse_x, mouse_y, NumFiles, items);
-			if(citem == -1) {
-				citem = ocitem;
-			} else {
+		}
+		if (mouse_up) {
+			mouse_down = 0;
+			if (citem != -1) {
 				done = true;
 			}
 		}
-
-	#ifdef WINDOWS
-		if (simukey==-1)
-			key=KEY_UP;
-		else if (simukey==1)
-		   key=KEY_DOWN;
-		simukey=0;
-	#endif
-			
 		switch(key)	{
 		MAC(case KEY_COMMAND+KEY_SHIFTED+KEY_3:)
 		case KEY_PRINT_SCREEN:
@@ -2623,7 +2627,7 @@ RePaintNewmenuFile:
 			WIN(HideCursorW());
 			i = ocitem;
 			if ( (i>=0) && (i<NumFiles) )	{
-				y = (i-first_item)*(grd_curfont->ft_h+2)+box_y;
+				y = (int) ((i - first_item) * (grd_curfont->ft_h + 2) * f2fl(Scale_factor) + box_y);
 				if ( i == citem )	
 					grd_curcanv->cv_font = SELECTED_FONT;
 				else	
@@ -2634,13 +2638,13 @@ RePaintNewmenuFile:
 			}
 			i = citem;
 			if ( (i>=0) && (i<NumFiles) )	{
-				y = (i-first_item)*(grd_curfont->ft_h+2)+box_y;
+				y = (int) ((i - first_item) * (grd_curfont->ft_h + 2) * f2fl(Scale_factor) + box_y);
 				if ( i == citem )	
 					grd_curcanv->cv_font = SELECTED_FONT;
 				else	
 					grd_curcanv->cv_font = NORMAL_FONT;
 				gr_get_string_size(&filenames[i*14], &w, &h, &aw  );
-				gr_rect( box_x, y-1, box_x + box_x - 1, y + h + 1 );
+				gr_rect( box_x, y-1, box_x + box_w - 1, y + h + 1 );
 				gr_string( box_x + 5, y, (&filenames[i*14])+((player_mode && filenames[i*14]=='$')?1:0)  );
 			}
 			WIN(ShowCursorW());
