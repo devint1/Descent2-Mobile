@@ -496,12 +496,14 @@ WIN(DDGRLOCK(dd_grd_curcanv));
 		if ( item->group==0 )		{
 			nm_string( b, item->w, item->x, item->y, item->text );
 		} else {
-			grs_font *last_font = grd_curcanv->cv_font;
-			nm_draw_background(item->x - 10 * f2fl(Scale_factor), item->y - 3 * item->h, item->x + 10 * f2fl(Scale_factor) + item->w, item->y + 2 * item->h);
-			grd_curcanv->cv_font=SUBTITLE_FONT;
-			gr_printf(0x8000, 2 * item->h, "Enter name:");
-			grd_curcanv->cv_font=last_font;
-			nm_string_inputbox( b, item->w, item->x, item->y, item->text, is_current );
+			newmenu_item m;
+			char text[item->text_len];
+			text[0] = 0;
+			m.type = NM_TYPE_INPUT;
+			m.text_len = item->text_len;
+			m.text = text;
+			newmenu_do(NULL, "Enter save name", 1, &m, NULL);
+			strcpy(item->text, text);
 		}
 		break;
 	case NM_TYPE_INPUT:
@@ -1821,22 +1823,21 @@ RePaintNewmenu4:
 		WINDOS (	dd_gr_set_current_canvas(bg.menu_canvas),
 				gr_set_current_canvas(bg.menu_canvas));
 
-    	// Redraw everything...
-     	for (i=ScrollOffset; i<MaxDisplayable+ScrollOffset; i++ )
-     	{
-      	if (item[i].redraw) // warning! ugly hack below                  
-        	{
-         	item[i].y-=((string_height+1)*ScrollOffset);
-         	MAC(hide_cursor());
-				WIN(HideCursorW());
-           	draw_item( &bg, &item[i], (i==choice && !all_text),TinyMode );
-				item[i].redraw=0;
-				MAC(if (!joydefs_calibrating) show_cursor());
-				WIN(if (!MenuReordering) ShowCursorW());
-            item[i].y+=((string_height+1)*ScrollOffset);
-        	}   
-         if (i==choice && (item[i].type==NM_TYPE_INPUT || (item[i].type==NM_TYPE_INPUT_MENU && item[i].group)))
-				update_cursor( &item[i]);
+		// Redraw everything...
+		for (i = ScrollOffset; i < MaxDisplayable + ScrollOffset; i++) {
+			if (item[i].redraw) // warning! ugly hack below
+			{
+				item[i].y -= ((string_height + 1) * ScrollOffset);
+				draw_item(&bg, &item[i], (i == choice && !all_text), TinyMode);
+				if (item[i].type==NM_TYPE_INPUT_MENU && item[i].group) {
+					done = 1;
+					item[i].group = 0;
+				}
+				item[i].redraw = 0;
+				item[i].y += ((string_height + 1) * ScrollOffset);
+			}
+			else if (i == choice && (item[i].type == NM_TYPE_INPUT))
+				update_cursor(&item[i]);
 		}
 
 		if (IsScrollBox)
