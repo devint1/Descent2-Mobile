@@ -266,12 +266,12 @@ void render_countdown_gauge()
 
 		gr_set_curfont( SMALL_FONT );
 		gr_set_fontcolor(gr_getcolor(0,63,0), -1 );
-		y = SMALL_FONT->ft_h*4;
+		y = (int) (SMALL_FONT->ft_h * 4 * f2fl(Scale_factor));
 		if (Cockpit_mode == CM_FULL_SCREEN)
-			y += SMALL_FONT->ft_h*2;
+			y += SMALL_FONT->ft_h * 2 * f2fl(Scale_factor);
 
 		if (Player_is_dead)
-			y += SMALL_FONT->ft_h*2;
+			y += SMALL_FONT->ft_h * 2 * f2fl(Scale_factor);
 
 		//if (!((Cockpit_mode == CM_STATUS_BAR) && (Game_window_y >= 19)))
 		//	y += 5;
