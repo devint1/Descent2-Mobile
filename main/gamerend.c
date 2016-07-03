@@ -1764,24 +1764,21 @@ typedef struct bkg {
 
 bkg bg = {0,0,0,0,NULL};
 
-#define BOX_BORDER (MenuHires?60:30)
+#define BOX_BORDER (int)((MenuHires?60:30) * f2fl(Scale_factor))
 
 //show a message in a nice little box
 void show_boxed_message(char *msg)
-{	
-	int w,h,aw;
-	int x,y;
+{
+	int w, h, aw;
+	int x, y;
 
-	WINDOS(
-		dd_gr_set_current_canvas(&dd_VR_screen_pages[VR_current_page]),
-		gr_set_current_canvas(&VR_screen_pages[VR_current_page])
-	);
-	gr_set_curfont( MEDIUM1_FONT );
+	gr_set_current_canvas(&VR_screen_pages[VR_current_page]);
+	gr_set_curfont(MEDIUM1_FONT);
 
-	gr_get_string_size(msg,&w,&h,&aw);
+	gr_get_string_size(msg, &w, &h, &aw);
 
-	x = (grd_curscreen->sc_w-w)/2;
-	y = (grd_curscreen->sc_h-h)/2;
+	x = (grd_curscreen->sc_w - w) / 2;
+	y = (grd_curscreen->sc_h - h) / 2;
 
 	if (bg.bmp) {
 		gr_free_bitmap(bg.bmp);
@@ -1789,26 +1786,18 @@ void show_boxed_message(char *msg)
 	}
 
 	// Save the background of the display
-	bg.x=x; bg.y=y; bg.w=w; bg.h=h;
+	bg.x = x;
+	bg.y = y;
+	bg.w = w;
+	bg.h = h;
 
-#if defined(POLY_ACC)
-    bg.bmp = gr_create_bitmap2( w+BOX_BORDER, h+BOX_BORDER, grd_curcanv->cv_bitmap.bm_type, NULL );
-#else
-	bg.bmp = gr_create_bitmap( w+BOX_BORDER, h+BOX_BORDER );
-#endif
-
-	WIN( DDGRLOCK(dd_grd_curcanv));
-		gr_bm_ubitblt(w+BOX_BORDER, h+BOX_BORDER, 0, 0, x-BOX_BORDER/2, y-BOX_BORDER/2, &(grd_curcanv->cv_bitmap), bg.bmp );
-	WIN( DDGRUNLOCK(dd_grd_curcanv));
-
-		nm_draw_background(x-BOX_BORDER/2,y-BOX_BORDER/2,x+w+BOX_BORDER/2-1,y+h+BOX_BORDER/2-1);
-
-		gr_set_fontcolor( gr_getcolor(31, 31, 31), -1 );
-
-	WIN( DDGRLOCK(dd_grd_curcanv));
-		gr_ustring( 0x8000, y, msg );
-	WIN( DDGRUNLOCK(dd_grd_curcanv));
-	WIN( DDGRRESTORE);
+	bg.bmp = gr_create_bitmap(w + BOX_BORDER, h + BOX_BORDER);
+	gr_bm_ubitblt(w + BOX_BORDER, h + BOX_BORDER, 0, 0, x - BOX_BORDER / 2, y - BOX_BORDER / 2,
+				  &(grd_curcanv->cv_bitmap), bg.bmp);
+	nm_draw_background(x - BOX_BORDER / 2, y - BOX_BORDER / 2, x + w + BOX_BORDER / 2 - 1,
+					   y + h + BOX_BORDER / 2 - 1);
+	gr_set_fontcolor(gr_getcolor(31, 31, 31), -1);
+	gr_ustring(0x8000, y, msg);
 }
 
 void clear_boxed_message()

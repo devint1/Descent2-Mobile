@@ -54,6 +54,7 @@ static char rcsid[] = "$Id: piggy.c 2.102 1996/12/04 18:28:09 matt Exp $";
 #include "cfile.h"
 #include "newmenu.h"
 #include "byteswap.h"
+#include "ViewControllerC.h"
 
 //#define NO_DUMP_SOUNDS        1               //if set, dump bitmaps but not sounds
 
@@ -1096,7 +1097,8 @@ int piggy_init(void)
 	WIN(DDGRLOCK(dd_grd_curcanv));
 		gr_set_curfont( SMALL_FONT );
 		gr_set_fontcolor(gr_find_closest_color_current( 20, 20, 20 ),-1 );
-		gr_printf( 0x8000, grd_curcanv->cv_h-20, "%s...", TXT_LOADING_DATA );
+	gr_printf(0x8000, (int) (grd_curcanv->cv_h - 20 * f2fl(Scale_y)), "%s...", TXT_LOADING_DATA);
+	showRenderBuffer();
 	WIN(DDGRUNLOCK(dd_grd_curcanv));
 		
 	#ifdef EDITOR

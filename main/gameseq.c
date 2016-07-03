@@ -100,6 +100,7 @@ char gameseq_rcsid[] = "$Id: gameseq.c 2.180 1997/01/27 16:27:02 matt Exp $";
 #include "gamepal.h"
 #include "movie.h"
 #include "controls.h"
+#include "ViewControllerC.h"
 
 #if defined(POLY_ACC)
 #include "poly_acc.h"
@@ -935,6 +936,7 @@ void LoadLevel(int level_num,int page_in_textures)
     show_boxed_message(TXT_LOADING);
 #else
 	show_boxed_message(TXT_LOADING);
+	showRenderBuffer();
 	gr_palette_load(gr_palette);
 #endif
 
