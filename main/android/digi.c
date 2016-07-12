@@ -353,6 +353,7 @@ static char rcsid[] = "$Id: digi.c 2.5 1996/01/05 16:51:51 john Exp $";
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <SLES/OpenSLES_Android.h>
 
 #include "fix.h"
 #include "object.h"
