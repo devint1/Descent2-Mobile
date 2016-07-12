@@ -1927,8 +1927,8 @@ void draw_afterburner_bar(int afterburner) {
 	not_afterburner = fixmul(f1_0 - afterburner, (int) AFTERBURNER_GAUGE_H);
 
 	for (y = 0; y < not_afterburner; y++) {
-		table_idx = ((int) ((float) y / AFTERBURNER_GAUGE_H)) *
-					(int) (Current_display_mode ? 65.0f : 32.0f);
+		table_idx = (int) (((float) y / AFTERBURNER_GAUGE_H) *
+						   (Current_display_mode ? 65.0f : 32.0f));
 		gr_uscanline((int) AFTERBURNER_GAUGE_X +
 					 (int) ((Current_display_mode ? afterburner_bar_table_hires[table_idx * 2]
 												  : afterburner_bar_table[table_idx * 2]) *
