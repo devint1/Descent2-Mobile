@@ -64,7 +64,8 @@ char *RoboBuffer[50];
 char RobBufCount=0,PlayingBuf=0,RobBufLimit=0;
 
 unsigned RobSX=75,RobSY=50,RobDX=100,RobDY=100;
-int RoboFile=0,RoboFilePos=0,MVEPaletteCalls=0;
+FILE *RoboFile = NULL;
+int RoboFilePos = 0, MVEPaletteCalls = 0;
 
 //      Function Prototypes
 int RunMovie(char *filename, int highres_flag, int allow_abort,int dx,int dy);
