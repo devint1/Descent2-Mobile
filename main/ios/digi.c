@@ -723,7 +723,7 @@ void digi_unlock_sound_data( int soundnum ) {
 static int next_handle = 0;
 static ALuint SampleHandles[_MAX_VOICES];
 static ALuint SampleBuffers[MAX_SOUNDS];
-static int SoundNums[_MAX_VOICES] = { -1 };
+static int sound_nums[_MAX_VOICES] = { -1 };
 
 void digi_reset_digi_sounds()
 {
@@ -743,9 +743,9 @@ void digi_reset_digi_sounds()
 				SampleHandles[i] = 0xffff;
 			}
 		}
-		if ( SoundNums[i] != -1 )	{
-			digi_unlock_sound_data(SoundNums[i]);
-			SoundNums[i] = -1;
+		if ( sound_nums[i] != -1 )	{
+			digi_unlock_sound_data(sound_nums[i]);
+			sound_nums[i] = -1;
 		}
 	}
 	for (i=0; i<MAX_SOUNDS; i++ )	{
@@ -763,9 +763,9 @@ void reset_sounds_on_channel( int channel )
 	for (i=0; i<digi_max_channels; i++ )	{
 		if (SampleHandles[i] == channel )	{
 			SampleHandles[i] = 0xffff;
-			if ( SoundNums[i] != -1 )	{
-				digi_unlock_sound_data(SoundNums[i]);
-				SoundNums[i] = -1;
+			if ( sound_nums[i] != -1 )	{
+				digi_unlock_sound_data(sound_nums[i]);
+				sound_nums[i] = -1;
 			}
 		}
 	}
@@ -801,7 +801,7 @@ int digi_start_sound(short soundnum, fix volume, int pan, int looping, int loop_
 		alDeleteSources(1, &SampleHandles[next_handle]);
 	}
 	SampleHandles[next_handle] = sourceID;
-	SoundNums[next_handle] = soundnum;
+	sound_nums[next_handle] = soundnum;
 	next_handle++;
 	if ( next_handle >= digi_max_channels )
 		next_handle = 0;
