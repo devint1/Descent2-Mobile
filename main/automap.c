@@ -482,7 +482,7 @@ grs_canvas *print_to_canvas(char *s,grs_font *font, int fc, int bc, int double_f
 	gr_set_curfont(save_font);				//restore real font
 	
 	//temp_canv = gr_create_canvas(font->ft_w*strlen(s),font->ft_h*2);
-	temp_canv = gr_create_canvas(w,font->ft_h*2);
+	temp_canv = gr_create_canvas(w, (int) (font->ft_h * 2 * f2fl(Scale_factor)));
 	
 	gr_set_current_canvas(temp_canv);
 	gr_set_curfont(font);
@@ -750,8 +750,11 @@ void draw_automap()
 
 	g3_end_frame();
 
-	gr_bitmapm(AutomapHires?10:AutomapHires?10:5,5,&name_canv_left->cv_bitmap);
-	gr_bitmapm(grd_curcanv->cv_bitmap.bm_w-(AutomapHires?10:5)-name_canv_right->cv_bitmap.bm_w,AutomapHires?10:5,&name_canv_right->cv_bitmap);
+	gr_bitmapm((int) ((AutomapHires ? 10 : 5) * f2fl(Scale_x)),
+			   (int) ((AutomapHires ? 10 : 5) * f2fl(Scale_y)), &name_canv_left->cv_bitmap);
+	gr_bitmapm(grd_curcanv->cv_bitmap.bm_w - (int) ((AutomapHires ? 10 : 5) * f2fl(Scale_x)) -
+			   name_canv_right->cv_bitmap.bm_w, (int) ((AutomapHires ? 10 : 5) * f2fl(Scale_y)),
+			   &name_canv_right->cv_bitmap);
 }
 
 	if (!AutomapHires)
@@ -886,12 +889,10 @@ void do_automap( int key_code )	{
 	FontHires = AutomapHires;
 	
 	create_name_canv();
-	
-	gr_palette_clear();
-	
+
 	w = grd_curscreen->sc_w;
 	h = grd_curscreen->sc_h;
-	
+
 	WIN(AutomapRedraw:)
 	if (!AutomapHires) {
 #ifndef MACINTOSH
