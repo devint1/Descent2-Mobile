@@ -16,7 +16,6 @@ char gauges_rcsid[] = "$Id: gauges.c 2.130 1996/12/09 15:11:43 jeremy Exp $";
 
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 #include <math.h>
 
 #include "inferno.h"
@@ -38,6 +37,7 @@ char gauges_rcsid[] = "$Id: gauges.c 2.130 1996/12/09 15:11:43 jeremy Exp $";
 #include "controls.h"
 #include "render.h"
 #include "laser.h"
+#include "oglestex.h"
 
 bitmap_index Gauges[MAX_GAUGE_BMS];   // Array of all gauge bitmaps.
 bitmap_index Gauges_hires[MAX_GAUGE_BMS];   // hires gauges
@@ -288,6 +288,11 @@ extern int Current_display_mode;
 #define PRIMARY_W_BOX_RIGHT_H		(grd_curscreen->sc_w * 0.378125)
 #define PRIMARY_W_BOX_BOT_H		(PRIMARY_W_BOX_TOP_H+(grd_curscreen->sc_h * 0.22291666666667)-1)		//470
 
+#define PRIMARY_W_BOX_LEFT_H_UNSCALED		121
+#define PRIMARY_W_BOX_TOP_H_UNSCALED		364
+#define PRIMARY_W_BOX_RIGHT_H_UNSCALED		242
+#define PRIMARY_W_BOX_BOT_H_UNSCALED		(PRIMARY_W_BOX_TOP_H+N_LEFT_WINDOW_SPANS_H-1)		//470
+
 #define PRIMARY_W_BOX_LEFT		(Current_display_mode?PRIMARY_W_BOX_LEFT_H:PRIMARY_W_BOX_LEFT_L)
 #define PRIMARY_W_BOX_TOP		(Current_display_mode?PRIMARY_W_BOX_TOP_H:PRIMARY_W_BOX_TOP_L)
 #define PRIMARY_W_BOX_RIGHT	(Current_display_mode?PRIMARY_W_BOX_RIGHT_H:PRIMARY_W_BOX_RIGHT_L)
@@ -302,6 +307,11 @@ extern int Current_display_mode;
 #define SECONDARY_W_BOX_TOP_H		(grd_curscreen->sc_h * 0.75625)
 #define SECONDARY_W_BOX_RIGHT_H	(grd_curscreen->sc_w * 0.8265625)
 #define SECONDARY_W_BOX_BOT_H		(SECONDARY_W_BOX_TOP_H+(grd_curscreen->sc_h * 0.22291666666667)-1)		//470
+
+#define SECONDARY_W_BOX_LEFT_H_UNSCALED	404
+#define SECONDARY_W_BOX_TOP_H_UNSCALED		363
+#define SECONDARY_W_BOX_RIGHT_H_UNSCALED	529
+#define SECONDARY_W_BOX_BOT_H_UNSCALED		(SECONDARY_W_BOX_TOP_H+N_RIGHT_WINDOW_SPANS_H-1)		//470
 
 #define SECONDARY_W_BOX_LEFT	(Current_display_mode?SECONDARY_W_BOX_LEFT_H:SECONDARY_W_BOX_LEFT_L)
 #define SECONDARY_W_BOX_TOP	(Current_display_mode?SECONDARY_W_BOX_TOP_H:SECONDARY_W_BOX_TOP_L)
@@ -318,6 +328,11 @@ extern int Current_display_mode;
 #define SB_PRIMARY_W_BOX_RIGHT_H	(grd_curscreen->sc_w * 0.2796875)
 #define SB_PRIMARY_W_BOX_BOT_H		(grd_curscreen->sc_h * 0.98541666666667)
 
+#define SB_PRIMARY_W_BOX_LEFT_H_UNSCALED		68
+#define SB_PRIMARY_W_BOX_TOP_H_UNSCALED		381
+#define SB_PRIMARY_W_BOX_RIGHT_H_UNSCALED		179
+#define SB_PRIMARY_W_BOX_BOT_H_UNSCALED		473
+
 #define SB_PRIMARY_W_BOX_LEFT		(Current_display_mode?SB_PRIMARY_W_BOX_LEFT_H:SB_PRIMARY_W_BOX_LEFT_L)
 #define SB_PRIMARY_W_BOX_TOP		(Current_display_mode?SB_PRIMARY_W_BOX_TOP_H:SB_PRIMARY_W_BOX_TOP_L)
 #define SB_PRIMARY_W_BOX_RIGHT	(Current_display_mode?SB_PRIMARY_W_BOX_RIGHT_H:SB_PRIMARY_W_BOX_RIGHT_L)
@@ -332,6 +347,11 @@ extern int Current_display_mode;
 #define SB_SECONDARY_W_BOX_TOP_H		(grd_curscreen->sc_h * 0.79375)
 #define SB_SECONDARY_W_BOX_RIGHT_H		(grd_curscreen->sc_w * 0.7015625)
 #define SB_SECONDARY_W_BOX_BOT_H		(grd_curscreen->sc_h * 0.98541666666667)
+
+#define SB_SECONDARY_W_BOX_LEFT_H_UNSCALED 338
+#define SB_SECONDARY_W_BOX_TOP_H_UNSCALED 381
+#define SB_SECONDARY_W_BOX_RIGHT_H_UNSCALED 449
+#define SB_SECONDARY_W_BOX_BOT_H_UNSCALED 473
 
 #define SB_SECONDARY_W_BOX_LEFT	(Current_display_mode?SB_SECONDARY_W_BOX_LEFT_H:SB_SECONDARY_W_BOX_LEFT_L)	//210
 #define SB_SECONDARY_W_BOX_TOP	(Current_display_mode?SB_SECONDARY_W_BOX_TOP_H:SB_SECONDARY_W_BOX_TOP_L)
@@ -382,7 +402,12 @@ static int old_bombcount[2] = {0, 0};
 static bool force_weapon_draw[2];
 
 static int invulnerable_frame = 0;
-static int cloak_fade_state;		//0=steady, -1 fading out, 1 fading in 
+static int cloak_fade_state;		//0=steady, -1 fading out, 1 fading in
+
+#ifdef OGLES
+static int full_cockpit_alphas_applied = 0;
+static int status_bar_alphas_applied = 0;
+#endif
 
 #define WS_SET			0        //in correct state
 #define WS_FADING_OUT	1
@@ -405,341 +430,339 @@ typedef struct gauge_box {
 	span spanlist[107];    //list of left,right spans for copy
 } gauge_box;
 
-gauge_box get_gauge_box(int index) {
-	int i;
+//store delta x values from left of box
+static const span weapon_window_left[] = {        //first span 67,151
+		{8,         51},
+		{6,         53},
+		{5,         54},
+		{4 - 1,     53 + 2},
+		{4 - 1,     53 + 3},
+		{4 - 1,     53 + 3},
+		{4 - 2,     53 + 3},
+		{4 - 2,     53 + 3},
+		{3 - 1,     53 + 3},
+		{3 - 1,     53 + 3},
+		{3 - 1,     53 + 3},
+		{3 - 1,     53 + 3},
+		{3 - 1,     53 + 3},
+		{3 - 1,     53 + 3},
+		{3 - 1,     53 + 3},
+		{3 - 2,     53 + 3},
+		{2 - 1,     53 + 3},
+		{2 - 1,     53 + 3},
+		{2 - 1,     53 + 3},
+		{2 - 1,     53 + 3},
+		{2 - 1,     53 + 3},
+		{2 - 1,     53 + 3},
+		{2 - 1,     53 + 3},
+		{2 - 1,     53 + 3},
+		{1 - 1,     53 + 3},
+		{1 - 1,     53 + 2},
+		{1 - 1,     53 + 2},
+		{1 - 1,     53 + 2},
+		{1 - 1,     53 + 2},
+		{1 - 1,     53 + 2},
+		{1 - 1,     53 + 2},
+		{1 - 1,     53 + 2},
+		{0,         53 + 2},
+		{0,         53 + 2},
+		{0,         53 + 2},
+		{0,         53 + 2},
+		{0,         52 + 3},
+		{1 - 1,     52 + 2},
+		{2 - 2,     51 + 3},
+		{3 - 2,     51 + 2},
+		{4 - 2,     50 + 2},
+		{5 - 2,     50},
+		{5 - 2 + 2, 50 - 2},
+};
 
-	//store delta x values from left of box
-	span weapon_window_left[] = {        //first span 67,151
-			{8,         51},
-			{6,         53},
-			{5,         54},
-			{4 - 1,     53 + 2},
-			{4 - 1,     53 + 3},
-			{4 - 1,     53 + 3},
-			{4 - 2,     53 + 3},
-			{4 - 2,     53 + 3},
-			{3 - 1,     53 + 3},
-			{3 - 1,     53 + 3},
-			{3 - 1,     53 + 3},
-			{3 - 1,     53 + 3},
-			{3 - 1,     53 + 3},
-			{3 - 1,     53 + 3},
-			{3 - 1,     53 + 3},
-			{3 - 2,     53 + 3},
-			{2 - 1,     53 + 3},
-			{2 - 1,     53 + 3},
-			{2 - 1,     53 + 3},
-			{2 - 1,     53 + 3},
-			{2 - 1,     53 + 3},
-			{2 - 1,     53 + 3},
-			{2 - 1,     53 + 3},
-			{2 - 1,     53 + 3},
-			{1 - 1,     53 + 3},
-			{1 - 1,     53 + 2},
-			{1 - 1,     53 + 2},
-			{1 - 1,     53 + 2},
-			{1 - 1,     53 + 2},
-			{1 - 1,     53 + 2},
-			{1 - 1,     53 + 2},
-			{1 - 1,     53 + 2},
-			{0,         53 + 2},
-			{0,         53 + 2},
-			{0,         53 + 2},
-			{0,         53 + 2},
-			{0,         52 + 3},
-			{1 - 1,     52 + 2},
-			{2 - 2,     51 + 3},
-			{3 - 2,     51 + 2},
-			{4 - 2,     50 + 2},
-			{5 - 2,     50},
-			{5 - 2 + 2, 50 - 2},
-	};
+//store delta x values from left of box
+static const span weapon_window_right[] = {        //first span 207,154
+		{208 - 202, 255 - 202},
+		{206 - 202, 257 - 202},
+		{205 - 202, 258 - 202},
+		{204 - 202, 259 - 202},
+		{203 - 202, 260 - 202},
+		{203 - 202, 260 - 202},
+		{203 - 202, 260 - 202},
+		{203 - 202, 260 - 202},
+		{203 - 202, 260 - 202},
+		{203 - 202, 261 - 202},
+		{203 - 202, 261 - 202},
+		{203 - 202, 261 - 202},
+		{203 - 202, 261 - 202},
+		{203 - 202, 261 - 202},
+		{203 - 202, 261 - 202},
+		{203 - 202, 261 - 202},
+		{203 - 202, 261 - 202},
+		{203 - 202, 261 - 202},
+		{203 - 202, 262 - 202},
+		{203 - 202, 262 - 202},
+		{203 - 202, 262 - 202},
+		{203 - 202, 262 - 202},
+		{203 - 202, 262 - 202},
+		{203 - 202, 262 - 202},
+		{203 - 202, 262 - 202},
+		{203 - 202, 262 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{204 - 202, 263 - 202},
+		{205 - 202, 263 - 202},
+		{206 - 202, 262 - 202},
+		{207 - 202, 261 - 202},
+		{208 - 202, 260 - 202},
+		{211 - 202, 255 - 202},
+};
 
-	//store delta x values from left of box
-	span weapon_window_right[] = {        //first span 207,154
-			{208 - 202, 255 - 202},
-			{206 - 202, 257 - 202},
-			{205 - 202, 258 - 202},
-			{204 - 202, 259 - 202},
-			{203 - 202, 260 - 202},
-			{203 - 202, 260 - 202},
-			{203 - 202, 260 - 202},
-			{203 - 202, 260 - 202},
-			{203 - 202, 260 - 202},
-			{203 - 202, 261 - 202},
-			{203 - 202, 261 - 202},
-			{203 - 202, 261 - 202},
-			{203 - 202, 261 - 202},
-			{203 - 202, 261 - 202},
-			{203 - 202, 261 - 202},
-			{203 - 202, 261 - 202},
-			{203 - 202, 261 - 202},
-			{203 - 202, 261 - 202},
-			{203 - 202, 262 - 202},
-			{203 - 202, 262 - 202},
-			{203 - 202, 262 - 202},
-			{203 - 202, 262 - 202},
-			{203 - 202, 262 - 202},
-			{203 - 202, 262 - 202},
-			{203 - 202, 262 - 202},
-			{203 - 202, 262 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{204 - 202, 263 - 202},
-			{205 - 202, 263 - 202},
-			{206 - 202, 262 - 202},
-			{207 - 202, 261 - 202},
-			{208 - 202, 260 - 202},
-			{211 - 202, 255 - 202},
-	};
+//store delta x values from left of box
+static const  span weapon_window_left_hires[] = {        //first span 67,154
+		{20, 110},
+		{18, 113},
+		{16, 114},
+		{15, 116},
+		{14, 117},
+		{13, 118},
+		{12, 119},
+		{11, 119},
+		{10, 120},
+		{10, 120},
+		{9,  121},
+		{8,  121},
+		{8,  121},
+		{8,  122},
+		{7,  122},
+		{7,  122},
+		{7,  122},
+		{7,  122},
+		{7,  122},
+		{6,  122},
+		{6,  122},
+		{6,  122},
+		{6,  122},
+		{6,  122},
+		{6,  122},
+		{6,  122},
+		{6,  122},
+		{6,  122},
+		{6,  122},
+		{5,  122},
+		{5,  122},
+		{5,  122},
+		{5,  122},
+		{5,  121},
+		{5,  121},
+		{5,  121},
+		{5,  121},
+		{5,  121},
+		{5,  121},
+		{4,  121},
+		{4,  121},
+		{4,  121},
+		{4,  121},
+		{4,  121},
+		{4,  121},
+		{4,  121},
+		{4,  121},
+		{4,  121},
+		{4,  121},
+		{3,  121},
+		{3,  121},
+		{3,  120},
+		{3,  120},
+		{3,  120},
+		{3,  120},
+		{3,  120},
+		{3,  120},
+		{3,  120},
+		{3,  120},
+		{3,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{2,  120},
+		{1,  120},
+		{1,  120},
+		{1,  119},
+		{1,  119},
+		{1,  119},
+		{1,  119},
+		{1,  119},
+		{1,  119},
+		{1,  119},
+		{1,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  118},
+		{0,  118},
+		{0,  118},
+		{0,  117},
+		{0,  117},
+		{0,  117},
+		{1,  116},
+		{1,  116},
+		{2,  115},
+		{2,  114},
+		{3,  113},
+		{4,  112},
+		{5,  111},
+		{5,  110},
+		{7,  109},
+		{9,  107},
+		{10, 105},
+		{12, 102},
+};
 
-	//store delta x values from left of box
-	span weapon_window_left_hires[] = {        //first span 67,154
-			{20, 110},
-			{18, 113},
-			{16, 114},
-			{15, 116},
-			{14, 117},
-			{13, 118},
-			{12, 119},
-			{11, 119},
-			{10, 120},
-			{10, 120},
-			{9,  121},
-			{8,  121},
-			{8,  121},
-			{8,  122},
-			{7,  122},
-			{7,  122},
-			{7,  122},
-			{7,  122},
-			{7,  122},
-			{6,  122},
-			{6,  122},
-			{6,  122},
-			{6,  122},
-			{6,  122},
-			{6,  122},
-			{6,  122},
-			{6,  122},
-			{6,  122},
-			{6,  122},
-			{5,  122},
-			{5,  122},
-			{5,  122},
-			{5,  122},
-			{5,  121},
-			{5,  121},
-			{5,  121},
-			{5,  121},
-			{5,  121},
-			{5,  121},
-			{4,  121},
-			{4,  121},
-			{4,  121},
-			{4,  121},
-			{4,  121},
-			{4,  121},
-			{4,  121},
-			{4,  121},
-			{4,  121},
-			{4,  121},
-			{3,  121},
-			{3,  121},
-			{3,  120},
-			{3,  120},
-			{3,  120},
-			{3,  120},
-			{3,  120},
-			{3,  120},
-			{3,  120},
-			{3,  120},
-			{3,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{2,  120},
-			{1,  120},
-			{1,  120},
-			{1,  119},
-			{1,  119},
-			{1,  119},
-			{1,  119},
-			{1,  119},
-			{1,  119},
-			{1,  119},
-			{1,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  118},
-			{0,  118},
-			{0,  118},
-			{0,  117},
-			{0,  117},
-			{0,  117},
-			{1,  116},
-			{1,  116},
-			{2,  115},
-			{2,  114},
-			{3,  113},
-			{4,  112},
-			{5,  111},
-			{5,  110},
-			{7,  109},
-			{9,  107},
-			{10, 105},
-			{12, 102},
-	};
+//store delta x values from left of box
+static const span weapon_window_right_hires[] = {        //first span 207,154
+		{12, 105},
+		{9,  107},
+		{8,  109},
+		{6,  110},
+		{5,  111},
+		{4,  112},
+		{3,  113},
+		{3,  114},
+		{2,  115},
+		{2,  115},
+		{1,  116},
+		{1,  117},
+		{1,  117},
+		{0,  117},
+		{0,  118},
+		{0,  118},
+		{0,  118},
+		{0,  118},
+		{0,  118},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  119},
+		{0,  120},
+		{0,  120},
+		{0,  120},
+		{0,  120},
+		{1,  120},
+		{1,  120},
+		{1,  120},
+		{1,  120},
+		{1,  120},
+		{1,  120},
+		{1,  121},
+		{1,  121},
+		{1,  121},
+		{1,  121},
+		{1,  121},
+		{1,  121},
+		{1,  121},
+		{1,  121},
+		{1,  121},
+		{1,  121},
+		{1,  122},
+		{1,  122},
+		{2,  122},
+		{2,  122},
+		{2,  122},
+		{2,  122},
+		{2,  122},
+		{2,  122},
+		{2,  122},
+		{2,  122},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  123},
+		{2,  124},
+		{2,  124},
+		{3,  124},
+		{3,  124},
+		{3,  124},
+		{3,  124},
+		{3,  124},
+		{3,  124},
+		{3,  124},
+		{3,  125},
+		{3,  125},
+		{3,  125},
+		{3,  125},
+		{3,  125},
+		{3,  125},
+		{3,  125},
+		{3,  125},
+		{4,  125},
+		{4,  125},
+		{4,  125},
+		{5,  125},
+		{5,  125},
+		{5,  125},
+		{6,  125},
+		{6,  124},
+		{7,  123},
+		{8,  123},
+		{9,  122},
+		{10, 121},
+		{11, 120},
+		{12, 120},
+		{13, 118},
+		{15, 117},
+		{18, 115},
+		{20, 114},
+};
 
-	//store delta x values from left of box
-	span weapon_window_right_hires[] = {        //first span 207,154
-			{12, 105},
-			{9,  107},
-			{8,  109},
-			{6,  110},
-			{5,  111},
-			{4,  112},
-			{3,  113},
-			{3,  114},
-			{2,  115},
-			{2,  115},
-			{1,  116},
-			{1,  117},
-			{1,  117},
-			{0,  117},
-			{0,  118},
-			{0,  118},
-			{0,  118},
-			{0,  118},
-			{0,  118},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  119},
-			{0,  120},
-			{0,  120},
-			{0,  120},
-			{0,  120},
-			{1,  120},
-			{1,  120},
-			{1,  120},
-			{1,  120},
-			{1,  120},
-			{1,  120},
-			{1,  121},
-			{1,  121},
-			{1,  121},
-			{1,  121},
-			{1,  121},
-			{1,  121},
-			{1,  121},
-			{1,  121},
-			{1,  121},
-			{1,  121},
-			{1,  122},
-			{1,  122},
-			{2,  122},
-			{2,  122},
-			{2,  122},
-			{2,  122},
-			{2,  122},
-			{2,  122},
-			{2,  122},
-			{2,  122},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  123},
-			{2,  124},
-			{2,  124},
-			{3,  124},
-			{3,  124},
-			{3,  124},
-			{3,  124},
-			{3,  124},
-			{3,  124},
-			{3,  124},
-			{3,  125},
-			{3,  125},
-			{3,  125},
-			{3,  125},
-			{3,  125},
-			{3,  125},
-			{3,  125},
-			{3,  125},
-			{4,  125},
-			{4,  125},
-			{4,  125},
-			{5,  125},
-			{5,  125},
-			{5,  125},
-			{6,  125},
-			{6,  124},
-			{7,  123},
-			{8,  123},
-			{9,  122},
-			{10, 121},
-			{11, 120},
-			{12, 120},
-			{13, 118},
-			{15, 117},
-			{18, 115},
-			{20, 114},
-	};
-
+gauge_box get_gauge_box_unscaled(int index) {
 	gauge_box gauge_boxes[] = {
-			// primary left/right low res
-			{PRIMARY_W_BOX_LEFT_L,      PRIMARY_W_BOX_TOP_L,      PRIMARY_W_BOX_RIGHT_L,      PRIMARY_W_BOX_BOT_L,                  N_LEFT_WINDOW_SPANS},
-			{SECONDARY_W_BOX_LEFT_L,    SECONDARY_W_BOX_TOP_L,    SECONDARY_W_BOX_RIGHT_L,    SECONDARY_W_BOX_BOT_L,                N_RIGHT_WINDOW_SPANS},
+		// primary left/right low res
+		{PRIMARY_W_BOX_LEFT_L,   PRIMARY_W_BOX_TOP_L,   PRIMARY_W_BOX_RIGHT_L,   PRIMARY_W_BOX_BOT_L,   N_LEFT_WINDOW_SPANS},
+		{SECONDARY_W_BOX_LEFT_L, SECONDARY_W_BOX_TOP_L, SECONDARY_W_BOX_RIGHT_L, SECONDARY_W_BOX_BOT_L, N_RIGHT_WINDOW_SPANS},
 
-			//sb left/right low res
-			{SB_PRIMARY_W_BOX_LEFT_L,   SB_PRIMARY_W_BOX_TOP_L,   SB_PRIMARY_W_BOX_RIGHT_L,   SB_PRIMARY_W_BOX_BOT_L,                           0},
-			{SB_SECONDARY_W_BOX_LEFT_L, SB_SECONDARY_W_BOX_TOP_L, SB_SECONDARY_W_BOX_RIGHT_L, SB_SECONDARY_W_BOX_BOT_L, 0},
+		//sb left/right low res
+		{SB_PRIMARY_W_BOX_LEFT_L,   SB_PRIMARY_W_BOX_TOP_L,   SB_PRIMARY_W_BOX_RIGHT_L,   SB_PRIMARY_W_BOX_BOT_L,   0},
+		{SB_SECONDARY_W_BOX_LEFT_L, SB_SECONDARY_W_BOX_TOP_L, SB_SECONDARY_W_BOX_RIGHT_L, SB_SECONDARY_W_BOX_BOT_L, 0},
 
-			// primary left/right hires
-			{(int) PRIMARY_W_BOX_LEFT_H,   (int) PRIMARY_W_BOX_TOP_H,   (int) PRIMARY_W_BOX_RIGHT_H,   (int) PRIMARY_W_BOX_BOT_H,   N_LEFT_WINDOW_SPANS_H},
-			{(int) SECONDARY_W_BOX_LEFT_H, (int) SECONDARY_W_BOX_TOP_H, (int) SECONDARY_W_BOX_RIGHT_H, (int) SECONDARY_W_BOX_BOT_H, N_RIGHT_WINDOW_SPANS_H},
+		// primary left/right hires
+		{(int) PRIMARY_W_BOX_LEFT_H_UNSCALED,   (int) PRIMARY_W_BOX_TOP_H_UNSCALED,   (int) PRIMARY_W_BOX_RIGHT_H_UNSCALED,   (int) PRIMARY_W_BOX_BOT_H_UNSCALED,   N_LEFT_WINDOW_SPANS_H},
+		{(int) SECONDARY_W_BOX_LEFT_H_UNSCALED, (int) SECONDARY_W_BOX_TOP_H_UNSCALED, (int) SECONDARY_W_BOX_RIGHT_H_UNSCALED, (int) SECONDARY_W_BOX_BOT_H_UNSCALED, N_RIGHT_WINDOW_SPANS_H},
 
-			// sb left/right hires
-			{(int) SB_PRIMARY_W_BOX_LEFT_H,   (int) SB_PRIMARY_W_BOX_TOP_H,   (int) SB_PRIMARY_W_BOX_RIGHT_H,   (int) SB_PRIMARY_W_BOX_BOT_H,   0},
-			{(int) SB_SECONDARY_W_BOX_LEFT_H, (int) SB_SECONDARY_W_BOX_TOP_H, (int) SB_SECONDARY_W_BOX_RIGHT_H, (int) SB_SECONDARY_W_BOX_BOT_H, 0},
+		// sb left/right hires
+		{(int) SB_PRIMARY_W_BOX_LEFT_H_UNSCALED,   (int) SB_PRIMARY_W_BOX_TOP_H_UNSCALED,   (int) SB_PRIMARY_W_BOX_RIGHT_H_UNSCALED,   (int) SB_PRIMARY_W_BOX_BOT_H_UNSCALED,   0},
+		{(int) SB_SECONDARY_W_BOX_LEFT_H_UNSCALED, (int) SB_SECONDARY_W_BOX_TOP_H_UNSCALED, (int) SB_SECONDARY_W_BOX_RIGHT_H_UNSCALED, (int) SB_SECONDARY_W_BOX_BOT_H_UNSCALED, 0},
 	};
 
 	switch (index) {
@@ -751,19 +774,76 @@ gauge_box get_gauge_box(int index) {
 				   sizeof(span) * N_RIGHT_WINDOW_SPANS);
 			break;
 		case 4:
-			for (i = 0; i < N_LEFT_WINDOW_SPANS_H; ++i) {
-				weapon_window_left_hires[i].l *= f2fl(Scale_x);
-				weapon_window_left_hires[i].r *= f2fl(Scale_x);
-			}
 			memcpy(gauge_boxes[4].spanlist, weapon_window_left_hires,
 				   sizeof(span) * N_LEFT_WINDOW_SPANS_H);
 			break;
 		case 5:
-			for (i = 0; i < N_RIGHT_WINDOW_SPANS_H; ++i) {
-				weapon_window_right_hires[i].l *= f2fl(Scale_x);
-				weapon_window_right_hires[i].r *= f2fl(Scale_x);
-			}
 			memcpy(gauge_boxes[5].spanlist, weapon_window_right_hires,
+				   sizeof(span) * N_RIGHT_WINDOW_SPANS_H);
+			break;
+		default:
+			break;
+	}
+
+	return gauge_boxes[index];
+}
+
+gauge_box get_gauge_box(int index) {
+	int i;
+	static int scaled_left = 0, scaled_right = 0;
+	static span weapon_window_left_hires_scaled[107];
+	static span weapon_window_right_hires_scaled[107];
+
+	gauge_box gauge_boxes[] = {
+		// primary left/right low res
+		{PRIMARY_W_BOX_LEFT_L,   PRIMARY_W_BOX_TOP_L,   PRIMARY_W_BOX_RIGHT_L,   PRIMARY_W_BOX_BOT_L,   N_LEFT_WINDOW_SPANS},
+		{SECONDARY_W_BOX_LEFT_L, SECONDARY_W_BOX_TOP_L, SECONDARY_W_BOX_RIGHT_L, SECONDARY_W_BOX_BOT_L, N_RIGHT_WINDOW_SPANS},
+
+		//sb left/right low res
+		{SB_PRIMARY_W_BOX_LEFT_L,   SB_PRIMARY_W_BOX_TOP_L,   SB_PRIMARY_W_BOX_RIGHT_L,   SB_PRIMARY_W_BOX_BOT_L,   0},
+		{SB_SECONDARY_W_BOX_LEFT_L, SB_SECONDARY_W_BOX_TOP_L, SB_SECONDARY_W_BOX_RIGHT_L, SB_SECONDARY_W_BOX_BOT_L, 0},
+
+		// primary left/right hires
+		{(int) PRIMARY_W_BOX_LEFT_H,   (int) PRIMARY_W_BOX_TOP_H,   (int) PRIMARY_W_BOX_RIGHT_H,   (int) PRIMARY_W_BOX_BOT_H,   N_LEFT_WINDOW_SPANS_H},
+		{(int) SECONDARY_W_BOX_LEFT_H, (int) SECONDARY_W_BOX_TOP_H, (int) SECONDARY_W_BOX_RIGHT_H, (int) SECONDARY_W_BOX_BOT_H, N_RIGHT_WINDOW_SPANS_H},
+
+		// sb left/right hires
+		{(int) SB_PRIMARY_W_BOX_LEFT_H,   (int) SB_PRIMARY_W_BOX_TOP_H,   (int) SB_PRIMARY_W_BOX_RIGHT_H,   (int) SB_PRIMARY_W_BOX_BOT_H,   0},
+		{(int) SB_SECONDARY_W_BOX_LEFT_H, (int) SB_SECONDARY_W_BOX_TOP_H, (int) SB_SECONDARY_W_BOX_RIGHT_H, (int) SB_SECONDARY_W_BOX_BOT_H, 0},
+	};
+
+	switch (index) {
+		case 0:
+			memcpy(gauge_boxes[0].spanlist, weapon_window_left, sizeof(span) * N_LEFT_WINDOW_SPANS);
+			break;
+		case 1:
+			memcpy(gauge_boxes[1].spanlist, weapon_window_right,
+				   sizeof(span) * N_RIGHT_WINDOW_SPANS);
+			break;
+		case 4:
+			if (!scaled_left) {
+				for (i = 0; i < N_LEFT_WINDOW_SPANS_H; ++i) {
+					weapon_window_left_hires_scaled[i].l = (int) (weapon_window_left_hires[i].l *
+																  f2fl(Scale_x));
+					weapon_window_left_hires_scaled[i].r = (int) (weapon_window_left_hires[i].r *
+																  f2fl(Scale_x));
+				}
+				scaled_left = 1;
+			}
+			memcpy(gauge_boxes[4].spanlist, weapon_window_right_hires_scaled,
+				   sizeof(span) * N_LEFT_WINDOW_SPANS_H);
+			break;
+		case 5:
+			if (!scaled_right) {
+				for (i = 0; i < N_RIGHT_WINDOW_SPANS_H; ++i) {
+					weapon_window_right_hires_scaled[i].l = (int) (weapon_window_right_hires[i].l *
+																   f2fl(Scale_x));
+					weapon_window_right_hires_scaled[i].r = (int) (weapon_window_right_hires[i].r *
+																   f2fl(Scale_x));
+				}
+				scaled_right = 1;
+			}
+			memcpy(gauge_boxes[5].spanlist, weapon_window_right_hires_scaled,
 				   sizeof(span) * N_RIGHT_WINDOW_SPANS_H);
 			break;
 		default:
@@ -777,6 +857,7 @@ int	Color_0_31_0 = -1;
 
 //copy a box from the off-screen buffer to the visible page
 void copy_gauge_box(gauge_box *box, grs_bitmap *bm) {
+#ifndef OGLES
 	int gauge_h = box->bot - box->top + 1;
 	int cnt, y, span_idx;
 
@@ -786,7 +867,92 @@ void copy_gauge_box(gauge_box *box, grs_bitmap *bm) {
 					  box->left + box->spanlist[span_idx].l, y,
 					  box->left + box->spanlist[span_idx].l, y, bm, &grd_curcanv->cv_bitmap);
 	}
+#endif
 }
+
+#ifdef OGLES
+
+static void apply_weapon_box_alpha(grs_bitmap *cockpit_bm, const gauge_box *box) {
+	int i;
+	unsigned char *bm_row;
+
+	if (box->num_spans > 0) {
+		for (i = 0; i < box->num_spans; ++i) {
+			bm_row = &cockpit_bm->bm_data[cockpit_bm->bm_rowsize * (box->top + i)];
+			memset(&bm_row[box->left + box->spanlist[i].l], TRANSPARENCY_COLOR,
+				   (size_t) (box->spanlist[i].r - box->spanlist[i].l));
+		}
+	} else {
+		for (i = box->top; i < box->bot; ++i) {
+			bm_row = &cockpit_bm->bm_data[cockpit_bm->bm_rowsize * i];
+			memset(&bm_row[box->left], TRANSPARENCY_COLOR, (size_t) (box->right - box->left));
+		}
+	}
+}
+
+static void apply_cockpit_window_alpha(grs_bitmap *cockpit_bm, int primary_box_index,
+									   int secondary_box_index) {
+	grs_canvas *temp_canv, *save_canv;
+	gauge_box primary_box, secondary_box;
+
+	// Render cockpit to temp canvas
+	save_canv = grd_curcanv;
+	temp_canv = gr_create_canvas(cockpit_bm->bm_w, cockpit_bm->bm_h);
+	gr_set_current_canvas(temp_canv);
+	gr_clear_canvas(TRANSPARENCY_COLOR);
+	gr_ubitmapm(0, 0, cockpit_bm);
+
+	// Get gauge boxes
+	primary_box = get_gauge_box_unscaled(primary_box_index);
+	secondary_box = get_gauge_box_unscaled(secondary_box_index);
+
+	// Box y coords are absolute; make them relative to the cockpit bitmap
+	primary_box.top -= ((MenuHires ? 480 : 200) - cockpit_bm->bm_h);
+	primary_box.bot -= ((MenuHires ? 480 : 200) - cockpit_bm->bm_h);
+	secondary_box.top -= ((MenuHires ? 480 : 200) - cockpit_bm->bm_h);
+	secondary_box.bot -= ((MenuHires ? 480 : 200) - cockpit_bm->bm_h);
+
+	// Apply the alphas
+	apply_weapon_box_alpha(&temp_canv->cv_bitmap, &primary_box);
+	apply_weapon_box_alpha(&temp_canv->cv_bitmap, &secondary_box);
+
+	// Set the OpenGL ES texture for the modified bitmap
+	ogles_bm_bind_teximage_2d(&temp_canv->cv_bitmap);
+	gr_set_current_canvas(save_canv);
+	if (glIsTexture(cockpit_bm->bm_ogles_tex_id)) {
+		glDeleteTextures(1, &cockpit_bm->bm_ogles_tex_id);
+	}
+	cockpit_bm->bm_ogles_tex_id = temp_canv->cv_bitmap.bm_ogles_tex_id;
+
+	free(temp_canv->cv_bitmap.bm_data);
+	free(temp_canv);
+}
+
+void apply_cockpit_window_alphas() {
+	grs_bitmap *cockpit_bm;
+
+	PIGGY_PAGE_IN(cockpit_bitmap[Cockpit_mode + (MenuHires ? (Num_cockpits / 2) : 0)]);
+	cockpit_bm = &GameBitmaps[cockpit_bitmap[Cockpit_mode +
+											 (MenuHires ? (Num_cockpits / 2) : 0)].index];
+	switch (Cockpit_mode) {
+		case CM_FULL_COCKPIT:
+			if (!full_cockpit_alphas_applied) {
+				apply_cockpit_window_alpha(cockpit_bm, COCKPIT_PRIMARY_BOX, COCKPIT_SECONDARY_BOX);
+				full_cockpit_alphas_applied = 1;
+			}
+			break;
+		case CM_STATUS_BAR:
+			if (!status_bar_alphas_applied) {
+				apply_cockpit_window_alpha(cockpit_bm, SB_PRIMARY_BOX, SB_SECONDARY_BOX);
+				status_bar_alphas_applied = 1;
+			}
+			break;
+		default:
+			break;
+	}
+}
+
+#endif
 
 //fills in the coords of the hostage video window
 void get_hostage_window_coords(int *x, int *y, int *w, int *h) {
@@ -1281,6 +1447,9 @@ void show_bomb_count(int x, int y, int bg_color, int always_show) {
 
 	// I hate doing this off of hard coded coords!!!!
 	if (Cockpit_mode == CM_STATUS_BAR) {        //draw background
+		if (weapon_box_user[1] != WBU_WEAPON) {
+			return;
+		}
 		gr_setcolor(bg_color);
 		if (!Current_display_mode) {
 			gr_rect((int) (169 * f2fl(Scale_x)), (int) (189 * f2fl(Scale_y)),
@@ -1322,6 +1491,9 @@ void draw_ammo_info(int x, int y, int ammo_count, int primary) {
 	int w;
 	char str[16];
 
+	if (weapon_box_user[!primary] != WBU_WEAPON) {
+		return;
+	}
 	if (primary)
 		w = (int) (grd_curcanv->cv_font->ft_w * f2fl(Scale_factor) * 7) / 2;
 	else
@@ -1721,7 +1893,9 @@ void init_gauges() {
 		force_weapon_draw[i] = true;
 	}
 
+#ifndef OGLES
 	weapon_box_user[0] = weapon_box_user[1] = WBU_WEAPON;
+#endif
 }
 
 void draw_energy_bar(int energy) {
@@ -2255,6 +2429,9 @@ int draw_weapon_box(int weapon_type, int weapon_num) {
 	int drew_flag = 0;
 	int laser_level_changed;
 
+	if (weapon_box_user[weapon_type] != WBU_WEAPON) {
+		return 0;
+	}
 	gr_set_current_canvas(&VR_render_buffer[0]);
 	gr_set_curfont(GAME_FONT);
 	laser_level_changed = (weapon_type == 0 && weapon_num == LASER_INDEX &&

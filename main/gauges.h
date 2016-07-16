@@ -88,6 +88,10 @@ extern rgb player_rgb[];
 //window.
 void do_cockpit_window_view(int win,object *viewer,int rear_view_flag,int user,char *label);
 
+#ifdef OGLES
+extern void apply_cockpit_window_alphas();
+#endif
+
 #ifdef MACINTOSH
 	#include "QuickDraw.h"
 	#include "RAVE.h"

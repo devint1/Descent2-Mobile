@@ -575,11 +575,10 @@ void init_cockpit()
 		}
 			
 	}
-	
-	WINDOS(
-		   dd_gr_set_current_canvas(NULL),
-		   gr_set_current_canvas(NULL)
-		   );
+#ifdef OGLES
+	apply_cockpit_window_alphas();
+#endif
+	gr_set_current_canvas(NULL);
 }
 
 //selects a given cockpit (or lack of one).  See types in game.h
@@ -2635,6 +2634,9 @@ void GameLoop(int RenderFlag, int ReadControlsFlag )
 				init_cockpit();
 				force_cockpit_redraw=0;
 			}
+#ifdef OGLES
+			glClear(GL_COLOR_BUFFER_BIT);
+#endif
 			game_render_frame();
 #ifdef OGLES
 			diminish_palette_towards_normal();
