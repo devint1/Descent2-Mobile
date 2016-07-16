@@ -2539,9 +2539,16 @@ void draw_static(int win) {
 	gr_set_current_canvas(&VR_render_buffer[0]);
 
 	gb = get_gauge_box(boxofs + win);
-	for (x = gb.left; x < gb.right; x += bmp->bm_w)
-		for (y = gb.top; y < gb.bot; y += bmp->bm_h)
-			gr_bitmap(x, y, bmp);
+	for (x = gb.left; x < gb.right; x += bmp->bm_w) {
+		for (y = gb.top; y < gb.bot; y += bmp->bm_h) {
+			grs_point scale_pts[] = {
+				{i2f(x), i2f(y)},
+				{0, 0},
+				{i2f(x) + 64 * Scale_factor, i2f(y) + 64 * Scale_factor}
+			};
+			scale_bitmap(bmp, scale_pts, 0);
+		}
+	}
 
 	gr_set_current_canvas(get_current_game_screen());
 	copy_gauge_box(&gb, &VR_render_buffer[0].cv_bitmap);
@@ -2583,8 +2590,6 @@ void draw_weapon_boxes() {
 			}
 		}
 	}
-	else if (weapon_box_user[0] == WBU_STATIC)
-		draw_static(0);
 
 	if (weapon_box_user[1] == WBU_WEAPON) {
 		drew = draw_weapon_box(1, Secondary_weapon);
@@ -2604,8 +2609,6 @@ void draw_weapon_boxes() {
 			old_ammo_count[1][VR_current_page] = Players[Player_num].secondary_ammo[Secondary_weapon];
 		}
 	}
-	else if (weapon_box_user[1] == WBU_STATIC)
-		draw_static(1);
 }
 
 void sb_draw_energy_bar(int energy) {
@@ -3457,8 +3460,16 @@ void do_cockpit_window_view(int win, object *viewer, int rear_view_flag, int use
 		if (user == WBU_STATIC && weapon_box_user[win] != WBU_STATIC)
 			static_time[win] = 0;
 
-		if (weapon_box_user[win] == WBU_WEAPON || weapon_box_user[win] == WBU_STATIC)
+		if (weapon_box_user[win] == WBU_WEAPON) {
 			return;        //already set
+		} else if (weapon_box_user[win] == WBU_STATIC) {
+			if (Cockpit_mode == CM_FULL_COCKPIT || Cockpit_mode == CM_STATUS_BAR) {
+				draw_static(win);
+			} else {
+				weapon_box_user[win] = WBU_WEAPON;
+			}
+			return;
+		}
 
 		weapon_box_user[win] = user;
 
