@@ -463,7 +463,7 @@ typedef struct digi_channel {
 #define MAX_CHANNELS _MAX_VOICES
 digi_channel channels[MAX_CHANNELS];
 
-#define MAX_SOUND_OBJECTS 32
+#define MAX_SOUND_OBJECTS 150
 sound_object SoundObjects[MAX_SOUND_OBJECTS];
 
 void *testLoadFile(char *szFileName, int *length);
@@ -1272,7 +1272,7 @@ void digi_sync_sounds() {
 			if (!(SoundObjects[i].flags & SOF_PLAY_FOREVER)) {
 				// Check if its done.
 				if (SoundObjects[i].flags & SOF_PLAYING && SoundObjects[i].handle != -1) {
-					if (digi_is_channel_playing(SoundObjects[i].handle)) {
+					if (!digi_is_channel_playing(SoundObjects[i].handle)) {
 						(*sl_players[SoundObjects[i].handle])->SetPlayState(
 								sl_players[SoundObjects[i].handle], SL_PLAYSTATE_STOPPED);
 						sound_done[SoundObjects[i].handle] = true;
