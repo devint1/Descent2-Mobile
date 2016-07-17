@@ -43,7 +43,7 @@ public class DescentActivity extends Activity implements SensorEventListener {
 
 		// Enable immersive mode and make sure it's enabled whenever we're fullscreen
 		setImmersive();
-		if (Build.VERSION.SDK_INT >= 11) {
+		if (Build.VERSION.SDK_INT >= 19) {
 			getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(
 					new View.OnSystemUiVisibilityChangeListener() {
 						@Override
