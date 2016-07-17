@@ -73,7 +73,6 @@ public class DescentActivity extends Activity implements SensorEventListener {
 
 		// Set views
 		setContentView(descentView);
-		//addContentView(dummyText, new WindowManager.LayoutParams());
 
 		// Keep the screen from going to sleep
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
