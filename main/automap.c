@@ -1762,7 +1762,6 @@ void InitMarkerInput ()
 			 break;
 		 case KEY_LEFT:
 		 case KEY_BACKSP:
-		 case KEY_PAD4:
 			 if (Marker_index > 0)
 				 Marker_index--;
 			 Marker_input[Marker_index] = 0;
