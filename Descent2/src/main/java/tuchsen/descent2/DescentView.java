@@ -121,7 +121,7 @@ public class DescentView extends SurfaceView implements KeyEvent.Callback, Surfa
 		} else {
 			keyHandler((char) event.getUnicodeChar(), false);
 		}
-		return true;
+		return event.getUnicodeChar() != 0;
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public class DescentView extends SurfaceView implements KeyEvent.Callback, Surfa
 		} else {
 			keyHandler((char) event.getUnicodeChar(), true);
 		}
-		return true;
+		return event.getUnicodeChar() != 0;
 	}
 
 	@Override
@@ -143,7 +143,7 @@ public class DescentView extends SurfaceView implements KeyEvent.Callback, Surfa
 			keyHandler((char) 0x01, false);
 			return true;
 		}
-		return super.dispatchKeyEvent(event);
+		return false;
 	}
 
 	@Override
