@@ -39,7 +39,9 @@ grs_bitmap *gr_create_bitmap(int w, int h )
 	new->bm_rowsize = w;
 	new->bm_handle = 0;
     new->bm_data = (unsigned char *)malloc( w*h );
+#ifdef OGLES
 	new->bm_ogles_tex_id = 0;
+#endif
 
     return new;
 }
@@ -57,8 +59,10 @@ grs_bitmap *gr_create_bitmap_raw(int w, int h, unsigned char * raw_data )
 	new->bm_type = 0;
 	new->bm_rowsize = w;
 	new->bm_data = raw_data;
-	new->bm_handle = 0;
-	new->bm_ogles_tex_id = 0;
+    new->bm_handle = 0;
+#ifdef OGLES
+    new->bm_ogles_tex_id = 0;
+#endif
 
 	return new;
 }
@@ -128,7 +132,9 @@ grs_bitmap *gr_create_sub_bitmap(grs_bitmap *bm, int x, int y, int w, int h )
 	new->bm_rowsize = bm->bm_rowsize;
 	new->bm_data = bm->bm_data+(unsigned int)((y*bm->bm_rowsize)+x);
 	new->bm_handle = 0;
-	new->bm_ogles_tex_id = 0;
+#ifdef OGLES
+    new->bm_ogles_tex_id = 0;
+#endif
 
 	return new;
 }

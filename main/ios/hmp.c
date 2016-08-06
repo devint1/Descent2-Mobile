@@ -105,7 +105,7 @@ void hmp_init() {
 
 void hmp_stop(hmp_file *hmp) {
 	MusicPlayerStop(musicPlayer);
-	stopLoop();
+	stopMidiLoop();
 }
 
 void hmp_setvolume(hmp_file *hmp, int volume) {
@@ -192,7 +192,7 @@ int hmp_play(hmp_file *hmp, bool loop) {
 	MusicPlayerSetSequence(musicPlayer, musicSequence);
 	MusicPlayerStart(musicPlayer);
 	if (loop) {
-		startLoop(trackLength * 1.6, &musicPlayer);
+		startMidiLoop(trackLength * 1.6, &musicPlayer);
 	}
 	free(midbuf);
 	return 0;

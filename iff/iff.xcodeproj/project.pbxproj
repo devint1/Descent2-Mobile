@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0384211D1C83F7CD00361C3C /* IFF.C in Sources */ = {isa = PBXBuildFile; fileRef = 0384211A1C83F7CD00361C3C /* IFF.C */; };
+		039620391D564CDA00C0B838 /* iff.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620361D564CDA00C0B838 /* iff.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,10 +23,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0384210E1C83F7A200361C3C /* libIFF.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIFF.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0384211A1C83F7CD00361C3C /* IFF.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IFF.C; sourceTree = SOURCE_ROOT; };
-		0384211B1C83F7CD00361C3C /* IFF.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IFF.H; sourceTree = SOURCE_ROOT; };
-		0384211C1C83F7CD00361C3C /* VESA.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VESA.H; sourceTree = SOURCE_ROOT; };
+		0384210E1C83F7A200361C3C /* libiff.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiff.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		039620361D564CDA00C0B838 /* iff.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = iff.c; path = ../iff/iff.c; sourceTree = "<group>"; };
+		039620371D564CDA00C0B838 /* iff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iff.h; path = ../iff/iff.h; sourceTree = "<group>"; };
+		039620381D564CDA00C0B838 /* vesa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vesa.h; path = ../iff/vesa.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,7 @@
 		038421051C83F7A200361C3C = {
 			isa = PBXGroup;
 			children = (
-				038421101C83F7A200361C3C /* IFF */,
+				0396203A1D564CDC00C0B838 /* iff */,
 				0384210F1C83F7A200361C3C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,27 +51,27 @@
 		0384210F1C83F7A200361C3C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0384210E1C83F7A200361C3C /* libIFF.a */,
+				0384210E1C83F7A200361C3C /* libiff.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		038421101C83F7A200361C3C /* IFF */ = {
+		0396203A1D564CDC00C0B838 /* iff */ = {
 			isa = PBXGroup;
 			children = (
-				0384211A1C83F7CD00361C3C /* IFF.C */,
-				0384211B1C83F7CD00361C3C /* IFF.H */,
-				0384211C1C83F7CD00361C3C /* VESA.H */,
+				039620361D564CDA00C0B838 /* iff.c */,
+				039620371D564CDA00C0B838 /* iff.h */,
+				039620381D564CDA00C0B838 /* vesa.h */,
 			);
-			path = IFF;
+			name = iff;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0384210D1C83F7A200361C3C /* IFF */ = {
+		0384210D1C83F7A200361C3C /* iff */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 038421171C83F7A200361C3C /* Build configuration list for PBXNativeTarget "IFF" */;
+			buildConfigurationList = 038421171C83F7A200361C3C /* Build configuration list for PBXNativeTarget "iff" */;
 			buildPhases = (
 				0384210A1C83F7A200361C3C /* Sources */,
 				0384210B1C83F7A200361C3C /* Frameworks */,
@@ -81,9 +81,9 @@
 			);
 			dependencies = (
 			);
-			name = IFF;
+			name = iff;
 			productName = IFF;
-			productReference = 0384210E1C83F7A200361C3C /* libIFF.a */;
+			productReference = 0384210E1C83F7A200361C3C /* libiff.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +101,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 038421091C83F7A200361C3C /* Build configuration list for PBXProject "IFF" */;
+			buildConfigurationList = 038421091C83F7A200361C3C /* Build configuration list for PBXProject "iff" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0384210D1C83F7A200361C3C /* IFF */,
+				0384210D1C83F7A200361C3C /* iff */,
 			);
 		};
 /* End PBXProject section */
@@ -123,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0384211D1C83F7CD00361C3C /* IFF.C in Sources */,
+				039620391D564CDA00C0B838 /* iff.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,22 +217,20 @@
 		038421181C83F7A200361C3C /* Debug (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iff;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../MEM ../PA_NULL ../2D ../FIX ../MISC ../CFILE ../IO";
+				USER_HEADER_SEARCH_PATHS = "../mem ../pa_null ../2d ../fix ../misc ../cfile ../io";
 			};
 			name = "Debug (Software)";
 		};
 		038421191C83F7A200361C3C /* Release (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iff;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../MEM ../PA_NULL ../2D ../FIX ../MISC ../CFILE ../IO";
+				USER_HEADER_SEARCH_PATHS = "../mem ../pa_null ../2d ../fix ../misc ../cfile ../io";
 			};
 			name = "Release (Software)";
 		};
@@ -283,11 +281,10 @@
 		03F1DD191C9F563E008AA444 /* Debug (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iff;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../MEM ../PA_NULL ../2D ../FIX ../MISC ../CFILE ../IO";
+				USER_HEADER_SEARCH_PATHS = "../mem ../pa_null ../2d ../fix ../misc ../cfile ../io";
 			};
 			name = "Debug (OpenGL ES)";
 		};
@@ -336,18 +333,17 @@
 		03F1DD1B1C9F5644008AA444 /* Release (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iff;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../MEM ../PA_NULL ../2D ../FIX ../MISC ../CFILE ../IO";
+				USER_HEADER_SEARCH_PATHS = "../mem ../pa_null ../2d ../fix ../misc ../cfile ../io";
 			};
 			name = "Release (OpenGL ES)";
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		038421091C83F7A200361C3C /* Build configuration list for PBXProject "IFF" */ = {
+		038421091C83F7A200361C3C /* Build configuration list for PBXProject "iff" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				038421151C83F7A200361C3C /* Debug (Software) */,
@@ -358,7 +354,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release (Software)";
 		};
-		038421171C83F7A200361C3C /* Build configuration list for PBXNativeTarget "IFF" */ = {
+		038421171C83F7A200361C3C /* Build configuration list for PBXNativeTarget "iff" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				038421181C83F7A200361C3C /* Debug (Software) */,

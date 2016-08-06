@@ -18,6 +18,7 @@ static char rcsid[] = "$Id: physics.c 2.35 1996/06/12 16:11:30 matt Exp $";
 //@@#include <malloc.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "joy.h"
 #include "mono.h"

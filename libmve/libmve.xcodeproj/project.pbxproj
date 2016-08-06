@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		033A49D91C8B4D7C00CF97FE /* DECODER8.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D01C8B4D7C00CF97FE /* DECODER8.C */; };
-		033A49DA1C8B4D7C00CF97FE /* DECODER16.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D11C8B4D7C00CF97FE /* DECODER16.C */; };
-		033A49DB1C8B4D7C00CF97FE /* MVEAUDIO.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D31C8B4D7C00CF97FE /* MVEAUDIO.C */; };
-		033A49DC1C8B4D7C00CF97FE /* MVELIB.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D51C8B4D7C00CF97FE /* MVELIB.C */; };
-		033A49DE1C8B4D7C00CF97FE /* MVEPLAY.C in Sources */ = {isa = PBXBuildFile; fileRef = 033A49D81C8B4D7C00CF97FE /* MVEPLAY.C */; };
+		039620C31D56500B00C0B838 /* decoder8.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620BA1D56500B00C0B838 /* decoder8.c */; };
+		039620C41D56500B00C0B838 /* decoder16.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620BB1D56500B00C0B838 /* decoder16.c */; };
+		039620C51D56500B00C0B838 /* mveaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620BE1D56500B00C0B838 /* mveaudio.c */; };
+		039620C61D56500B00C0B838 /* mvelib.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620C01D56500B00C0B838 /* mvelib.c */; };
+		039620C71D56500B00C0B838 /* mveplay.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620C21D56500B00C0B838 /* mveplay.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,16 +27,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		033A49C41C8B4D5F00CF97FE /* libLIBMVE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLIBMVE.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		033A49D01C8B4D7C00CF97FE /* DECODER8.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DECODER8.C; sourceTree = SOURCE_ROOT; };
-		033A49D11C8B4D7C00CF97FE /* DECODER16.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DECODER16.C; sourceTree = SOURCE_ROOT; };
-		033A49D21C8B4D7C00CF97FE /* DECODERS.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DECODERS.H; sourceTree = SOURCE_ROOT; };
-		033A49D31C8B4D7C00CF97FE /* MVEAUDIO.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MVEAUDIO.C; sourceTree = SOURCE_ROOT; };
-		033A49D41C8B4D7C00CF97FE /* MVEAUDIO.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MVEAUDIO.H; sourceTree = SOURCE_ROOT; };
-		033A49D51C8B4D7C00CF97FE /* MVELIB.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MVELIB.C; sourceTree = SOURCE_ROOT; };
-		033A49D61C8B4D7C00CF97FE /* MVELIB.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MVELIB.H; sourceTree = SOURCE_ROOT; };
-		033A49D81C8B4D7C00CF97FE /* MVEPLAY.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MVEPLAY.C; sourceTree = SOURCE_ROOT; };
-		033A49DF1C8B4DAF00CF97FE /* LIBMVE.H */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LIBMVE.H; sourceTree = SOURCE_ROOT; };
+		033A49C41C8B4D5F00CF97FE /* libmve.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmve.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		039620BA1D56500B00C0B838 /* decoder8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = decoder8.c; path = ../libmve/decoder8.c; sourceTree = "<group>"; };
+		039620BB1D56500B00C0B838 /* decoder16.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = decoder16.c; path = ../libmve/decoder16.c; sourceTree = "<group>"; };
+		039620BC1D56500B00C0B838 /* decoders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = decoders.h; path = ../libmve/decoders.h; sourceTree = "<group>"; };
+		039620BD1D56500B00C0B838 /* libmve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libmve.h; path = ../libmve/libmve.h; sourceTree = "<group>"; };
+		039620BE1D56500B00C0B838 /* mveaudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mveaudio.c; path = ../libmve/mveaudio.c; sourceTree = "<group>"; };
+		039620BF1D56500B00C0B838 /* mveaudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mveaudio.h; path = ../libmve/mveaudio.h; sourceTree = "<group>"; };
+		039620C01D56500B00C0B838 /* mvelib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mvelib.c; path = ../libmve/mvelib.c; sourceTree = "<group>"; };
+		039620C11D56500B00C0B838 /* mvelib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mvelib.h; path = ../libmve/mvelib.h; sourceTree = "<group>"; };
+		039620C21D56500B00C0B838 /* mveplay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mveplay.c; path = ../libmve/mveplay.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +53,7 @@
 		033A49BB1C8B4D5F00CF97FE = {
 			isa = PBXGroup;
 			children = (
-				033A49C61C8B4D5F00CF97FE /* LIBMVE */,
+				039620C81D56500E00C0B838 /* libmve */,
 				033A49C51C8B4D5F00CF97FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,33 +61,33 @@
 		033A49C51C8B4D5F00CF97FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				033A49C41C8B4D5F00CF97FE /* libLIBMVE.a */,
+				033A49C41C8B4D5F00CF97FE /* libmve.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		033A49C61C8B4D5F00CF97FE /* LIBMVE */ = {
+		039620C81D56500E00C0B838 /* libmve */ = {
 			isa = PBXGroup;
 			children = (
-				033A49D01C8B4D7C00CF97FE /* DECODER8.C */,
-				033A49D11C8B4D7C00CF97FE /* DECODER16.C */,
-				033A49D21C8B4D7C00CF97FE /* DECODERS.H */,
-				033A49DF1C8B4DAF00CF97FE /* LIBMVE.H */,
-				033A49D31C8B4D7C00CF97FE /* MVEAUDIO.C */,
-				033A49D41C8B4D7C00CF97FE /* MVEAUDIO.H */,
-				033A49D51C8B4D7C00CF97FE /* MVELIB.C */,
-				033A49D61C8B4D7C00CF97FE /* MVELIB.H */,
-				033A49D81C8B4D7C00CF97FE /* MVEPLAY.C */,
+				039620BA1D56500B00C0B838 /* decoder8.c */,
+				039620BB1D56500B00C0B838 /* decoder16.c */,
+				039620BC1D56500B00C0B838 /* decoders.h */,
+				039620BD1D56500B00C0B838 /* libmve.h */,
+				039620BE1D56500B00C0B838 /* mveaudio.c */,
+				039620BF1D56500B00C0B838 /* mveaudio.h */,
+				039620C01D56500B00C0B838 /* mvelib.c */,
+				039620C11D56500B00C0B838 /* mvelib.h */,
+				039620C21D56500B00C0B838 /* mveplay.c */,
 			);
-			path = LIBMVE;
+			name = libmve;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		033A49C31C8B4D5F00CF97FE /* LIBMVE */ = {
+		033A49C31C8B4D5F00CF97FE /* libmve */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 033A49CD1C8B4D5F00CF97FE /* Build configuration list for PBXNativeTarget "LIBMVE" */;
+			buildConfigurationList = 033A49CD1C8B4D5F00CF97FE /* Build configuration list for PBXNativeTarget "libmve" */;
 			buildPhases = (
 				033A49C01C8B4D5F00CF97FE /* Sources */,
 				033A49C11C8B4D5F00CF97FE /* Frameworks */,
@@ -97,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = LIBMVE;
+			name = libmve;
 			productName = LIBMVE;
-			productReference = 033A49C41C8B4D5F00CF97FE /* libLIBMVE.a */;
+			productReference = 033A49C41C8B4D5F00CF97FE /* libmve.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -117,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 033A49BF1C8B4D5F00CF97FE /* Build configuration list for PBXProject "LIBMVE" */;
+			buildConfigurationList = 033A49BF1C8B4D5F00CF97FE /* Build configuration list for PBXProject "libmve" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -129,7 +129,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				033A49C31C8B4D5F00CF97FE /* LIBMVE */,
+				033A49C31C8B4D5F00CF97FE /* libmve */,
 			);
 		};
 /* End PBXProject section */
@@ -139,11 +139,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				033A49DC1C8B4D7C00CF97FE /* MVELIB.C in Sources */,
-				033A49D91C8B4D7C00CF97FE /* DECODER8.C in Sources */,
-				033A49DB1C8B4D7C00CF97FE /* MVEAUDIO.C in Sources */,
-				033A49DA1C8B4D7C00CF97FE /* DECODER16.C in Sources */,
-				033A49DE1C8B4D7C00CF97FE /* MVEPLAY.C in Sources */,
+				039620C61D56500B00C0B838 /* mvelib.c in Sources */,
+				039620C31D56500B00C0B838 /* decoder8.c in Sources */,
+				039620C51D56500B00C0B838 /* mveaudio.c in Sources */,
+				039620C71D56500B00C0B838 /* mveplay.c in Sources */,
+				039620C41D56500B00C0B838 /* decoder16.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,22 +237,20 @@
 		033A49CE1C8B4D5F00CF97FE /* Debug (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mve;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../2D ../IO ../FIX ../PA_NULL ../MISC";
+				USER_HEADER_SEARCH_PATHS = "../2d ../io ../fix ../pa_null ../misc";
 			};
 			name = "Debug (Software)";
 		};
 		033A49CF1C8B4D5F00CF97FE /* Release (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mve;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../2D ../IO ../FIX ../PA_NULL ../MISC";
+				USER_HEADER_SEARCH_PATHS = "../2d ../io ../fix ../pa_null ../misc";
 			};
 			name = "Release (Software)";
 		};
@@ -303,11 +301,10 @@
 		03F1DD211C9F56D5008AA444 /* Debug (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mve;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../2D ../IO ../FIX ../PA_NULL ../MISC";
+				USER_HEADER_SEARCH_PATHS = "../2d ../io ../fix ../pa_null ../misc";
 			};
 			name = "Debug (OpenGL ES)";
 		};
@@ -356,18 +353,17 @@
 		03F1DD231C9F56DC008AA444 /* Release (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mve;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../2D ../IO ../FIX ../PA_NULL ../MISC";
+				USER_HEADER_SEARCH_PATHS = "../2d ../io ../fix ../pa_null ../misc";
 			};
 			name = "Release (OpenGL ES)";
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		033A49BF1C8B4D5F00CF97FE /* Build configuration list for PBXProject "LIBMVE" */ = {
+		033A49BF1C8B4D5F00CF97FE /* Build configuration list for PBXProject "libmve" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				033A49CB1C8B4D5F00CF97FE /* Debug (Software) */,
@@ -378,7 +374,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release (Software)";
 		};
-		033A49CD1C8B4D5F00CF97FE /* Build configuration list for PBXNativeTarget "LIBMVE" */ = {
+		033A49CD1C8B4D5F00CF97FE /* Build configuration list for PBXNativeTarget "libmve" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				033A49CE1C8B4D5F00CF97FE /* Debug (Software) */,

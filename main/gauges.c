@@ -15,6 +15,7 @@ COPYRIGHT 1993-1999 PARALLAX SOFTWARE CORPORATION.  ALL RIGHTS RESERVED.
 char gauges_rcsid[] = "$Id: gauges.c 2.130 1996/12/09 15:11:43 jeremy Exp $";
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <math.h>
 

@@ -97,7 +97,10 @@ static char rcsid[] = "$Id: mem.c 1.18 1995/01/24 20:49:18 matt Exp $";
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+
+#ifdef ANDROID_NDK
 #include <linux/limits.h>
+#endif
 
 #include "mono.h"
 #include "error.h"

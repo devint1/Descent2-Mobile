@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		038420FE1C83F60B00361C3C /* CFILE.C in Sources */ = {isa = PBXBuildFile; fileRef = 038420FB1C83F60B00361C3C /* CFILE.C */; };
+		0396202E1D564C6500C0B838 /* cfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396202B1D564C6500C0B838 /* cfile.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,10 +23,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		038420DD1C83F5BA00361C3C /* libCFILE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCFILE.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		038420FB1C83F60B00361C3C /* CFILE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CFILE.C; sourceTree = "<group>"; };
-		038420FC1C83F60B00361C3C /* CFILE.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CFILE.H; sourceTree = "<group>"; };
-		038420FD1C83F60B00361C3C /* NOCFILE.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NOCFILE.H; sourceTree = "<group>"; };
+		038420DD1C83F5BA00361C3C /* libcfile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcfile.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0396202B1D564C6500C0B838 /* cfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cfile.c; path = ../cfile/cfile.c; sourceTree = "<group>"; };
+		0396202C1D564C6500C0B838 /* cfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cfile.h; path = ../cfile/cfile.h; sourceTree = "<group>"; };
+		0396202D1D564C6500C0B838 /* nocfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nocfile.h; path = ../cfile/nocfile.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,10 +43,7 @@
 		038420D41C83F5BA00361C3C = {
 			isa = PBXGroup;
 			children = (
-				038420DF1C83F5BA00361C3C /* CFILE */,
-				038420FB1C83F60B00361C3C /* CFILE.C */,
-				038420FC1C83F60B00361C3C /* CFILE.H */,
-				038420FD1C83F60B00361C3C /* NOCFILE.H */,
+				0396202F1D564C6900C0B838 /* cfile */,
 				038420DE1C83F5BA00361C3C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,24 +51,27 @@
 		038420DE1C83F5BA00361C3C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				038420DD1C83F5BA00361C3C /* libCFILE.a */,
+				038420DD1C83F5BA00361C3C /* libcfile.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		038420DF1C83F5BA00361C3C /* CFILE */ = {
+		0396202F1D564C6900C0B838 /* cfile */ = {
 			isa = PBXGroup;
 			children = (
+				0396202B1D564C6500C0B838 /* cfile.c */,
+				0396202C1D564C6500C0B838 /* cfile.h */,
+				0396202D1D564C6500C0B838 /* nocfile.h */,
 			);
-			path = CFILE;
+			name = cfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		038420DC1C83F5BA00361C3C /* CFILE */ = {
+		038420DC1C83F5BA00361C3C /* cfile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 038420E61C83F5BA00361C3C /* Build configuration list for PBXNativeTarget "CFILE" */;
+			buildConfigurationList = 038420E61C83F5BA00361C3C /* Build configuration list for PBXNativeTarget "cfile" */;
 			buildPhases = (
 				038420D91C83F5BA00361C3C /* Sources */,
 				038420DA1C83F5BA00361C3C /* Frameworks */,
@@ -81,9 +81,9 @@
 			);
 			dependencies = (
 			);
-			name = CFILE;
+			name = cfile;
 			productName = CFILE;
-			productReference = 038420DD1C83F5BA00361C3C /* libCFILE.a */;
+			productReference = 038420DD1C83F5BA00361C3C /* libcfile.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +101,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 038420D81C83F5BA00361C3C /* Build configuration list for PBXProject "CFILE" */;
+			buildConfigurationList = 038420D81C83F5BA00361C3C /* Build configuration list for PBXProject "cfile" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				038420DC1C83F5BA00361C3C /* CFILE */,
+				038420DC1C83F5BA00361C3C /* cfile */,
 			);
 		};
 /* End PBXProject section */
@@ -123,7 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				038420FE1C83F60B00361C3C /* CFILE.C in Sources */,
+				0396202E1D564C6500C0B838 /* cfile.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,22 +217,20 @@
 		038420E71C83F5BA00361C3C /* Debug (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = cfile;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../MEM ../IO ../PA_NULL ../MISC";
+				USER_HEADER_SEARCH_PATHS = "../mem ../io ../pa_null ../misc";
 			};
 			name = "Debug (Software)";
 		};
 		038420E81C83F5BA00361C3C /* Release (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = cfile;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../MEM ../IO ../PA_NULL ../MISC";
+				USER_HEADER_SEARCH_PATHS = "../mem ../io ../pa_null ../misc";
 			};
 			name = "Release (Software)";
 		};
@@ -283,11 +281,10 @@
 		03F1DD111C9F5584008AA444 /* Debug (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = cfile;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../MEM ../IO ../PA_NULL ../MISC";
+				USER_HEADER_SEARCH_PATHS = "../mem ../io ../pa_null ../misc";
 			};
 			name = "Debug (OpenGL ES)";
 		};
@@ -336,18 +333,17 @@
 		03F1DD131C9F558A008AA444 /* Release (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = cfile;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../MEM ../IO ../PA_NULL ../MISC";
+				USER_HEADER_SEARCH_PATHS = "../mem ../io ../pa_null ../misc";
 			};
 			name = "Release (OpenGL ES)";
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		038420D81C83F5BA00361C3C /* Build configuration list for PBXProject "CFILE" */ = {
+		038420D81C83F5BA00361C3C /* Build configuration list for PBXProject "cfile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				038420E41C83F5BA00361C3C /* Debug (Software) */,
@@ -358,7 +354,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release (Software)";
 		};
-		038420E61C83F5BA00361C3C /* Build configuration list for PBXNativeTarget "CFILE" */ = {
+		038420E61C83F5BA00361C3C /* Build configuration list for PBXNativeTarget "cfile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				038420E71C83F5BA00361C3C /* Debug (Software) */,

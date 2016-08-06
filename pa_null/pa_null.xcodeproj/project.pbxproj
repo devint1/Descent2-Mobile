@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0351D4ED1C84FDB20002F4FC /* POLY_ACC.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D4EA1C84FDB20002F4FC /* POLY_ACC.C */; };
+		039620721D564DE100C0B838 /* poly_acc.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396206F1D564DE100C0B838 /* poly_acc.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,11 +23,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0351D4DD1C84FD8C0002F4FC /* libPA_NULL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPA_NULL.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0351D4E91C84FDB20002F4FC /* pa_enabl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pa_enabl.h; sourceTree = SOURCE_ROOT; };
-		0351D4EA1C84FDB20002F4FC /* POLY_ACC.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = POLY_ACC.C; sourceTree = SOURCE_ROOT; };
-		0351D4EB1C84FDB20002F4FC /* POLY_ACC.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = POLY_ACC.H; sourceTree = SOURCE_ROOT; };
-		0351D4EC1C84FDB20002F4FC /* PSTYPES.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PSTYPES.H; sourceTree = SOURCE_ROOT; };
+		0351D4DD1C84FD8C0002F4FC /* libpa_null.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libpa_null.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0396206E1D564DE100C0B838 /* pa_enabl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pa_enabl.h; path = ../pa_null/pa_enabl.h; sourceTree = "<group>"; };
+		0396206F1D564DE100C0B838 /* poly_acc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = poly_acc.c; path = ../pa_null/poly_acc.c; sourceTree = "<group>"; };
+		039620701D564DE100C0B838 /* poly_acc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = poly_acc.h; path = ../pa_null/poly_acc.h; sourceTree = "<group>"; };
+		039620711D564DE100C0B838 /* pstypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pstypes.h; path = ../pa_null/pstypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +44,7 @@
 		0351D4D41C84FD8C0002F4FC = {
 			isa = PBXGroup;
 			children = (
-				0351D4DF1C84FD8C0002F4FC /* PA_NULL */,
+				039620731D564DE300C0B838 /* pa_null */,
 				0351D4DE1C84FD8C0002F4FC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,28 +52,28 @@
 		0351D4DE1C84FD8C0002F4FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0351D4DD1C84FD8C0002F4FC /* libPA_NULL.a */,
+				0351D4DD1C84FD8C0002F4FC /* libpa_null.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0351D4DF1C84FD8C0002F4FC /* PA_NULL */ = {
+		039620731D564DE300C0B838 /* pa_null */ = {
 			isa = PBXGroup;
 			children = (
-				0351D4E91C84FDB20002F4FC /* pa_enabl.h */,
-				0351D4EA1C84FDB20002F4FC /* POLY_ACC.C */,
-				0351D4EB1C84FDB20002F4FC /* POLY_ACC.H */,
-				0351D4EC1C84FDB20002F4FC /* PSTYPES.H */,
+				0396206E1D564DE100C0B838 /* pa_enabl.h */,
+				0396206F1D564DE100C0B838 /* poly_acc.c */,
+				039620701D564DE100C0B838 /* poly_acc.h */,
+				039620711D564DE100C0B838 /* pstypes.h */,
 			);
-			path = PA_NULL;
+			name = pa_null;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0351D4DC1C84FD8C0002F4FC /* PA_NULL */ = {
+		0351D4DC1C84FD8C0002F4FC /* pa_null */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0351D4E61C84FD8C0002F4FC /* Build configuration list for PBXNativeTarget "PA_NULL" */;
+			buildConfigurationList = 0351D4E61C84FD8C0002F4FC /* Build configuration list for PBXNativeTarget "pa_null" */;
 			buildPhases = (
 				0351D4D91C84FD8C0002F4FC /* Sources */,
 				0351D4DA1C84FD8C0002F4FC /* Frameworks */,
@@ -83,9 +83,9 @@
 			);
 			dependencies = (
 			);
-			name = PA_NULL;
+			name = pa_null;
 			productName = PA_NULL;
-			productReference = 0351D4DD1C84FD8C0002F4FC /* libPA_NULL.a */;
+			productReference = 0351D4DD1C84FD8C0002F4FC /* libpa_null.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -103,7 +103,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0351D4D81C84FD8C0002F4FC /* Build configuration list for PBXProject "PA_NULL" */;
+			buildConfigurationList = 0351D4D81C84FD8C0002F4FC /* Build configuration list for PBXProject "pa_null" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0351D4DC1C84FD8C0002F4FC /* PA_NULL */,
+				0351D4DC1C84FD8C0002F4FC /* pa_null */,
 			);
 		};
 /* End PBXProject section */
@@ -125,7 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0351D4ED1C84FDB20002F4FC /* POLY_ACC.C in Sources */,
+				039620721D564DE100C0B838 /* poly_acc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +219,8 @@
 		0351D4E71C84FD8C0002F4FC /* Debug (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pa_null;
 				SKIP_INSTALL = YES;
 			};
 			name = "Debug (Software)";
@@ -229,9 +228,8 @@
 		0351D4E81C84FD8C0002F4FC /* Release (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pa_null;
 				SKIP_INSTALL = YES;
 			};
 			name = "Release (Software)";
@@ -283,9 +281,8 @@
 		03F1DD311C9F57DB008AA444 /* Debug (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pa_null;
 				SKIP_INSTALL = YES;
 			};
 			name = "Debug (OpenGL ES)";
@@ -335,9 +332,8 @@
 		03F1DD331C9F57E1008AA444 /* Release (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pa_null;
 				SKIP_INSTALL = YES;
 			};
 			name = "Release (OpenGL ES)";
@@ -345,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0351D4D81C84FD8C0002F4FC /* Build configuration list for PBXProject "PA_NULL" */ = {
+		0351D4D81C84FD8C0002F4FC /* Build configuration list for PBXProject "pa_null" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0351D4E41C84FD8C0002F4FC /* Debug (Software) */,
@@ -356,7 +352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release (Software)";
 		};
-		0351D4E61C84FD8C0002F4FC /* Build configuration list for PBXNativeTarget "PA_NULL" */ = {
+		0351D4E61C84FD8C0002F4FC /* Build configuration list for PBXNativeTarget "pa_null" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0351D4E71C84FD8C0002F4FC /* Debug (Software) */,

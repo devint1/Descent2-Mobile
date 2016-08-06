@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/LIBMVE/libmve.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/UI/ui.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/VECMAT/vecmat.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/TEXMAP/texmap.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/PA_NULL/pa_null.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/MISC/misc.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/MEM/mem.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/MAIN/main.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Descent2/Descent2.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/IO/io.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/IFF/iff.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/FIX/fix.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/CFILE/cfile.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/3D/3d.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/devin/Documents/AndroidProjects/Descent2-Mobile/2D/2d.xcodeproj">
+   </FileRef>
+</Workspace>

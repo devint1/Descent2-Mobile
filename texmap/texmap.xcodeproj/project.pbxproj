@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0312322F1BD4A60B00BEBA87 /* NTMAP.C in Sources */ = {isa = PBXBuildFile; fileRef = 031232291BD4A60B00BEBA87 /* NTMAP.C */; };
-		031232301BD4A60B00BEBA87 /* SCANLINE.C in Sources */ = {isa = PBXBuildFile; fileRef = 0312322A1BD4A60B00BEBA87 /* SCANLINE.C */; };
-		031232311BD4A60B00BEBA87 /* TMAPFLAT.C in Sources */ = {isa = PBXBuildFile; fileRef = 0312322E1BD4A60B00BEBA87 /* TMAPFLAT.C */; };
-		038CF7A81BE30EDD0073AB9B /* OGLESTEX.c in Sources */ = {isa = PBXBuildFile; fileRef = 038CF7A61BE30EDD0073AB9B /* OGLESTEX.c */; };
+		0396207E1D564E2000C0B838 /* ntmap.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620741D564E2000C0B838 /* ntmap.c */; };
+		0396207F1D564E2000C0B838 /* oglestex.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620771D564E2000C0B838 /* oglestex.c */; };
+		039620801D564E2000C0B838 /* scanline.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620791D564E2000C0B838 /* scanline.c */; };
+		039620811D564E2000C0B838 /* tmapflat.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396207D1D564E2000C0B838 /* tmapflat.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,16 +26,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0312321D1BD4A5ED00BEBA87 /* libTEXMAP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTEXMAP.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		031232291BD4A60B00BEBA87 /* NTMAP.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NTMAP.C; sourceTree = SOURCE_ROOT; };
-		0312322A1BD4A60B00BEBA87 /* SCANLINE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SCANLINE.C; sourceTree = SOURCE_ROOT; };
-		0312322B1BD4A60B00BEBA87 /* SCANLINE.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SCANLINE.H; sourceTree = SOURCE_ROOT; };
-		0312322C1BD4A60B00BEBA87 /* TEXMAP.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TEXMAP.H; sourceTree = SOURCE_ROOT; };
-		0312322D1BD4A60B00BEBA87 /* TEXMAPL.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TEXMAPL.H; sourceTree = SOURCE_ROOT; };
-		0312322E1BD4A60B00BEBA87 /* TMAPFLAT.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TMAPFLAT.C; sourceTree = SOURCE_ROOT; };
-		0351D5551C85049E0002F4FC /* NTMAPOUT.H */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NTMAPOUT.H; sourceTree = SOURCE_ROOT; };
-		038CF7A61BE30EDD0073AB9B /* OGLESTEX.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = OGLESTEX.c; path = OGLES/OGLESTEX.c; sourceTree = "<group>"; };
-		038CF7A71BE30EDD0073AB9B /* OGLESTEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OGLESTEX.h; path = OGLES/OGLESTEX.h; sourceTree = "<group>"; };
+		0312321D1BD4A5ED00BEBA87 /* libtexmap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtexmap.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		039620741D564E2000C0B838 /* ntmap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ntmap.c; path = ../texmap/ntmap.c; sourceTree = "<group>"; };
+		039620751D564E2000C0B838 /* ntmapout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ntmapout.h; path = ../texmap/ntmapout.h; sourceTree = "<group>"; };
+		039620771D564E2000C0B838 /* oglestex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = oglestex.c; sourceTree = "<group>"; };
+		039620781D564E2000C0B838 /* oglestex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oglestex.h; sourceTree = "<group>"; };
+		039620791D564E2000C0B838 /* scanline.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = scanline.c; path = ../texmap/scanline.c; sourceTree = "<group>"; };
+		0396207A1D564E2000C0B838 /* scanline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = scanline.h; path = ../texmap/scanline.h; sourceTree = "<group>"; };
+		0396207B1D564E2000C0B838 /* texmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = texmap.h; path = ../texmap/texmap.h; sourceTree = "<group>"; };
+		0396207C1D564E2000C0B838 /* texmapl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = texmapl.h; path = ../texmap/texmapl.h; sourceTree = "<group>"; };
+		0396207D1D564E2000C0B838 /* tmapflat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tmapflat.c; path = ../texmap/tmapflat.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +52,8 @@
 		031232141BD4A5ED00BEBA87 = {
 			isa = PBXGroup;
 			children = (
-				038CF7A21BE30B4E0073AB9B /* OGLES */,
-				0312321F1BD4A5ED00BEBA87 /* TEXMAP */,
+				039620821D564E2800C0B838 /* texmap */,
+				039620761D564E2000C0B838 /* ogles */,
 				0312321E1BD4A5ED00BEBA87 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,40 +61,41 @@
 		0312321E1BD4A5ED00BEBA87 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0312321D1BD4A5ED00BEBA87 /* libTEXMAP.a */,
+				0312321D1BD4A5ED00BEBA87 /* libtexmap.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0312321F1BD4A5ED00BEBA87 /* TEXMAP */ = {
+		039620761D564E2000C0B838 /* ogles */ = {
 			isa = PBXGroup;
 			children = (
-				0351D5551C85049E0002F4FC /* NTMAPOUT.H */,
-				031232291BD4A60B00BEBA87 /* NTMAP.C */,
-				0312322A1BD4A60B00BEBA87 /* SCANLINE.C */,
-				0312322B1BD4A60B00BEBA87 /* SCANLINE.H */,
-				0312322C1BD4A60B00BEBA87 /* TEXMAP.H */,
-				0312322D1BD4A60B00BEBA87 /* TEXMAPL.H */,
-				0312322E1BD4A60B00BEBA87 /* TMAPFLAT.C */,
+				039620771D564E2000C0B838 /* oglestex.c */,
+				039620781D564E2000C0B838 /* oglestex.h */,
 			);
-			path = TEXMAP;
+			name = ogles;
+			path = ../texmap/ogles;
 			sourceTree = "<group>";
 		};
-		038CF7A21BE30B4E0073AB9B /* OGLES */ = {
+		039620821D564E2800C0B838 /* texmap */ = {
 			isa = PBXGroup;
 			children = (
-				038CF7A61BE30EDD0073AB9B /* OGLESTEX.c */,
-				038CF7A71BE30EDD0073AB9B /* OGLESTEX.h */,
+				039620741D564E2000C0B838 /* ntmap.c */,
+				039620751D564E2000C0B838 /* ntmapout.h */,
+				039620791D564E2000C0B838 /* scanline.c */,
+				0396207A1D564E2000C0B838 /* scanline.h */,
+				0396207B1D564E2000C0B838 /* texmap.h */,
+				0396207C1D564E2000C0B838 /* texmapl.h */,
+				0396207D1D564E2000C0B838 /* tmapflat.c */,
 			);
-			name = OGLES;
+			name = texmap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0312321C1BD4A5ED00BEBA87 /* TEXMAP */ = {
+		0312321C1BD4A5ED00BEBA87 /* texmap */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 031232261BD4A5ED00BEBA87 /* Build configuration list for PBXNativeTarget "TEXMAP" */;
+			buildConfigurationList = 031232261BD4A5ED00BEBA87 /* Build configuration list for PBXNativeTarget "texmap" */;
 			buildPhases = (
 				031232191BD4A5ED00BEBA87 /* Sources */,
 				0312321A1BD4A5ED00BEBA87 /* Frameworks */,
@@ -104,9 +105,9 @@
 			);
 			dependencies = (
 			);
-			name = TEXMAP;
+			name = texmap;
 			productName = TEXMAP;
-			productReference = 0312321D1BD4A5ED00BEBA87 /* libTEXMAP.a */;
+			productReference = 0312321D1BD4A5ED00BEBA87 /* libtexmap.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -124,7 +125,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 031232181BD4A5ED00BEBA87 /* Build configuration list for PBXProject "TEXMAP" */;
+			buildConfigurationList = 031232181BD4A5ED00BEBA87 /* Build configuration list for PBXProject "texmap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -136,7 +137,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0312321C1BD4A5ED00BEBA87 /* TEXMAP */,
+				0312321C1BD4A5ED00BEBA87 /* texmap */,
 			);
 		};
 /* End PBXProject section */
@@ -146,10 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				038CF7A81BE30EDD0073AB9B /* OGLESTEX.c in Sources */,
-				031232301BD4A60B00BEBA87 /* SCANLINE.C in Sources */,
-				031232311BD4A60B00BEBA87 /* TMAPFLAT.C in Sources */,
-				0312322F1BD4A60B00BEBA87 /* NTMAP.C in Sources */,
+				039620811D564E2000C0B838 /* tmapflat.c in Sources */,
+				0396207F1D564E2000C0B838 /* oglestex.c in Sources */,
+				0396207E1D564E2000C0B838 /* ntmap.c in Sources */,
+				039620801D564E2000C0B838 /* scanline.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,14 +203,13 @@
 		03BF18D71C27A75E003BE14A /* Debug (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = texmap;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MISC ../2D ../IO ../PA_NULL ../3D ../VECMAT ../MAIN";
+				USER_HEADER_SEARCH_PATHS = "../fix ../misc ../2d ../io ../pa_null ../3d ../vecmat ../main";
 				USE_HEADERMAP = YES;
 			};
 			name = "Debug (Software)";
@@ -258,14 +258,13 @@
 		03BF18D91C27A772003BE14A /* Release (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = texmap;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MISC ../2D ../IO ../PA_NULL ../3D ../VECMAT ../MAIN";
+				USER_HEADER_SEARCH_PATHS = "../fix ../misc ../2d ../io ../pa_null ../3d ../vecmat ../main";
 				USE_HEADERMAP = YES;
 			};
 			name = "Release (Software)";
@@ -317,14 +316,13 @@
 		03F1DD351C9F581E008AA444 /* Debug (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = texmap;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MISC ../2D ../IO ../PA_NULL ../3D ../VECMAT ../MAIN";
+				USER_HEADER_SEARCH_PATHS = "../fix ../misc ../2d ../io ../pa_null ../3d ../vecmat ../main";
 				USE_HEADERMAP = YES;
 			};
 			name = "Debug (OpenGL ES)";
@@ -374,14 +372,13 @@
 		03F1DD371C9F5824008AA444 /* Release (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = texmap;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MISC ../2D ../IO ../PA_NULL ../3D ../VECMAT ../MAIN";
+				USER_HEADER_SEARCH_PATHS = "../fix ../misc ../2d ../io ../pa_null ../3d ../vecmat ../main";
 				USE_HEADERMAP = YES;
 			};
 			name = "Release (OpenGL ES)";
@@ -389,7 +386,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		031232181BD4A5ED00BEBA87 /* Build configuration list for PBXProject "TEXMAP" */ = {
+		031232181BD4A5ED00BEBA87 /* Build configuration list for PBXProject "texmap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03BF18D61C27A75E003BE14A /* Debug (Software) */,
@@ -400,7 +397,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Debug (Software)";
 		};
-		031232261BD4A5ED00BEBA87 /* Build configuration list for PBXNativeTarget "TEXMAP" */ = {
+		031232261BD4A5ED00BEBA87 /* Build configuration list for PBXNativeTarget "texmap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03BF18D71C27A75E003BE14A /* Debug (Software) */,

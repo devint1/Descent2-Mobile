@@ -61,7 +61,7 @@ void stopMidiLoop() {
 }
 
 long getRedbookTrackCount() {
-	NSString *directoryPath =[NSString stringWithFormat:@"%s/MUSIC", Resource_path];
+	NSString *directoryPath =[NSString stringWithFormat:@"%s/music", Resource_path];
 	NSArray *directoryContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
 	if ([directoryContents count] <= 0) {
 		return 0;
@@ -69,13 +69,13 @@ long getRedbookTrackCount() {
 	return [[[directoryContents objectAtIndex:[directoryContents count] - 1] substringToIndex:2] integerValue];
 }
 
-void setRedbookVolume(float volume) {
+void setMusicVolume(float volume) {
 	redbookVolume = volume;
 	[audioPlayer setVolume:volume];
 }
 
 int playRedbookTrack(int tracknum, int loop) {
-	NSString *directoryPath =[NSString stringWithFormat:@"%s/MUSIC", Resource_path];
+	NSString *directoryPath =[NSString stringWithFormat:@"%s/music", Resource_path];
 	NSString *trackString = [NSString stringWithFormat:@"%02d.*", tracknum];
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF like %@", trackString];
 	NSArray *directoryContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
@@ -93,6 +93,6 @@ int playRedbookTrack(int tracknum, int loop) {
 	return [audioPlayer isPlaying];
 }
 
-void stopRedbook() {
+void stopMusic() {
 	[audioPlayer stop];
 }

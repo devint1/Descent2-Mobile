@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0351D4AA1C84FBA10002F4FC /* MEM.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D4A81C84FBA10002F4FC /* MEM.C */; };
+		039620551D564D7B00C0B838 /* mem.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620531D564D7B00C0B838 /* mem.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,9 +23,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0351D49C1C84FB800002F4FC /* libMEM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMEM.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0351D4A81C84FBA10002F4FC /* MEM.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MEM.C; sourceTree = SOURCE_ROOT; };
-		0351D4A91C84FBA10002F4FC /* mem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mem.h; sourceTree = SOURCE_ROOT; };
+		0351D49C1C84FB800002F4FC /* libmem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmem.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		039620531D564D7B00C0B838 /* mem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mem.c; path = ../mem/mem.c; sourceTree = "<group>"; };
+		039620541D564D7B00C0B838 /* mem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mem.h; path = ../mem/mem.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +42,7 @@
 		0351D4931C84FB800002F4FC = {
 			isa = PBXGroup;
 			children = (
-				0351D49E1C84FB800002F4FC /* MEM */,
+				039620561D564D7E00C0B838 /* mem */,
 				0351D49D1C84FB800002F4FC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,26 +50,26 @@
 		0351D49D1C84FB800002F4FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0351D49C1C84FB800002F4FC /* libMEM.a */,
+				0351D49C1C84FB800002F4FC /* libmem.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0351D49E1C84FB800002F4FC /* MEM */ = {
+		039620561D564D7E00C0B838 /* mem */ = {
 			isa = PBXGroup;
 			children = (
-				0351D4A81C84FBA10002F4FC /* MEM.C */,
-				0351D4A91C84FBA10002F4FC /* mem.h */,
+				039620531D564D7B00C0B838 /* mem.c */,
+				039620541D564D7B00C0B838 /* mem.h */,
 			);
-			path = MEM;
+			name = mem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0351D49B1C84FB800002F4FC /* MEM */ = {
+		0351D49B1C84FB800002F4FC /* mem */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0351D4A51C84FB800002F4FC /* Build configuration list for PBXNativeTarget "MEM" */;
+			buildConfigurationList = 0351D4A51C84FB800002F4FC /* Build configuration list for PBXNativeTarget "mem" */;
 			buildPhases = (
 				0351D4981C84FB800002F4FC /* Sources */,
 				0351D4991C84FB800002F4FC /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = MEM;
+			name = mem;
 			productName = MEM;
-			productReference = 0351D49C1C84FB800002F4FC /* libMEM.a */;
+			productReference = 0351D49C1C84FB800002F4FC /* libmem.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0351D4971C84FB800002F4FC /* Build configuration list for PBXProject "MEM" */;
+			buildConfigurationList = 0351D4971C84FB800002F4FC /* Build configuration list for PBXProject "mem" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -111,7 +111,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0351D49B1C84FB800002F4FC /* MEM */,
+				0351D49B1C84FB800002F4FC /* mem */,
 			);
 		};
 /* End PBXProject section */
@@ -121,7 +121,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0351D4AA1C84FBA10002F4FC /* MEM.C in Sources */,
+				039620551D564D7B00C0B838 /* mem.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,22 +215,20 @@
 		0351D4A61C84FB800002F4FC /* Debug (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mem;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../PA_NULL ../IO";
+				USER_HEADER_SEARCH_PATHS = "../pa_null ../io";
 			};
 			name = "Debug (Software)";
 		};
 		0351D4A71C84FB800002F4FC /* Release (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mem;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../PA_NULL ../IO";
+				USER_HEADER_SEARCH_PATHS = "../pa_null ../io";
 			};
 			name = "Release (Software)";
 		};
@@ -281,11 +279,10 @@
 		03F1DD291C9F575A008AA444 /* Debug (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mem;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../PA_NULL ../IO";
+				USER_HEADER_SEARCH_PATHS = "../pa_null ../io";
 			};
 			name = "Debug (OpenGL ES)";
 		};
@@ -334,18 +331,17 @@
 		03F1DD2B1C9F5760008AA444 /* Release (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mem;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../PA_NULL ../IO";
+				USER_HEADER_SEARCH_PATHS = "../pa_null ../io";
 			};
 			name = "Release (OpenGL ES)";
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0351D4971C84FB800002F4FC /* Build configuration list for PBXProject "MEM" */ = {
+		0351D4971C84FB800002F4FC /* Build configuration list for PBXProject "mem" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0351D4A31C84FB800002F4FC /* Debug (Software) */,
@@ -356,7 +352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release (Software)";
 		};
-		0351D4A51C84FB800002F4FC /* Build configuration list for PBXNativeTarget "MEM" */ = {
+		0351D4A51C84FB800002F4FC /* Build configuration list for PBXNativeTarget "mem" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0351D4A61C84FB800002F4FC /* Debug (Software) */,

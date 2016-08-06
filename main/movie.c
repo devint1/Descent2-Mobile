@@ -910,8 +910,8 @@ movielib *init_movie_lib(char *filename)
 		strncpy(path, filename, PATH_MAX);
 	}
 #else
-	sprintf(temp, "%s/%s", Resource_path, filename);
-	fp = fopen( temp, mode );
+	sprintf(path, "%s/%s", Resource_path, filename);
+	fp = fopen( path, "rb" );
 #endif
 	if ( fp == NULL ) 
 		return NULL;
@@ -1137,7 +1137,7 @@ FILE* search_movie_lib(movielib *lib,char *filename,int must_have)
 					movie_handle = filehandle = funopen(asset, android_read, android_write, android_seek, android_close);
 				}
 #else
-				movie_handle = filehandle = open(lib->name, O_RDONLY);
+				movie_handle = filehandle = fopen(lib->name, "rb");
 #endif
 
 				if (must_have && from_cd && filehandle == NULL) {		//didn't get file!

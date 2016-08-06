@@ -7,30 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0351D51D1C84FE8D0002F4FC /* BARBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5031C84FE8D0002F4FC /* BARBOX.C */; };
-		0351D51E1C84FE8D0002F4FC /* BUTTON.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5041C84FE8D0002F4FC /* BUTTON.C */; };
-		0351D51F1C84FE8D0002F4FC /* CHECKBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5051C84FE8D0002F4FC /* CHECKBOX.C */; };
-		0351D5201C84FE8D0002F4FC /* FILE.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5061C84FE8D0002F4FC /* FILE.C */; };
-		0351D5211C84FE8D0002F4FC /* FUNC.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5071C84FE8D0002F4FC /* FUNC.C */; };
-		0351D5221C84FE8D0002F4FC /* GADGET.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5091C84FE8D0002F4FC /* GADGET.C */; };
-		0351D5231C84FE8D0002F4FC /* ICON.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50A1C84FE8D0002F4FC /* ICON.C */; };
-		0351D5241C84FE8D0002F4FC /* INPUTBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50B1C84FE8D0002F4FC /* INPUTBOX.C */; };
-		0351D5251C84FE8D0002F4FC /* KEYPAD.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50C1C84FE8D0002F4FC /* KEYPAD.C */; };
-		0351D5261C84FE8D0002F4FC /* KEYPRESS.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50D1C84FE8D0002F4FC /* KEYPRESS.C */; };
-		0351D5271C84FE8D0002F4FC /* KEYTRAP.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50E1C84FE8D0002F4FC /* KEYTRAP.C */; };
-		0351D5281C84FE8D0002F4FC /* LISTBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D50F1C84FE8D0002F4FC /* LISTBOX.C */; };
-		0351D5291C84FE8D0002F4FC /* MENU.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5101C84FE8D0002F4FC /* MENU.C */; };
-		0351D52A1C84FE8D0002F4FC /* MENUBAR.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5111C84FE8D0002F4FC /* MENUBAR.C */; };
-		0351D52B1C84FE8D0002F4FC /* MESSAGE.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5121C84FE8D0002F4FC /* MESSAGE.C */; };
-		0351D52C1C84FE8D0002F4FC /* MOUSE.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5131C84FE8D0002F4FC /* MOUSE.C */; };
-		0351D52D1C84FE8D0002F4FC /* NUMBER.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5141C84FE8D0002F4FC /* NUMBER.C */; };
-		0351D52E1C84FE8D0002F4FC /* POPUP.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5151C84FE8D0002F4FC /* POPUP.C */; };
-		0351D52F1C84FE8D0002F4FC /* RADIO.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5161C84FE8D0002F4FC /* RADIO.C */; };
-		0351D5301C84FE8D0002F4FC /* SCROLL.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5171C84FE8D0002F4FC /* SCROLL.C */; };
-		0351D5311C84FE8D0002F4FC /* UI.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D5181C84FE8D0002F4FC /* UI.C */; };
-		0351D5321C84FE8D0002F4FC /* UIDRAW.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D51A1C84FE8D0002F4FC /* UIDRAW.C */; };
-		0351D5331C84FE8D0002F4FC /* USERBOX.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D51B1C84FE8D0002F4FC /* USERBOX.C */; };
-		0351D5341C84FE8D0002F4FC /* WINDOW.C in Sources */ = {isa = PBXBuildFile; fileRef = 0351D51C1C84FE8D0002F4FC /* WINDOW.C */; };
+		039620A11D564E9E00C0B838 /* barbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620871D564E9E00C0B838 /* barbox.c */; };
+		039620A21D564E9E00C0B838 /* button.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620881D564E9E00C0B838 /* button.c */; };
+		039620A31D564E9E00C0B838 /* checkbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620891D564E9E00C0B838 /* checkbox.c */; };
+		039620A41D564E9E00C0B838 /* file.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396208A1D564E9E00C0B838 /* file.c */; };
+		039620A51D564E9E00C0B838 /* func.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396208B1D564E9E00C0B838 /* func.c */; };
+		039620A61D564E9E00C0B838 /* gadget.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396208D1D564E9E00C0B838 /* gadget.c */; };
+		039620A71D564E9E00C0B838 /* icon.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396208E1D564E9E00C0B838 /* icon.c */; };
+		039620A81D564E9E00C0B838 /* inputbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396208F1D564E9E00C0B838 /* inputbox.c */; };
+		039620A91D564E9E00C0B838 /* keypad.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620901D564E9E00C0B838 /* keypad.c */; };
+		039620AA1D564E9E00C0B838 /* keypress.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620911D564E9E00C0B838 /* keypress.c */; };
+		039620AB1D564E9E00C0B838 /* keytrap.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620921D564E9E00C0B838 /* keytrap.c */; };
+		039620AC1D564E9E00C0B838 /* listbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620931D564E9E00C0B838 /* listbox.c */; };
+		039620AD1D564E9E00C0B838 /* menu.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620941D564E9E00C0B838 /* menu.c */; };
+		039620AE1D564E9E00C0B838 /* menubar.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620951D564E9E00C0B838 /* menubar.c */; };
+		039620AF1D564E9E00C0B838 /* message.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620961D564E9E00C0B838 /* message.c */; };
+		039620B01D564E9E00C0B838 /* mouse.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620971D564E9E00C0B838 /* mouse.c */; };
+		039620B11D564E9E00C0B838 /* number.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620981D564E9E00C0B838 /* number.c */; };
+		039620B21D564E9E00C0B838 /* popup.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620991D564E9E00C0B838 /* popup.c */; };
+		039620B31D564E9E00C0B838 /* radio.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396209A1D564E9E00C0B838 /* radio.c */; };
+		039620B41D564E9E00C0B838 /* scroll.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396209B1D564E9E00C0B838 /* scroll.c */; };
+		039620B51D564E9E00C0B838 /* ui.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396209C1D564E9E00C0B838 /* ui.c */; };
+		039620B61D564E9E00C0B838 /* uidraw.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396209E1D564E9E00C0B838 /* uidraw.c */; };
+		039620B71D564E9E00C0B838 /* userbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 0396209F1D564E9E00C0B838 /* userbox.c */; };
+		039620B81D564E9E00C0B838 /* window.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620A01D564E9E00C0B838 /* window.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,33 +46,33 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0351D4F71C84FE6A0002F4FC /* libUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0351D5031C84FE8D0002F4FC /* BARBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BARBOX.C; sourceTree = SOURCE_ROOT; };
-		0351D5041C84FE8D0002F4FC /* BUTTON.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BUTTON.C; sourceTree = SOURCE_ROOT; };
-		0351D5051C84FE8D0002F4FC /* CHECKBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CHECKBOX.C; sourceTree = SOURCE_ROOT; };
-		0351D5061C84FE8D0002F4FC /* FILE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FILE.C; sourceTree = SOURCE_ROOT; };
-		0351D5071C84FE8D0002F4FC /* FUNC.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FUNC.C; sourceTree = SOURCE_ROOT; };
-		0351D5081C84FE8D0002F4FC /* FUNC.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FUNC.H; sourceTree = SOURCE_ROOT; };
-		0351D5091C84FE8D0002F4FC /* GADGET.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GADGET.C; sourceTree = SOURCE_ROOT; };
-		0351D50A1C84FE8D0002F4FC /* ICON.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ICON.C; sourceTree = SOURCE_ROOT; };
-		0351D50B1C84FE8D0002F4FC /* INPUTBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = INPUTBOX.C; sourceTree = SOURCE_ROOT; };
-		0351D50C1C84FE8D0002F4FC /* KEYPAD.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KEYPAD.C; sourceTree = SOURCE_ROOT; };
-		0351D50D1C84FE8D0002F4FC /* KEYPRESS.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KEYPRESS.C; sourceTree = SOURCE_ROOT; };
-		0351D50E1C84FE8D0002F4FC /* KEYTRAP.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KEYTRAP.C; sourceTree = SOURCE_ROOT; };
-		0351D50F1C84FE8D0002F4FC /* LISTBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LISTBOX.C; sourceTree = SOURCE_ROOT; };
-		0351D5101C84FE8D0002F4FC /* MENU.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MENU.C; sourceTree = SOURCE_ROOT; };
-		0351D5111C84FE8D0002F4FC /* MENUBAR.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MENUBAR.C; sourceTree = SOURCE_ROOT; };
-		0351D5121C84FE8D0002F4FC /* MESSAGE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MESSAGE.C; sourceTree = SOURCE_ROOT; };
-		0351D5131C84FE8D0002F4FC /* MOUSE.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MOUSE.C; sourceTree = SOURCE_ROOT; };
-		0351D5141C84FE8D0002F4FC /* NUMBER.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NUMBER.C; sourceTree = SOURCE_ROOT; };
-		0351D5151C84FE8D0002F4FC /* POPUP.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = POPUP.C; sourceTree = SOURCE_ROOT; };
-		0351D5161C84FE8D0002F4FC /* RADIO.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RADIO.C; sourceTree = SOURCE_ROOT; };
-		0351D5171C84FE8D0002F4FC /* SCROLL.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SCROLL.C; sourceTree = SOURCE_ROOT; };
-		0351D5181C84FE8D0002F4FC /* UI.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UI.C; sourceTree = SOURCE_ROOT; };
-		0351D5191C84FE8D0002F4FC /* UI.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UI.H; sourceTree = SOURCE_ROOT; };
-		0351D51A1C84FE8D0002F4FC /* UIDRAW.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIDRAW.C; sourceTree = SOURCE_ROOT; };
-		0351D51B1C84FE8D0002F4FC /* USERBOX.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = USERBOX.C; sourceTree = SOURCE_ROOT; };
-		0351D51C1C84FE8D0002F4FC /* WINDOW.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WINDOW.C; sourceTree = SOURCE_ROOT; };
+		0351D4F71C84FE6A0002F4FC /* libui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libui.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		039620871D564E9E00C0B838 /* barbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = barbox.c; path = ../ui/barbox.c; sourceTree = "<group>"; };
+		039620881D564E9E00C0B838 /* button.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = button.c; path = ../ui/button.c; sourceTree = "<group>"; };
+		039620891D564E9E00C0B838 /* checkbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = checkbox.c; path = ../ui/checkbox.c; sourceTree = "<group>"; };
+		0396208A1D564E9E00C0B838 /* file.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = file.c; path = ../ui/file.c; sourceTree = "<group>"; };
+		0396208B1D564E9E00C0B838 /* func.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = func.c; path = ../ui/func.c; sourceTree = "<group>"; };
+		0396208C1D564E9E00C0B838 /* func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = func.h; path = ../ui/func.h; sourceTree = "<group>"; };
+		0396208D1D564E9E00C0B838 /* gadget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gadget.c; path = ../ui/gadget.c; sourceTree = "<group>"; };
+		0396208E1D564E9E00C0B838 /* icon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = icon.c; path = ../ui/icon.c; sourceTree = "<group>"; };
+		0396208F1D564E9E00C0B838 /* inputbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = inputbox.c; path = ../ui/inputbox.c; sourceTree = "<group>"; };
+		039620901D564E9E00C0B838 /* keypad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = keypad.c; path = ../ui/keypad.c; sourceTree = "<group>"; };
+		039620911D564E9E00C0B838 /* keypress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = keypress.c; path = ../ui/keypress.c; sourceTree = "<group>"; };
+		039620921D564E9E00C0B838 /* keytrap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = keytrap.c; path = ../ui/keytrap.c; sourceTree = "<group>"; };
+		039620931D564E9E00C0B838 /* listbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = listbox.c; path = ../ui/listbox.c; sourceTree = "<group>"; };
+		039620941D564E9E00C0B838 /* menu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = menu.c; path = ../ui/menu.c; sourceTree = "<group>"; };
+		039620951D564E9E00C0B838 /* menubar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = menubar.c; path = ../ui/menubar.c; sourceTree = "<group>"; };
+		039620961D564E9E00C0B838 /* message.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = message.c; path = ../ui/message.c; sourceTree = "<group>"; };
+		039620971D564E9E00C0B838 /* mouse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mouse.c; path = ../ui/mouse.c; sourceTree = "<group>"; };
+		039620981D564E9E00C0B838 /* number.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = number.c; path = ../ui/number.c; sourceTree = "<group>"; };
+		039620991D564E9E00C0B838 /* popup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = popup.c; path = ../ui/popup.c; sourceTree = "<group>"; };
+		0396209A1D564E9E00C0B838 /* radio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = radio.c; path = ../ui/radio.c; sourceTree = "<group>"; };
+		0396209B1D564E9E00C0B838 /* scroll.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = scroll.c; path = ../ui/scroll.c; sourceTree = "<group>"; };
+		0396209C1D564E9E00C0B838 /* ui.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ui.c; path = ../ui/ui.c; sourceTree = "<group>"; };
+		0396209D1D564E9E00C0B838 /* ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ui.h; path = ../ui/ui.h; sourceTree = "<group>"; };
+		0396209E1D564E9E00C0B838 /* uidraw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uidraw.c; path = ../ui/uidraw.c; sourceTree = "<group>"; };
+		0396209F1D564E9E00C0B838 /* userbox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = userbox.c; path = ../ui/userbox.c; sourceTree = "<group>"; };
+		039620A01D564E9E00C0B838 /* window.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = window.c; path = ../ui/window.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 		0351D4EE1C84FE6A0002F4FC = {
 			isa = PBXGroup;
 			children = (
-				0351D4F91C84FE6A0002F4FC /* UI */,
+				039620B91D564EA100C0B838 /* ui */,
 				0351D4F81C84FE6A0002F4FC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,50 +97,50 @@
 		0351D4F81C84FE6A0002F4FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0351D4F71C84FE6A0002F4FC /* libUI.a */,
+				0351D4F71C84FE6A0002F4FC /* libui.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0351D4F91C84FE6A0002F4FC /* UI */ = {
+		039620B91D564EA100C0B838 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				0351D5031C84FE8D0002F4FC /* BARBOX.C */,
-				0351D5041C84FE8D0002F4FC /* BUTTON.C */,
-				0351D5051C84FE8D0002F4FC /* CHECKBOX.C */,
-				0351D5061C84FE8D0002F4FC /* FILE.C */,
-				0351D5071C84FE8D0002F4FC /* FUNC.C */,
-				0351D5081C84FE8D0002F4FC /* FUNC.H */,
-				0351D5091C84FE8D0002F4FC /* GADGET.C */,
-				0351D50A1C84FE8D0002F4FC /* ICON.C */,
-				0351D50B1C84FE8D0002F4FC /* INPUTBOX.C */,
-				0351D50C1C84FE8D0002F4FC /* KEYPAD.C */,
-				0351D50D1C84FE8D0002F4FC /* KEYPRESS.C */,
-				0351D50E1C84FE8D0002F4FC /* KEYTRAP.C */,
-				0351D50F1C84FE8D0002F4FC /* LISTBOX.C */,
-				0351D5101C84FE8D0002F4FC /* MENU.C */,
-				0351D5111C84FE8D0002F4FC /* MENUBAR.C */,
-				0351D5121C84FE8D0002F4FC /* MESSAGE.C */,
-				0351D5131C84FE8D0002F4FC /* MOUSE.C */,
-				0351D5141C84FE8D0002F4FC /* NUMBER.C */,
-				0351D5151C84FE8D0002F4FC /* POPUP.C */,
-				0351D5161C84FE8D0002F4FC /* RADIO.C */,
-				0351D5171C84FE8D0002F4FC /* SCROLL.C */,
-				0351D5181C84FE8D0002F4FC /* UI.C */,
-				0351D5191C84FE8D0002F4FC /* UI.H */,
-				0351D51A1C84FE8D0002F4FC /* UIDRAW.C */,
-				0351D51B1C84FE8D0002F4FC /* USERBOX.C */,
-				0351D51C1C84FE8D0002F4FC /* WINDOW.C */,
+				039620871D564E9E00C0B838 /* barbox.c */,
+				039620881D564E9E00C0B838 /* button.c */,
+				039620891D564E9E00C0B838 /* checkbox.c */,
+				0396208A1D564E9E00C0B838 /* file.c */,
+				0396208B1D564E9E00C0B838 /* func.c */,
+				0396208C1D564E9E00C0B838 /* func.h */,
+				0396208D1D564E9E00C0B838 /* gadget.c */,
+				0396208E1D564E9E00C0B838 /* icon.c */,
+				0396208F1D564E9E00C0B838 /* inputbox.c */,
+				039620901D564E9E00C0B838 /* keypad.c */,
+				039620911D564E9E00C0B838 /* keypress.c */,
+				039620921D564E9E00C0B838 /* keytrap.c */,
+				039620931D564E9E00C0B838 /* listbox.c */,
+				039620941D564E9E00C0B838 /* menu.c */,
+				039620951D564E9E00C0B838 /* menubar.c */,
+				039620961D564E9E00C0B838 /* message.c */,
+				039620971D564E9E00C0B838 /* mouse.c */,
+				039620981D564E9E00C0B838 /* number.c */,
+				039620991D564E9E00C0B838 /* popup.c */,
+				0396209A1D564E9E00C0B838 /* radio.c */,
+				0396209B1D564E9E00C0B838 /* scroll.c */,
+				0396209C1D564E9E00C0B838 /* ui.c */,
+				0396209D1D564E9E00C0B838 /* ui.h */,
+				0396209E1D564E9E00C0B838 /* uidraw.c */,
+				0396209F1D564E9E00C0B838 /* userbox.c */,
+				039620A01D564E9E00C0B838 /* window.c */,
 			);
-			path = UI;
+			name = ui;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0351D4F61C84FE6A0002F4FC /* UI */ = {
+		0351D4F61C84FE6A0002F4FC /* ui */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0351D5001C84FE6A0002F4FC /* Build configuration list for PBXNativeTarget "UI" */;
+			buildConfigurationList = 0351D5001C84FE6A0002F4FC /* Build configuration list for PBXNativeTarget "ui" */;
 			buildPhases = (
 				0351D4F31C84FE6A0002F4FC /* Sources */,
 				0351D4F41C84FE6A0002F4FC /* Frameworks */,
@@ -150,9 +150,9 @@
 			);
 			dependencies = (
 			);
-			name = UI;
+			name = ui;
 			productName = UI;
-			productReference = 0351D4F71C84FE6A0002F4FC /* libUI.a */;
+			productReference = 0351D4F71C84FE6A0002F4FC /* libui.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +170,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0351D4F21C84FE6A0002F4FC /* Build configuration list for PBXProject "UI" */;
+			buildConfigurationList = 0351D4F21C84FE6A0002F4FC /* Build configuration list for PBXProject "ui" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -182,7 +182,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0351D4F61C84FE6A0002F4FC /* UI */,
+				0351D4F61C84FE6A0002F4FC /* ui */,
 			);
 		};
 /* End PBXProject section */
@@ -192,30 +192,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0351D5291C84FE8D0002F4FC /* MENU.C in Sources */,
-				0351D52C1C84FE8D0002F4FC /* MOUSE.C in Sources */,
-				0351D5211C84FE8D0002F4FC /* FUNC.C in Sources */,
-				0351D51D1C84FE8D0002F4FC /* BARBOX.C in Sources */,
-				0351D51E1C84FE8D0002F4FC /* BUTTON.C in Sources */,
-				0351D51F1C84FE8D0002F4FC /* CHECKBOX.C in Sources */,
-				0351D52D1C84FE8D0002F4FC /* NUMBER.C in Sources */,
-				0351D5241C84FE8D0002F4FC /* INPUTBOX.C in Sources */,
-				0351D5271C84FE8D0002F4FC /* KEYTRAP.C in Sources */,
-				0351D5341C84FE8D0002F4FC /* WINDOW.C in Sources */,
-				0351D5251C84FE8D0002F4FC /* KEYPAD.C in Sources */,
-				0351D52A1C84FE8D0002F4FC /* MENUBAR.C in Sources */,
-				0351D5321C84FE8D0002F4FC /* UIDRAW.C in Sources */,
-				0351D5281C84FE8D0002F4FC /* LISTBOX.C in Sources */,
-				0351D52F1C84FE8D0002F4FC /* RADIO.C in Sources */,
-				0351D52E1C84FE8D0002F4FC /* POPUP.C in Sources */,
-				0351D5231C84FE8D0002F4FC /* ICON.C in Sources */,
-				0351D5201C84FE8D0002F4FC /* FILE.C in Sources */,
-				0351D5331C84FE8D0002F4FC /* USERBOX.C in Sources */,
-				0351D5301C84FE8D0002F4FC /* SCROLL.C in Sources */,
-				0351D5221C84FE8D0002F4FC /* GADGET.C in Sources */,
-				0351D5311C84FE8D0002F4FC /* UI.C in Sources */,
-				0351D5261C84FE8D0002F4FC /* KEYPRESS.C in Sources */,
-				0351D52B1C84FE8D0002F4FC /* MESSAGE.C in Sources */,
+				039620AF1D564E9E00C0B838 /* message.c in Sources */,
+				039620B01D564E9E00C0B838 /* mouse.c in Sources */,
+				039620AE1D564E9E00C0B838 /* menubar.c in Sources */,
+				039620AD1D564E9E00C0B838 /* menu.c in Sources */,
+				039620A51D564E9E00C0B838 /* func.c in Sources */,
+				039620B11D564E9E00C0B838 /* number.c in Sources */,
+				039620B21D564E9E00C0B838 /* popup.c in Sources */,
+				039620A11D564E9E00C0B838 /* barbox.c in Sources */,
+				039620A91D564E9E00C0B838 /* keypad.c in Sources */,
+				039620B81D564E9E00C0B838 /* window.c in Sources */,
+				039620A21D564E9E00C0B838 /* button.c in Sources */,
+				039620B51D564E9E00C0B838 /* ui.c in Sources */,
+				039620B71D564E9E00C0B838 /* userbox.c in Sources */,
+				039620B61D564E9E00C0B838 /* uidraw.c in Sources */,
+				039620A31D564E9E00C0B838 /* checkbox.c in Sources */,
+				039620AA1D564E9E00C0B838 /* keypress.c in Sources */,
+				039620B41D564E9E00C0B838 /* scroll.c in Sources */,
+				039620B31D564E9E00C0B838 /* radio.c in Sources */,
+				039620A81D564E9E00C0B838 /* inputbox.c in Sources */,
+				039620A41D564E9E00C0B838 /* file.c in Sources */,
+				039620A61D564E9E00C0B838 /* gadget.c in Sources */,
+				039620AB1D564E9E00C0B838 /* keytrap.c in Sources */,
+				039620A71D564E9E00C0B838 /* icon.c in Sources */,
+				039620AC1D564E9E00C0B838 /* listbox.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,22 +309,20 @@
 		0351D5011C84FE6A0002F4FC /* Debug (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ui;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MEM ../MISC ../2D ../PA_NULL ../IO";
+				USER_HEADER_SEARCH_PATHS = "../fix ../mem ../misc ../2d ../pa_null ../io";
 			};
 			name = "Debug (Software)";
 		};
 		0351D5021C84FE6A0002F4FC /* Release (Software) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ui;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MEM ../MISC ../2D ../PA_NULL ../IO";
+				USER_HEADER_SEARCH_PATHS = "../fix ../mem ../misc ../2d ../pa_null ../io";
 			};
 			name = "Release (Software)";
 		};
@@ -375,11 +373,10 @@
 		03F1DD391C9F5860008AA444 /* Debug (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ui;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MEM ../MISC ../2D ../PA_NULL ../IO";
+				USER_HEADER_SEARCH_PATHS = "../fix ../mem ../misc ../2d ../pa_null ../io";
 			};
 			name = "Debug (OpenGL ES)";
 		};
@@ -428,18 +425,17 @@
 		03F1DD3B1C9F5866008AA444 /* Release (OpenGL ES) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ui;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MEM ../MISC ../2D ../PA_NULL ../IO";
+				USER_HEADER_SEARCH_PATHS = "../fix ../mem ../misc ../2d ../pa_null ../io";
 			};
 			name = "Release (OpenGL ES)";
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0351D4F21C84FE6A0002F4FC /* Build configuration list for PBXProject "UI" */ = {
+		0351D4F21C84FE6A0002F4FC /* Build configuration list for PBXProject "ui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0351D4FE1C84FE6A0002F4FC /* Debug (Software) */,
@@ -450,7 +446,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release (Software)";
 		};
-		0351D5001C84FE6A0002F4FC /* Build configuration list for PBXNativeTarget "UI" */ = {
+		0351D5001C84FE6A0002F4FC /* Build configuration list for PBXNativeTarget "ui" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0351D5011C84FE6A0002F4FC /* Debug (Software) */,

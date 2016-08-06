@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0356D7D41BD49DA700B013B9 /* VECMATC.C in Sources */ = {isa = PBXBuildFile; fileRef = 0356D7D31BD49DA700B013B9 /* VECMATC.C */; };
+		039620851D564E5C00C0B838 /* vecmatc.c in Sources */ = {isa = PBXBuildFile; fileRef = 039620841D564E5C00C0B838 /* vecmatc.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,9 +23,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0356D7C01BD49D7600B013B9 /* libVECMAT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVECMAT.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0356D7D21BD49DA700B013B9 /* VECMAT.H */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VECMAT.H; sourceTree = SOURCE_ROOT; };
-		0356D7D31BD49DA700B013B9 /* VECMATC.C */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VECMATC.C; sourceTree = SOURCE_ROOT; };
+		0356D7C01BD49D7600B013B9 /* libvecmat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvecmat.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		039620831D564E5C00C0B838 /* vecmat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vecmat.h; path = ../vecmat/vecmat.h; sourceTree = "<group>"; };
+		039620841D564E5C00C0B838 /* vecmatc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vecmatc.c; path = ../vecmat/vecmatc.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +42,7 @@
 		0356D7B71BD49D7600B013B9 = {
 			isa = PBXGroup;
 			children = (
-				0356D7C21BD49D7600B013B9 /* VECMAT */,
+				039620861D564E5E00C0B838 /* vecmat */,
 				0356D7C11BD49D7600B013B9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,26 +50,26 @@
 		0356D7C11BD49D7600B013B9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0356D7C01BD49D7600B013B9 /* libVECMAT.a */,
+				0356D7C01BD49D7600B013B9 /* libvecmat.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0356D7C21BD49D7600B013B9 /* VECMAT */ = {
+		039620861D564E5E00C0B838 /* vecmat */ = {
 			isa = PBXGroup;
 			children = (
-				0356D7D21BD49DA700B013B9 /* VECMAT.H */,
-				0356D7D31BD49DA700B013B9 /* VECMATC.C */,
+				039620831D564E5C00C0B838 /* vecmat.h */,
+				039620841D564E5C00C0B838 /* vecmatc.c */,
 			);
-			path = VECMAT;
+			name = vecmat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0356D7BF1BD49D7600B013B9 /* VECMAT */ = {
+		0356D7BF1BD49D7600B013B9 /* vecmat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0356D7C91BD49D7600B013B9 /* Build configuration list for PBXNativeTarget "VECMAT" */;
+			buildConfigurationList = 0356D7C91BD49D7600B013B9 /* Build configuration list for PBXNativeTarget "vecmat" */;
 			buildPhases = (
 				0356D7BC1BD49D7600B013B9 /* Sources */,
 				0356D7BD1BD49D7600B013B9 /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = VECMAT;
+			name = vecmat;
 			productName = VECMAT;
-			productReference = 0356D7C01BD49D7600B013B9 /* libVECMAT.a */;
+			productReference = 0356D7C01BD49D7600B013B9 /* libvecmat.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0356D7BB1BD49D7600B013B9 /* Build configuration list for PBXProject "VECMAT" */;
+			buildConfigurationList = 0356D7BB1BD49D7600B013B9 /* Build configuration list for PBXProject "vecmat" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -111,7 +111,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0356D7BF1BD49D7600B013B9 /* VECMAT */,
+				0356D7BF1BD49D7600B013B9 /* vecmat */,
 			);
 		};
 /* End PBXProject section */
@@ -121,7 +121,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0356D7D41BD49DA700B013B9 /* VECMATC.C in Sources */,
+				039620851D564E5C00C0B838 /* vecmatc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,13 +175,12 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				HEADER_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = vecmat;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MISC ../IO";
+				USER_HEADER_SEARCH_PATHS = "../fix ../misc ../io";
 			};
 			name = "Debug (Software)";
 		};
@@ -230,12 +229,11 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = vecmat;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MISC ../IO";
+				USER_HEADER_SEARCH_PATHS = "../fix ../misc ../io";
 			};
 			name = "Release (Software)";
 		};
@@ -287,13 +285,12 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				HEADER_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = vecmat;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MISC ../IO";
+				USER_HEADER_SEARCH_PATHS = "../fix ../misc ../io";
 			};
 			name = "Debug (OpenGL ES)";
 		};
@@ -343,19 +340,18 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_INPUT_FILETYPE = sourcecode.c.c;
 				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = vecmat;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "../FIX ../MISC ../IO";
+				USER_HEADER_SEARCH_PATHS = "../fix ../misc ../io";
 			};
 			name = "Release (OpenGL ES)";
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0356D7BB1BD49D7600B013B9 /* Build configuration list for PBXProject "VECMAT" */ = {
+		0356D7BB1BD49D7600B013B9 /* Build configuration list for PBXProject "vecmat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03BF18F61C27A8E5003BE14A /* Debug (Software) */,
@@ -366,7 +362,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Debug (Software)";
 		};
-		0356D7C91BD49D7600B013B9 /* Build configuration list for PBXNativeTarget "VECMAT" */ = {
+		0356D7C91BD49D7600B013B9 /* Build configuration list for PBXNativeTarget "vecmat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03BF18F71C27A8E5003BE14A /* Debug (Software) */,
