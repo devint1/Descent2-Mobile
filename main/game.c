@@ -141,7 +141,7 @@ char game_rcsid[] = "$Id: game.c 2.285 1996/12/09 14:45:35 jeremy Exp $";
 #endif
 #endif
 
-#define MAX_FPS 60
+#define MAX_FPS INT32_MAX
 
 extern void ReadControls(void);		// located in gamecntl.c
 extern int Current_display_mode;

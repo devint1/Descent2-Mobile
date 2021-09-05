@@ -1,6 +1,7 @@
 package tuchsen.descent2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
@@ -12,6 +13,7 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
@@ -33,6 +35,7 @@ public class DescentActivity extends Activity implements SensorEventListener {
 	private float buttonSizeBias;
 	private float acceleration[];
 	private int mediaPlayerPosition;
+	private int refreshPeriodUs;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,14 @@ public class DescentActivity extends Activity implements SensorEventListener {
 		// Set up gyroscope
 		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		gyroscopeSensor = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+
+		// If we're on SDK 11, absolute values are supported for gyro refresh period. Use the screen's refresh rate to
+		// determine refresh period.
+		if (Build.VERSION.SDK_INT >= 11) {
+			final Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+			final float refreshRate = display.getRefreshRate();
+			refreshPeriodUs = (int) (1.0 / refreshRate * 1000000);
+		}
 
 		// Create media player for MIDI
 		mediaPlayer = new MediaPlayer();
@@ -129,7 +140,14 @@ public class DescentActivity extends Activity implements SensorEventListener {
 	}
 
 	private void startMotion() {
-		sensorManager.registerListener(this, gyroscopeSensor, SensorManager.SENSOR_DELAY_GAME);
+		// According to this, API 11 can specify the delay as an absolute value
+		// Some devices have high refresh rate displays, so a lower delay is needed to improve gyro responsiveness
+		// https://developer.android.com/guide/topics/sensors/sensors_overview
+		if (Build.VERSION.SDK_INT >= 11) {
+			sensorManager.registerListener(this, gyroscopeSensor, refreshPeriodUs);
+		} else {
+			sensorManager.registerListener(this, gyroscopeSensor, SensorManager.SENSOR_DELAY_GAME);
+		}
 	}
 
 	private void stopMotion() {
