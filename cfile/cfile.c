@@ -16,7 +16,10 @@ COPYRIGHT 1993-1999 PARALLAX SOFTWARE CORPORATION.  ALL RIGHTS RESERVED.
 static char rcsid[] = "$Id: cfile.c 1.43 1996/03/23 13:03:21 jeremy Exp $";
 #pragma on (unreferenced)
 
-#include <sys/syslimits.h>
+// Without this, you'll have a bad time on Android with SIGSEGV when reading files
+#define __USE_BSD
+
+#include <limits.h>
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -133,7 +136,7 @@ FILE * cfile_get_filehandle( char * filename, char * mode )
 
 	*critical_error_counter_ptr = 0;
 #ifdef ANDROID_NDK
-	AAsset* asset = AAssetManager_open(Asset_manager, filename, AASSET_MODE_BUFFER);
+	AAsset* asset = AAssetManager_open(Asset_manager, filename, AASSET_MODE_RANDOM);
 	if (!asset) {
 		fp = NULL;
 	} else {
@@ -172,7 +175,7 @@ int cfile_init_hogfile(char *fname, hogfile * hog_files, int * nfiles )
 	fp = cfile_get_filehandle( fname, "rb" );
 	if ( fp == NULL ) return 0;
 
-	fread( id, 3, 1, fp );
+	fread(id, sizeof(char), 3, fp);
 	if ( strncmp( id, "DHF", 3 ) )	{
 		fclose(fp);
 		return 0;

@@ -102,6 +102,7 @@ void showRenderBuffer() {
 	}
 }
 
-void Java_tuchsen_descent2_DescentView_surfaceWasDestroyed(JNIEnv *env) {
+JNIEXPORT void JNICALL
+Java_tuchsen_descent2_DescentView_surfaceWasDestroyed(JNIEnv *env, jclass clazz) {
 	Surface_was_destroyed = true;
 }

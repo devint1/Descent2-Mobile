@@ -311,22 +311,21 @@ void handle_move(jint pointerId, jfloat x, jfloat y, jfloat prevX, jfloat prevY)
 	}
 }
 
-jboolean Java_tuchsen_descent2_DescentView_touchHandler(JNIEnv *env, jobject thiz,
-													   jint action, jint pointerId,
-													   jfloat x, jfloat y, jfloat prevX,
-													   jfloat prevY) {
+JNIEXPORT jboolean JNICALL
+Java_tuchsen_descent2_DescentView_touchHandler(JNIEnv *env, jclass clazz, jint action, jint pointer_id, jfloat x,
+											   jfloat y, jfloat prev_x, jfloat prev_y) {
 	if (Game_mode == GM_NORMAL && !In_screen) {
 		switch (action) {
 			case ACTION_DOWN:
 			case ACTION_POINTER_DOWN:
-				handle_down(pointerId, x, y);
+				handle_down(pointer_id, x, y);
 				break;
 			case ACTION_UP:
 			case ACTION_POINTER_UP:
-				handle_up(pointerId);
+				handle_up(pointer_id);
 				break;
 			case ACTION_MOVE:
-				handle_move(pointerId, x, y, prevX, prevY);
+				handle_move(pointer_id, x, y, prev_x, prev_y);
 				break;
 			default:
 				return false;

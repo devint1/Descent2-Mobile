@@ -326,8 +326,9 @@ void game_draw_hud_stuff()
 			} else {
 				sprintf (message, "");
 			}
-		} else 
-			sprintf (message, TXT_DEMO_RECORDING);
+		} else {
+			strcpy(message, TXT_DEMO_RECORDING);
+		}
 
 		gr_set_curfont( GAME_FONT );    //GAME_FONT );
 		gr_set_fontcolor(gr_getcolor(27,0,0), -1 );

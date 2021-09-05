@@ -16,6 +16,9 @@ COPYRIGHT 1993-1999 PARALLAX SOFTWARE CORPORATION.  ALL RIGHTS RESERVED.
 static char rcsid[] = "$Id: movie.c 1.76 1996/08/28 17:34:03 jed Exp $";
 #pragma on (unreferenced)
 
+// Without this, you'll have a bad time on Android with SIGSEGV when reading files
+#define __USE_BSD
+
 #include <fcntl.h>
 #include <stdlib.h>
 #include <stdio.h>

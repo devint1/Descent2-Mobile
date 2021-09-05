@@ -27,7 +27,7 @@ char state_rcsid[] = "$Id: state.c 2.95 1997/01/24 18:35:39 jeremy Exp $";
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
-#include <sys/syslimits.h>
+#include <limits.h>
 #include "ViewControllerC.h"
 
 #ifdef MACINTOSH

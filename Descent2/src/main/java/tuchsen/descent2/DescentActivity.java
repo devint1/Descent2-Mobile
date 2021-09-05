@@ -240,6 +240,6 @@ public class DescentActivity extends Activity implements SensorEventListener {
 	private static native boolean getUseGyroscope();
 
 	static {
-		System.loadLibrary("Descent2");
+		System.loadLibrary("descent2");
 	}
 }

@@ -1,91 +1,37 @@
-apply plugin: 'com.android.model.application'
-model {
-	android {
-		compileSdkVersion 23
-		buildToolsVersion "23.0.3"
+apply plugin: 'com.android.application'
 
-		defaultConfig {
-			minSdkVersion.apiLevel = 10
-			targetSdkVersion.apiLevel = 23
+android {
+	compileSdkVersion 31
+	buildToolsVersion "30.0.3"
+	defaultConfig {
+		minSdkVersion 10
+		targetSdkVersion 31
+		externalNativeBuild {
+			cmake {
+				cFlags "-DANDROID_NDK", "-DDISABLE_IMPORTGL", "-DOGLES", "-DNASM", "-DNETWORK"
+			}
 		}
-		buildTypes {
-			release {
-				minifyEnabled false
-				useProguard false
-				ndk {
+	}
+	buildTypes {
+		release {
+			minifyEnabled false
+			externalNativeBuild {
+				cmake {
 					CFlags.addAll(["-DNDEBUG", "-DRELEASE"])
 				}
 			}
 		}
-		ndk {
-			moduleName = "Descent2"
-			CFlags.addAll(["-DANDROID_NDK", "-DDISABLE_IMPORTGL", "-DOGLES", "-DNASM", "-DNETWORK",
-						   "-std=c99", "-I" + file("../2d").absolutePath,
-						   "-I" + file("../2d/ogles").absolutePath,
-						   "-I" + file("../3d").absolutePath,
-						   "-I" + file("../3d/ogles").absolutePath,
-						   "-I" + file("../cfile").absolutePath,
-						   "-I" + file("../Descent2").absolutePath,
-						   "-I" + file("../fix").absolutePath, "-I" + file("../iff").absolutePath,
-						   "-I" + file("../io").absolutePath,
-						   "-I" + file("../libmve").absolutePath,
-						   "-I" + file("../main").absolutePath, "-I" + file("../mem").absolutePath,
-						   "-I" + file("../misc").absolutePath,
-						   "-I" + file("../pa_null").absolutePath,
-						   "-I" + file("../texmap").absolutePath,
-						   "-I" + file("../texmap/ogles").absolutePath,
-						   "-I" + file("../ui").absolutePath,
-						   "-I" + file("../vecmat").absolutePath])
-			ldLibs.addAll(["GLESv1_CM", "EGL", "dl", "log", "android", "OpenSLES"])
+	}
+	externalNativeBuild {
+		cmake {
+			path "src/main/cpp/CMakeLists.txt"
+			version "3.18.1"
 		}
-		productFlavors {
-			// for detailed abiFilter descriptions, refer to "Supported ABIs" @
-			// https://developer.android.com/ndk/guides/abis.html#sa
-			create("arm") {
-				ndk.abiFilters.add("armeabi")
-			}
-			create("arm7") {
-				ndk.abiFilters.add("armeabi-v7a")
-			}
-			create("arm8") {
-				ndk.abiFilters.add("arm64-v8a")
-			}
-			create("x86") {
-				ndk.abiFilters.add("x86")
-			}
-			create("x86-64") {
-				ndk.abiFilters.add("x86_64")
-			}
-			create("mips") {
-				ndk.abiFilters.add("mips")
-			}
-			create("mips-64") {
-				ndk.abiFilters.add("mips64")
-			}
-			// To include all cpu architectures, leaves abiFilters empty
-			create("all")
-		}
-		sources {
-			main {
-				jni {
-					source {
-						srcDir "../2d"
-						srcDir "../3d"
-						srcDir "../cfile"
-						srcDir "../fix"
-						srcDir "../iff"
-						srcDir "../io"
-						srcDir "../libmve"
-						srcDir "../main"
-						srcDir "../mem"
-						srcDir "../misc"
-						srcDir "../pa_null"
-						srcDir "../texmap"
-						srcDir "../ui"
-						srcDir "../vecmat"
-					}
-				}
-			}
+	}
+	splits {
+		abi {
+			enable true
+			universalApk false
 		}
 	}
 }

@@ -165,7 +165,7 @@ public class DescentView extends SurfaceView implements KeyEvent.Callback, Surfa
 					}
 					initEgl();
 
-					// Start Descent!
+					// Prepare for Descent...
 					descentMain(size.x, size.y, context, thiz, context.getAssets(),
 							context.getFilesDir().getAbsolutePath(),
 							context.getCacheDir().getAbsolutePath());

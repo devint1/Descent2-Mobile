@@ -1563,8 +1563,8 @@ int ai_save_state( FILE * fp )
 	fwrite( &Last_gate_time, sizeof(fix), 1, fp );
 	fwrite( &Gate_interval, sizeof(fix), 1, fp );
 	fwrite( &Boss_dying_start_time, sizeof(fix), 1, fp );
-	fwrite( &Boss_dying, sizeof(int), 1, fp );
-	fwrite( &Boss_dying_sound_playing, sizeof(int), 1, fp );
+	fwrite( &Boss_dying, sizeof(byte), 1, fp );
+	fwrite( &Boss_dying_sound_playing, sizeof(byte), 1, fp );
 	fwrite( &Boss_hit_time, sizeof(fix), 1, fp );
 	// -- MK, 10/21/95, unused! -- fwrite( &Boss_been_hit, sizeof(int), 1, fp );
 
@@ -1608,8 +1608,8 @@ int ai_restore_state( FILE * fp, int version )
 	fread( &Last_gate_time, sizeof(fix), 1, fp );
 	fread( &Gate_interval, sizeof(fix), 1, fp );
 	fread( &Boss_dying_start_time, sizeof(fix), 1, fp );
-	fread( &Boss_dying, sizeof(int), 1, fp );
-	fread( &Boss_dying_sound_playing, sizeof(int), 1, fp );
+	fread( &Boss_dying, sizeof(byte), 1, fp );
+	fread( &Boss_dying_sound_playing, sizeof(byte), 1, fp );
 	fread( &Boss_hit_time, sizeof(fix), 1, fp );
 	// -- MK, 10/21/95, unused! -- fread( &Boss_been_hit, sizeof(int), 1, fp );
 

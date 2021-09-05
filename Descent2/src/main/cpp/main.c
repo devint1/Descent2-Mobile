@@ -15,9 +15,10 @@ extern int descent_main(int argc, char **argv);
 
 extern void init_buttons(jint w, jint h);
 
-void Java_tuchsen_descent2_DescentView_descentMain(JNIEnv *env, jobject thiz, jint w, jint h,
-												  jobject activity, jobject descent_view, jobject asset_manager,
-												  jstring document_path, jstring cache_path) {
+JNIEXPORT void JNICALL
+Java_tuchsen_descent2_DescentView_descentMain(JNIEnv *env, jclass thiz, jint w, jint h,
+											  jobject activity, jobject descent_view, jobject asset_manager,
+											  jstring document_path, jstring cache_path) {
 	char ws[6], hs[6];
 
 	// Init globals
@@ -43,6 +44,7 @@ void Java_tuchsen_descent2_DescentView_descentMain(JNIEnv *env, jobject thiz, ji
 	descent_main(5, (char **) args);
 }
 
-void Java_tuchsen_descent2_DescentActivity_descentPause(JNIEnv *env) {
+JNIEXPORT void JNICALL
+Java_tuchsen_descent2_DescentActivity_descentPause(JNIEnv *env, jclass clazz) {
 	Want_pause = true;
 }

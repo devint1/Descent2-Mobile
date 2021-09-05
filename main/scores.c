@@ -122,17 +122,17 @@ void scores_read()
 		int i;
 
 	 	// No error message needed, code will work without a scores file
-		sprintf( Scores.cool_saying, COOL_SAYING );
-		sprintf( Scores.stats[0].name, "Parallax" );
-		sprintf( Scores.stats[1].name, "Matt" );
-		sprintf( Scores.stats[2].name, "Mike" );
-		sprintf( Scores.stats[3].name, "Adam" );
-		sprintf( Scores.stats[4].name, "Mark" );
-		sprintf( Scores.stats[5].name, "Jasen" );
-		sprintf( Scores.stats[6].name, "Samir" );
-		sprintf( Scores.stats[7].name, "Doug" );
-		sprintf( Scores.stats[8].name, "Dan" );
-		sprintf( Scores.stats[9].name, "Jason" );
+		strcpy( Scores.cool_saying, COOL_SAYING );
+		strcpy( Scores.stats[0].name, "Parallax" );
+		strcpy( Scores.stats[1].name, "Matt" );
+		strcpy( Scores.stats[2].name, "Mike" );
+		strcpy( Scores.stats[3].name, "Adam" );
+		strcpy( Scores.stats[4].name, "Mark" );
+		strcpy( Scores.stats[5].name, "Jasen" );
+		strcpy( Scores.stats[6].name, "Samir" );
+		strcpy( Scores.stats[7].name, "Doug" );
+		strcpy( Scores.stats[8].name, "Dan" );
+		strcpy( Scores.stats[9].name, "Jason" );
 
 		for (i=0; i<10; i++)
 			Scores.stats[i].score = (10-i)*1000;

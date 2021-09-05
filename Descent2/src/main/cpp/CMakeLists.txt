@@ -1,0 +1,80 @@
+cmake_minimum_required(VERSION 3.18.1)
+
+include_directories(../../../../2d)
+include_directories(../../../../2d/ogles)
+include_directories(../../../../3d)
+include_directories(../../../../3d/ogles)
+include_directories(../../../../cfile)
+include_directories(../../../../fix)
+include_directories(../../../../iff)
+include_directories(../../../../io)
+include_directories(../../../../libmve)
+include_directories(../../../../main)
+include_directories(../../../../mem)
+include_directories(../../../../misc)
+include_directories(../../../../pa_null)
+include_directories(../../../../texmap)
+include_directories(../../../../texmap/ogles)
+include_directories(../../../../ui)
+include_directories(../../../../vecmat)
+include_directories(../../../)
+
+add_subdirectory(../../../../2d 2d)
+add_subdirectory(../../../../3d 3d)
+add_subdirectory(../../../../cfile cfile)
+add_subdirectory(../../../../fix fix)
+add_subdirectory(../../../../iff iff)
+add_subdirectory(../../../../io io)
+add_subdirectory(../../../../libmve libmve)
+add_subdirectory(../../../../main main)
+add_subdirectory(../../../../mem mem)
+add_subdirectory(../../../../misc misc)
+add_subdirectory(../../../../pa_null pa_null)
+add_subdirectory(../../../../texmap texmap)
+add_subdirectory(../../../../ui ui)
+add_subdirectory(../../../../vecmat vecmat)
+
+set(SOURCES
+    controls.c
+    keyboard.c
+    main.c
+    motion.c
+    mouse.c
+    music.c
+    render.c
+)
+
+add_library(descent2 SHARED ${SOURCES})
+
+find_library(log-lib log)
+find_library(GLESv1_CM-lib GLESv1_CM)
+find_library(EGL-lib EGL)
+find_library(dl-lib dl)
+find_library(android-lib android)
+find_library(OpenSLES-lib OpenSLES)
+
+target_link_libraries(descent2 ${log-lib})
+target_link_libraries(descent2 ${GLESv1_CM-lib})
+target_link_libraries(descent2 ${EGL-lib})
+target_link_libraries(descent2 ${dl-lib})
+target_link_libraries(descent2 ${android-lib})
+target_link_libraries(descent2 ${OpenSLES-lib})
+
+target_link_libraries(descent2 cfile)
+target_link_libraries(descent2 main-android)
+target_link_libraries(descent2 main)
+target_link_libraries(descent2 3d)
+target_link_libraries(descent2 3d-ogles)
+target_link_libraries(descent2 2d)
+target_link_libraries(descent2 2d-ogles)
+target_link_libraries(descent2 fix)
+target_link_libraries(descent2 iff)
+target_link_libraries(descent2 io)
+target_link_libraries(descent2 libmve)
+target_link_libraries(descent2 mem)
+target_link_libraries(descent2 misc)
+target_link_libraries(descent2 pa_null)
+target_link_libraries(descent2 texmap)
+target_link_libraries(descent2 texmap-ogles)
+target_link_libraries(descent2 ui)
+target_link_libraries(descent2 vecmat)
