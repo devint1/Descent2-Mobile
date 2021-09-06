@@ -932,6 +932,11 @@ static void apply_cockpit_window_alpha(grs_bitmap *cockpit_bm, int primary_box_i
 void apply_cockpit_window_alphas() {
 	grs_bitmap *cockpit_bm;
 
+	// There's no bitmap for the cockpit, skip
+	if (Cockpit_mode >= N_COCKPIT_BITMAPS / 2) {
+		return;
+	}
+
 	PIGGY_PAGE_IN(cockpit_bitmap[Cockpit_mode + (MenuHires ? (Num_cockpits / 2) : 0)]);
 	cockpit_bm = &GameBitmaps[cockpit_bitmap[Cockpit_mode +
 											 (MenuHires ? (Num_cockpits / 2) : 0)].index];
