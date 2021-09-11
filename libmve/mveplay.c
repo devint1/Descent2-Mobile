@@ -524,8 +524,22 @@ static int create_videobuf_handler(unsigned char major, unsigned char minor, uns
 
 static int display_video_handler(unsigned char major, unsigned char minor, unsigned char *data, int len, void *context)
 {
-	float scale_factor = (float)g_screenWidth / (float)g_width;
-	
+	float scale_factor;
+
+	// Compute the scale factor
+	if (g_destX == -1 || g_destY == -1) {
+		float video_aspect = (float) g_width / (float) g_height;
+		float screen_aspect = (float) g_screenWidth / (float) g_screenHeight;
+
+		// If video is wider than or as wide as the screen, letter-box. Otherwise, pillar-box.
+		// Avoids cropping the video.
+		if (video_aspect >= screen_aspect) {
+			scale_factor = (float) g_screenWidth / (float) g_width;
+		} else {
+			scale_factor = (float) g_screenHeight / (float) g_height;
+		}
+	}
+
 	if (g_destX == -1) // center it
 	{
 		g_scaledWidth = g_width * scale_factor;
