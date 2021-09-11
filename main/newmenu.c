@@ -1212,11 +1212,13 @@ RePaintNewmenu4:
 						set_slider_value(mouse_x - x, &item[choice]);
 						slider_locked |= item[choice].redraw;
 					}
+
+					if (choice != old_choice) {
+						item[choice].redraw = 1;
+						item[old_choice].redraw = 1;
+					}
 				}
-				if (choice != old_choice) {
-					item[choice].redraw = 1;
-					item[old_choice].redraw = 1;
-				}
+
 			}
 		}
 	
