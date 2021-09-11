@@ -39,7 +39,7 @@ COPYRIGHT 1993-1999 PARALLAX SOFTWARE CORPORATION.  ALL RIGHTS RESERVED.
 #include "mission.h"
 #include "mono.h"
 #include "pa_enabl.h"
-
+#include "cfile.h"
 
 #pragma pack (4);						// Use 32-bit packing!
 #pragma off (check_stack);			// No stack checking!
@@ -173,7 +173,7 @@ void CheckMovieAttributes()
 int ReadConfigFile()
 {
 	FILE *infile;
-	char line[80], *token, *value, *ptr;
+	char line[80], filename[FILENAME_MAX], *token, *value, *ptr;
 	ubyte gamma;
 	int joy_axis_min[7];
 	int joy_axis_center[7];
@@ -213,7 +213,8 @@ int ReadConfigFile()
 	SaveMovieHires = MovieHires;
 	save_redbook_enabled = Redbook_enabled;
 
-	infile = fopen("descent.cfg", "rt");
+	sprintf(filename, "%s/%s", Document_path, "descent.cfg");
+	infile = fopen(filename, "rt");
 	if (infile == NULL) {
 		WIN(CheckMovieAttributes());
 		return 1;
@@ -396,7 +397,7 @@ int WriteConfigFile()
 {
 	FILE *infile;
    int i;
-	char str[256];
+	char str[256], filename[FILENAME_MAX];
 	int joy_axis_min[7];
 	int joy_axis_center[7];
 	int joy_axis_max[7];
@@ -413,7 +414,8 @@ int WriteConfigFile()
    }
 #endif
 
-	infile = fopen("descent.cfg", "wt");
+	sprintf(filename, "%s/%s", Document_path, "descent.cfg");
+	infile = fopen(filename, "wt");
 	if (infile == NULL) {
 		return 1;
 	}

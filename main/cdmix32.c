@@ -21,6 +21,7 @@ char cdmix32_rcsid[] = "$Id: cdmix32.c 1.8 1996/04/29 15:38:22 samir Exp $";
 #include "inferno.h"
 #include "mono.h"
 #include "error.h"
+#include "cfile.h"
 
 typedef struct 
  {
@@ -112,7 +113,10 @@ int CD_blast_mixer ()
 
 
 #ifndef WINDOWS
-  InFile = fopen("descent.cfg", "rt");
+  char filename[FILENAME_MAX];
+
+  sprintf(filename, "%s/%s", Document_path, "descent.cfg");
+  InFile = fopen(filename, "rt");
   if (InFile == NULL) 
 	 return (NULL);
 
