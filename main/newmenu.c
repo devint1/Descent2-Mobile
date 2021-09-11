@@ -1215,7 +1215,9 @@ RePaintNewmenu4:
 
 					if (choice != old_choice) {
 						item[choice].redraw = 1;
-						item[old_choice].redraw = 1;
+						if (old_choice != -1) {
+							item[old_choice].redraw = 1;
+						}
 					}
 				}
 
