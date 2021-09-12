@@ -1353,23 +1353,12 @@ void options_menuset(int nitems, newmenu_item * items, int *last_key, int citem 
 			
 void do_options_menu()
 {
-   newmenu_item m[12];
+   newmenu_item m[6];
 	int i = 0;
 
 	do {
 		m[ 0].type = NM_TYPE_MENU;   m[ 0].text="Sound effects & music...";
 		m[ 1].type = NM_TYPE_TEXT;   m[ 1].text="";
-		#if defined(MACINTOSH) && defined(APPLE_DEMO)
-		m [2].type = NM_TYPE_TEXT;   m[ 2].text="";
-		#else
-		m[ 2].type = NM_TYPE_MENU;   m[ 2].text=TXT_CONTROLS_;
-		#endif
-	#ifdef WINDOWS
-		m[ 3].type = NM_TYPE_MENU;   m[ 3].text="INVOKE JOYSTICK CONTROL PANEL";
-	#else
-		m[ 3].type = NM_TYPE_MENU;   m[ 3].text=TXT_CAL_JOYSTICK;
-	#endif
-		m[ 4].type = NM_TYPE_TEXT;   m[ 4].text="";
 
 #if defined(POLY_ACC)
 	#ifdef MACINTOSH
@@ -1391,50 +1380,37 @@ void do_options_menu()
 		m[ 5].type = NM_TYPE_TEXT;   m[ 5].text="";
 	#endif
 #else
-		m[ 5].type = NM_TYPE_SLIDER; m[ 5].text=TXT_BRIGHTNESS; m[5].value=gr_palette_get_gamma();m[5].min_value=0; m[5].max_value=8; 
+		m[ 2].type = NM_TYPE_SLIDER; m[ 2].text=TXT_BRIGHTNESS; m[2].value=gr_palette_get_gamma();m[2].min_value=0; m[2].max_value=8;
 #endif
 
 
 #ifdef PA_3DFX_VOODOO
 		m[ 6].type = NM_TYPE_TEXT;   m[ 6].text="";
 #else
-		m[ 6].type = NM_TYPE_MENU;   m[ 6].text=TXT_DETAIL_LEVELS;
+		m[ 3].type = NM_TYPE_MENU;   m[ 3].text=TXT_DETAIL_LEVELS;
 #endif
 
-#if defined(POLY_ACC)
-		m[ 7].type = NM_TYPE_TEXT;   m[ 7].text="";
-#else
-		#ifdef MACINTOSH
-			if ( gConfigInfo.mChangeResolution && !PAEnabled )
-			{
-				m[ 7].type = NM_TYPE_MENU;   m[ 7].text="Screen resolution...";
-			}
-			else	// for when we are on a mac and no resolution switching allowed
-			{
-				m[ 7].type = NM_TYPE_TEXT;   m[ 7].text="";
-			}
-		#else	// for PC's
-			m[ 7].type = NM_TYPE_MENU;   m[ 7].text="Screen resolution...";
-		#endif	// end of #ifdef macintosh
+		m[ 4].type = NM_TYPE_TEXT;   m[ 4].text="";
 
-#endif
+		// TODO: Re-enable these once they work on mobile
+		// https://github.com/devint1/Descent2-Mobile/issues/19
+		// m[ 9].type = NM_TYPE_MENU;   m[ 9].text="Primary autoselect ordering...";
+		// m[10].type = NM_TYPE_MENU;   m[10].text="Secondary autoselect ordering...";
 
-		m[ 8].type = NM_TYPE_TEXT;   m[ 8].text="";
-		m[ 9].type = NM_TYPE_MENU;   m[ 9].text="Primary autoselect ordering...";
-		m[10].type = NM_TYPE_MENU;   m[10].text="Secondary autoselect ordering...";
-		m[11].type = NM_TYPE_MENU;   m[11].text="Toggles...";
+		m[5].type = NM_TYPE_MENU;   m[5].text="Toggles...";
 				
 		i = newmenu_do1( NULL, TXT_OPTIONS, sizeof(m)/sizeof(*m), m, options_menuset, i );
 			
 		switch(i)       {
 			case  0: do_sound_menu();			break;
-			case  2: joydefs_config();			break;
-			case  3: joydefs_calibrate();		break;
-			case  6: do_detail_level_menu(); 	break;
-			case  7: do_screen_res_menu();		break;
-			case  9: ReorderPrimary();			break;
-			case 10: ReorderSecondary();		break;
-			case 11: do_toggles_menu();			break;
+			case  3: do_detail_level_menu(); 	break;
+
+			// TODO: Re-enable these once they work on mobile
+			// https://github.com/devint1/Descent2-Mobile/issues/19
+			// case  9: ReorderPrimary();			break;
+			// case 10: ReorderSecondary();		break;
+
+			case 5: do_toggles_menu();			break;
 		}
 
 	} while( i>-1 );
