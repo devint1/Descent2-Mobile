@@ -3,21 +3,11 @@ Descent II Mobile
 
 This is a source port of the original DOS/Windows/Mac game "Descent II" for iOS and Android. You will need the game files from a licensed copy in order to play it.
 
+**NOTE: I am not currently maintaining/testing this on iOS. It may work, but your mileage may vary.**
+
 Licence
 -------
 Please see "COPYING."
-
-Requirements
-------------
-- Android
-    - Android Studio 2.1.2.0 or later
-    - Build tools 23.0.3 or later
-    - SDK 10 or later (Gingerbread 2.3.3)
-    - NDK r12 or later
-- iOS
-    - Xcode 7.1 or later
-    - iOS 9.1 or later
-    - If you want to run on an iDevice: http://www.apple.com/ios/whats-new/#compatibility
 
 Required Game Data
 ------------------
@@ -43,7 +33,6 @@ Redbook music can be used instead of MIDI music, if desired. Descent2-Mobile wil
 Building (Android)
 ------------------
 Copy the Descent II data files to `Descent2/src/main/assets`, then open the project in Android Studio. If needed, install the required build tools, SDK, and NDK. From there, simply build/run the project. The Android version only supports the OpenGL ES renderer. Tested on an NVIDIA Shield Tablet K1 running Android 6.0.1 (Marshmallow) and a Nexus 6P running Android 6.0.1.
-
 
 Building (iOS)
 --------------
