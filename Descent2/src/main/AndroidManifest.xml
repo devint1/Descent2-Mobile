@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	package="tuchsen.descent2"
 	android:versionCode="1"
 	android:versionName="1.0">
@@ -7,7 +8,9 @@
 	<application
 		android:allowBackup="false"
 		android:icon="@mipmap/ic_launcher"
-		android:label="@string/app_name">
+		android:label="@string/app_name"
+		android:appCategory="game"
+		tools:targetApi="o">
 		<activity
 			android:name=".DescentActivity"
 			android:label="@string/app_name"
